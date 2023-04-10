@@ -1,0 +1,6 @@
+// Transitions
+@mixin transition($property...) {
+  transition-property: $property;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--transition-cubic);
+}
