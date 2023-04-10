@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'DM Sans 400';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Sans Regular'),
+    url('/src/fonts/DMSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DM Sans 700';
+  font-style: normal;
+  font-weight: 700;
+  src: local('DM Sans Bold'), url('/src/fonts/DMSans-Bold.woff') format('woff');
+}
