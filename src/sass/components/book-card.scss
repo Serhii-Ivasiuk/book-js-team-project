@@ -1,0 +1,121 @@
+.BookCard {
+  padding-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 40px;
+    padding-bottom: 72px;
+  }
+}
+
+.BookCardTitle {
+  margin-bottom: 40px;
+
+  @include fonts(32px, 38px, 700, -0.04em, false, var(--header-color-dark));
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: calc(52 / 48);
+  }
+}
+
+.BookCardFilter {
+  color: var(--accent-color);
+}
+
+.BookCategoryText {
+  margin-bottom: 18px;
+
+  @include fonts(
+    14px,
+    18px,
+    400,
+    0.03em,
+    uppercase,
+    var(--category-title-color)
+  );
+
+  @media screen and (min-width: 768px) {
+    line-height: calc(24 / 14);
+  }
+}
+
+.BookList {
+  margin-bottom: 30px;
+}
+
+.BookCardOverlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.BookLink {
+  display: inline-block;
+  height: 100%;
+}
+
+.BookImage {
+  height: 485px;
+  border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    height: 316px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 256px;
+  }
+}
+
+.BookOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  background: var(--action-color);
+  border-radius: 0px 0px 8px 8px;
+
+  transform: translateY(100%);
+  @include transition(transform);
+}
+
+.BookLink:hover .BookOverlay {
+  transform: translateY(0);
+}
+
+.QuickViewText {
+  @include fonts(14px, 18px, 500, -0.04em, uppercase, var(--header-color-dark));
+}
+
+.BookWrap {
+  padding-top: 14px;
+}
+
+.BookName {
+  @include fonts(16px, 18px, 700, -0.04em, uppercase, var(--header-color-dark));
+  margin-bottom: 4px;
+}
+
+.BookAuthor {
+  @include fonts(12px, 14px, 400, -0.04em, false, var(--category-title-color));
+  font-style: italic;
+}
+
+// .SeeMoreBtn {
+//   display: block;
+//   margin-left: auto;
+//   padding: 14px 28px;
+
+//   @include fonts(14px, 18px, 700, -0.01em, uppercase, #111111);
+
+//   border: 2px solid #4f2ee8;
+//   border-radius: 40px;
+// }
