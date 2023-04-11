@@ -45,18 +45,26 @@
   border-radius: 18px;
 }
 
+.authorization__icon__close {
+  display: block;
+}
+
 .authorization__button__close {
   position: absolute;
+  cursor: pointer;
 
   top: 24px;
   right: 24px;
 
   background-color: transparent;
   border: 0;
+
+  &:hover > .authorization__icon__close,
+  &:focus > .authorization__icon__close {
+    fill: $accent-color;
+  }
 }
-.authorization__icon__close {
-  display: block;
-}
+
 .authorization__field {
   display: block;
   position: relative;
@@ -105,6 +113,23 @@
 .authorization__input:not(:focus):valid + .authorization__label {
   top: -1px;
   font-size: 10px;
+}
+
+.authorization__icon__mail {
+  position: absolute;
+
+  top: 18px;
+  right: 32px;
+}
+
+.authorization__icon__pass {
+  margin-left: 10px;
+
+  position: absolute;
+  top: -4px;
+
+  width: 28px;
+  height: 28px;
 }
 
 .authorization__btn__submit {

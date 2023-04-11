@@ -5,7 +5,7 @@
   <div class="authorization__modal">
     <!-- close btn -->
     <button class="authorization__button__close">
-      <svg width="28" height="28">
+      <svg width="28" height="28" class="authorization__icon__close">
         <use href="./images/icons.svg#close-btn"></use>
       </svg>
     </button>
@@ -32,6 +32,9 @@
           required
         />
         <label class="authorization__label" for="user_email">email</label>
+        <svg class="authorization__icon__mail" width="28" height="28">
+          <use href="./images/icons.svg#mail"></use>
+        </svg>
       </div>
 
       <div class="authorization__field">
@@ -42,10 +45,16 @@
           id="user_password"
           required
         />
-        <label class="authorization__label" for="user_password">password</label>
+        <label class="authorization__label" for="user_password"
+          >password
+          <svg class="authorization__icon__pass">
+            <use href="./images/icons.svg#pass"></use>
+          </svg>
+        </label>
       </div>
       <!-- btn submit -->
       <button type="submit" class="authorization__btn__submit">Sign up</button>
+      <!-- links -->
       <div class="authorization__link__block">
         <a href="" class="authorization__link">sign up</a>
         <a href="" class="authorization__link">sign up</a>
