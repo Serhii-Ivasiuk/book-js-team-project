@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
 
-  background-color: #4f2ee8;
+  background-color: $accent-color;
 
   overflow-y: scroll;
 }
@@ -40,8 +40,8 @@
 
   transform: translate(-50%, -50%);
 
-  background: #f6f6f6;
-  border: 2px solid #111111;
+  background-color: $body-color-light;
+  border: 2px solid $primary-black;
   border-radius: 18px;
 }
 
@@ -50,10 +50,14 @@
 
   top: 24px;
   right: 24px;
-}
 
+  background-color: transparent;
+  border: 0;
+}
+.authorization__icon__close {
+  display: block;
+}
 .authorization__field {
-  width: 499px;
   display: block;
   position: relative;
   margin-bottom: 28px;
@@ -67,7 +71,7 @@
   height: 64px;
   width: 100%;
 
-  border: 2px solid #111111;
+  border: 2px solid $primary-black;
   border-radius: 40px;
   display: block;
 
@@ -90,7 +94,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #111111;
+  color: $primary-black;
 
   cursor: pointer;
 
@@ -106,16 +110,40 @@
 .authorization__btn__submit {
   cursor: pointer;
 
-  background: #111111;
+  background: $primary-black;
   border-radius: 40px;
 
   padding: 20px 215px;
+  margin-bottom: 16px;
 
   font-size: 17px;
   line-height: calc(24 / 18);
+  font-weight: 700;
 
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
   color: #f3f3f3;
+}
+
+.authorization__link__block {
+  text-align: center;
+}
+.authorization__link {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: calc(24 / 18);
+
+  letter-spacing: -0.01em;
+
+  text-transform: uppercase;
+
+  color: rgba(17, 17, 17, 0.5);
+}
+.authorization__link:nth-child(1) {
+  margin-right: 20px;
+
+  color: $accent-color;
+
+  text-decoration-line: underline;
 }
