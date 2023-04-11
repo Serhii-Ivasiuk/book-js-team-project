@@ -1,0 +1,8 @@
+.header__container {
+  display: flex;
+  align-items: center;
+
+  border: 1.5px solid #111111;
+  border-radius: 0px 0px 8px 8px;
+  background-color: $header-color-light;
+}

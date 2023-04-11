@@ -11,4 +11,10 @@
 @import './common/reset';
 @import './common/common';
 // components
-@import './components/header';
+// header
+@import './components/header/header';
+@import './components/header/logo';
+@import './components/header/navigation';
+@import './components/header/switcher';
+@import './components/header/burger-menu-btn';
+// main

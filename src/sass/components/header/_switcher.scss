@@ -1,13 +1,3 @@
-.header__container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-
 .switcher {
   position: relative;
   display: flex;
@@ -19,6 +9,10 @@
 
   border: 0;
   border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 24px;
+  }
 }
 
 .switcher__radio {
@@ -70,12 +64,4 @@
 
 .switcher__radio:focus-visible ~ .switcher__status {
   box-shadow: 0 0 0 2px hsla(0, 0%, 0%, 1);
-}
-
-.mobile-menu-btn {
-  width: 28px;
-  height: 28px;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
 }

@@ -1,6 +1,29 @@
 <header class="header">
   <div class="container header__container">
-    <a href="./index.html" class="logo">LOGO</a>
+    <a href="./index.html" class="logo">
+      <svg width="83" height="28">
+        <use href="./images/icons.svg#logo-light"></use>
+      </svg>
+    </a>
+
+    <nav class="navigation">
+      <ul class="navigation__list">
+        <li class="navigation__item">
+          <a
+            class="navigation__link navigation__link--active"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="navigation__item">
+          <a
+            class="navigation__link navigation__link--active"
+            href="./index.html"
+            >Shopping list</a
+          >
+        </li>
+      </ul>
+    </nav>
 
     <fieldset class="switcher">
       <legend class="switcher__legend visually-hidden">Схема</legend>
@@ -23,6 +46,10 @@
       <div class="switcher__status"></div>
     </fieldset>
 
-    <button class="mobile-menu-btn">X</button>
+    <button class="mobile-menu-btn">
+      <svg width="28" height="28">
+        <use href="./images/icons.svg#burger"></use>
+      </svg>
+    </button>
   </div>
 </header>
