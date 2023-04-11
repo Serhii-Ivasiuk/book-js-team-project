@@ -11,10 +11,5 @@
 @import './common/reset';
 @import './common/common';
 // components
+@import './common/body';
 @import './components/header';
-
-body {
-  font-family: $regular-font;
-
-  background-color: $body-color-light;
-}
