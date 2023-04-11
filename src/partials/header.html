@@ -1,1 +1,28 @@
+<header class="header">
+  <div class="container header__container">
+    <a href="./index.html" class="logo">LOGO</a>
 
+    <fieldset class="switcher">
+      <legend class="switcher__legend visually-hidden">Схема</legend>
+      <input
+        class="switcher__radio switcher__radio--light"
+        type="radio"
+        name="color-scheme"
+        value="light"
+        aria-label="Light color scheme"
+        checked
+      />
+      <input
+        class="switcher__radio switcher__radio--dark"
+        type="radio"
+        name="color-scheme"
+        value="dark"
+        aria-label="Dark color scheme"
+      />
+      <div class="switcher__bg"></div>
+      <div class="switcher__status"></div>
+    </fieldset>
+
+    <button class="mobile-menu-btn">X</button>
+  </div>
+</header>
