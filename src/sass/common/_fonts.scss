@@ -1,30 +1,34 @@
 @font-face {
-  font-family: 'DM Sans 400';
+  font-family: 'DM Sans';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
+  font-display: swap;
   src: local('DM Sans Regular'),
     url('/src/fonts/DMSans-Regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'DM Sans Italic';
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
   src: local('DM Sans Italic'),
     url('/src/fonts/DMSans-Italic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'DM Sans 500';
+  font-family: 'DM Sans';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 500;
+  font-display: swap;
   src: local('DM Sans Medium'),
     url('/src/fonts/DMSans-Medium.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'DM Sans 700';
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'DM Sans';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
   src: local('DM Sans Bold'), url('/src/fonts/DMSans-Bold.woff') format('woff');
 }
