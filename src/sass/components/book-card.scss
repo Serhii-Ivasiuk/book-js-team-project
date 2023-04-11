@@ -1,76 +1,69 @@
-.BookCard {
+.book-card {
   padding-bottom: 80px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     padding-bottom: 100px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include desktop {
     padding-top: 40px;
     padding-bottom: 72px;
   }
 }
 
-.BookCardTitle {
+.book-card__title {
   margin-bottom: 40px;
 
-  @include fonts(32px, 38px, 700, -0.04em, false, var(--header-color-dark));
+  @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 48px;
     line-height: calc(52 / 48);
   }
 }
 
-.BookCardFilter {
-  color: var(--accent-color);
+.book-card__filter {
+  color: $accent-color;
 }
 
-.BookCategoryText {
+.book-card__category-text {
   margin-bottom: 18px;
 
-  @include fonts(
-    14px,
-    18px,
-    400,
-    0.03em,
-    uppercase,
-    var(--category-title-color)
-  );
+  @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     line-height: calc(24 / 14);
   }
 }
 
-.BookList {
+.book-card__list {
   margin-bottom: 30px;
 }
 
-.BookCardOverlay {
-  position: relative;
-  overflow: hidden;
-}
-
-.BookLink {
+.book-card__link {
   display: inline-block;
   height: 100%;
 }
 
-.BookImage {
+.book-card__image {
   height: 485px;
   border-radius: 8px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     height: 316px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include desktop {
     height: 256px;
   }
 }
 
-.BookOverlay {
+.book-card__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card__overlay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,42 +73,49 @@
   width: 100%;
   height: 70px;
 
-  background: var(--action-color);
+  color: $header-color-dark;
+  background: $action-color;
   border-radius: 0px 0px 8px 8px;
 
   transform: translateY(100%);
   @include transition(transform);
 }
 
-.BookLink:hover .BookOverlay {
+.book-card__link:hover .book-card__overlay {
   transform: translateY(0);
 }
 
-.QuickViewText {
-  @include fonts(14px, 18px, 500, -0.04em, uppercase, var(--header-color-dark));
+.book-card__quick-view-text {
+  @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
 }
 
-.BookWrap {
+.book-card__wrap {
   padding-top: 14px;
 }
 
-.BookName {
-  @include fonts(16px, 18px, 700, -0.04em, uppercase, var(--header-color-dark));
+.book-card__wrap {
+  @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
   margin-bottom: 4px;
 }
 
-.BookAuthor {
-  @include fonts(12px, 14px, 400, -0.04em, false, var(--category-title-color));
+.book-card__author {
+  @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
   font-style: italic;
 }
 
-// .SeeMoreBtn {
-//   display: block;
-//   margin-left: auto;
-//   padding: 14px 28px;
+.book-card__btn {
+  display: block;
+  margin-left: auto;
+  padding: 14px 28px;
 
-//   @include fonts(14px, 18px, 700, -0.01em, uppercase, #111111);
+  @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
 
-//   border: 2px solid #4f2ee8;
-//   border-radius: 40px;
-// }
+  border: 2px solid $accent-color;
+  border-radius: 40px;
+}
+
+.book-card__btn:hover,
+.book-card__btn:focus {
+  color: $header-color-light;
+  background-color: $accent-color;
+}

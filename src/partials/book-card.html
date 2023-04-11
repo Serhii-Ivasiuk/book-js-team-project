@@ -1,30 +1,33 @@
-<section class="BookCard">
-  <div class="container">
-    <h2 class="BookCardTitle">
-      Best Sellers <span class="BookCardFilter">Books</span>
-    </h2>
-    <!-- BookCategoryText є виключно у розділі "Всі категорії"!!! -->
-    <p class="BookCategoryText">Combined Print and E-Book Fiction</p>
-    <ul class="BookList">
-      <li class="BookItem">
-        <a class="BookLink" href="#">
-          <div class="BookCardOverlay">
-            <img
-              class="BookImage"
-              src="./images/book_mobile.jpg"
-              alt="Here must be book's name"
-            />
-            <div class="BookOverlay">
-              <p class="QuickViewText">quick view</p>
+<main>
+  <section class="book-card">
+    <h1 class="visually-hidden">Books card</h1>
+    <div class="container">
+      <h2 class="book-card__title">
+        Best Sellers <span class="book-card__filter">Books</span>
+      </h2>
+      <!-- BookCategoryText є виключно у розділі "Всі категорії"!!! -->
+      <p class="book-card__category-text">Combined Print and E-Book Fiction</p>
+      <ul class="book-card__list">
+        <li class="book-card__item">
+          <a class="book-card__link" href="#">
+            <div class="book-card__wrapper">
+              <img
+                class="book-card__image"
+                src="./images/book_mobile.jpg"
+                alt="Here must be book's name"
+              />
+              <div class="book-card__overlay">
+                <p class="book-card__quick-view-text">quick view</p>
+              </div>
             </div>
+          </a>
+          <div class="book-card__wrap">
+            <p class="book-card__name">I will find you</p>
+            <p class="book-card__author">Harlan Coben</p>
           </div>
-        </a>
-        <div class="BookWrap">
-          <p class="BookName">I will find you</p>
-          <p class="BookAuthor">Harlan Coben</p>
-        </div>
-      </li>
-    </ul>
-    <button class="SeeMoreBtn" type="button">see more</button>
-  </div>
-</section>
+        </li>
+      </ul>
+      <button class="book-card__btn" type="button">see more</button>
+    </div>
+  </section>
+</main>
