@@ -3,3 +3,32 @@
   --transition-time: 250ms;
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+//----------------------------------------Fonts--------------------------------
+$font-main: 'DM Sans', 'Montserrat', 'Arial', sans-serif;
+
+//---------------------------------------Colors-------------------------------
+//Light Theme
+$header-color-light: #ffffff;
+$body-color-light: #f6f6f6;
+$scroll-color-light: #e0e0e0;
+$categories-el-light: #11111199;
+
+//Dark Theme
+$header-color-dark: #111111;
+$body-color-dark: #202024;
+$scroll-color-dark: #11111199;
+$categories-el-dark: #ffffff99;
+
+//Text
+$primary-black: #111111;
+$secondary-black: #202024;
+$author-color: #b4afaf;
+$category-title-color: #b4afaf;
+
+//Buttons
+$accent-color: #4f2ee8;
+$action-color: #eac645;
+
+//Modal
+$backdrop-color: #11111166;
