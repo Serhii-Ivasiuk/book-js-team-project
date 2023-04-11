@@ -1,0 +1,121 @@
+.book-card {
+  padding-bottom: 80px;
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include desktop {
+    padding-top: 40px;
+    padding-bottom: 72px;
+  }
+}
+
+.book-card__title {
+  margin-bottom: 40px;
+
+  @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+
+  @include tablet {
+    font-size: 48px;
+    line-height: calc(52 / 48);
+  }
+}
+
+.book-card__filter {
+  color: $accent-color;
+}
+
+.book-card__category-subtitle {
+  margin-bottom: 18px;
+
+  @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
+
+  @include tablet {
+    line-height: calc(24 / 14);
+  }
+}
+
+.book-card__list {
+  margin-bottom: 30px;
+}
+
+.book-card__link {
+  display: inline-block;
+  height: 100%;
+}
+
+.book-card__image {
+  height: 485px;
+  border-radius: 8px;
+
+  @include tablet {
+    height: 316px;
+  }
+
+  @include desktop {
+    height: 256px;
+  }
+}
+
+.book-card__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  color: $header-color-dark;
+  background: $action-color;
+  border-radius: 0px 0px 8px 8px;
+
+  transform: translateY(100%);
+  @include transition(transform);
+}
+
+.book-card__link:hover .book-card__overlay {
+  transform: translateY(0);
+}
+
+.book-card__quick-view-text {
+  @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
+}
+
+.book-card__wrap {
+  padding-top: 14px;
+}
+
+.book-card__name {
+  @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
+  margin-bottom: 4px;
+}
+
+.book-card__author {
+  @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
+  font-style: italic;
+}
+
+.book-card__btn {
+  display: block;
+  margin-left: auto;
+  padding: 14px 28px;
+
+  @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
+
+  border: 2px solid $accent-color;
+  border-radius: 40px;
+}
+
+.book-card__btn:hover,
+.book-card__btn:focus {
+  color: $header-color-light;
+  background-color: $accent-color;
+}
