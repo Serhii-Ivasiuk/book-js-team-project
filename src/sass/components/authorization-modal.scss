@@ -18,11 +18,18 @@
   background: rgba(204, 236, 231, 0.5);
   filter: blur(539.791px);
 
-  width: 1421px;
-  height: 1421px;
+  @media screen and (min-width: 768px) {
+    width: 1421px;
+    height: 1421px;
 
-  left: -846px;
-  top: -918px;
+    left: -846px;
+    top: -918px;
+  }
+  width: 963px;
+  height: 1134px;
+
+  left: -646px;
+  top: -718px;
 }
 
 .authorization__form {
@@ -31,12 +38,24 @@
 }
 
 .authorization__modal {
+  width: 300px;
+  padding: 40px 15px 15px;
+  @media screen and (min-width: 375px) {
+    width: 350px;
+    padding: 50px 20px 20px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 450px;
+    padding: 65px 25px 25px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 579px;
+    padding: 80px 40px 40px;
+  }
   position: absolute;
 
   top: 50%;
   left: 50%;
-
-  padding: 80px 40px 40px;
 
   transform: translate(-50%, -50%);
 
@@ -47,54 +66,119 @@
 
 .authorization__icon__close {
   display: block;
+
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 375px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+
+  stroke: $primary-black;
 }
 
 .authorization__button__close {
   position: absolute;
   cursor: pointer;
+  top: 13px;
+  right: 10px;
 
-  top: 24px;
-  right: 24px;
-
+  @media screen and (min-width: 375px) {
+    top: 15px;
+    right: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 24px;
+    right: 24px;
+  }
   background-color: transparent;
   border: 0;
 
-  &:hover > .authorization__icon__close,
-  &:focus > .authorization__icon__close {
-    fill: $accent-color;
+  & > .authorization__icon__close:hover,
+  & > .authorization__icon__close:focus {
+    stroke: $accent-color;
   }
 }
 
 .authorization__field {
   display: block;
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 13px;
+
+  @media screen and (min-width: 375px) {
+    margin-bottom: 18px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 28px;
+  }
 }
 
 .authorization__field:nth-child(3) {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 375px) {
+    margin-bottom: 30px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 
 .authorization__input {
-  height: 64px;
+  padding: 10px 20px;
+  font-size: 14px;
+
+  @media screen and (min-width: 375px) {
+    padding: 15px 30px;
+    font-size: 18px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 64px;
+    padding: 20px 40px;
+
+    font-size: 24px;
+  }
+
   width: 100%;
 
   border: 2px solid $primary-black;
   border-radius: 40px;
   display: block;
 
-  padding: 20px 40px;
-  font-size: 24px;
-
   cursor: pointer;
 }
 
 .authorization__label {
   position: absolute;
-  left: 40px;
-  top: 20px;
 
-  font-size: 18px;
+  top: 12px;
+  left: 20px;
+
+  font-size: 13px;
+
+  @media screen and (min-width: 375px) {
+    top: 18px;
+    left: 30px;
+
+    font-size: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    left: 40px;
+    font-size: 18px;
+  }
+
   font-weight: 700;
 
   line-height: calc(24 / 18);
@@ -111,38 +195,96 @@
 
 .authorization__input:focus + .authorization__label,
 .authorization__input:not(:focus):valid + .authorization__label {
-  top: -1px;
+  top: 0;
   font-size: 10px;
 }
 
 .authorization__icon__mail {
   position: absolute;
 
-  top: 18px;
-  right: 32px;
+  top: 10;
+  right: 20;
+
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 375px) {
+    width: 24px;
+    height: 24px;
+
+    top: 15;
+    right: 25;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 18;
+    right: 32;
+  }
 }
 
 .authorization__icon__pass {
-  margin-left: 10px;
+  margin-left: 5px;
 
   position: absolute;
-  top: -4px;
+  top: -3px;
 
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 375px) {
+    width: 24px;
+    height: 24px;
+
+    top: -4px;
+    margin-left: 7px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+
+    top: -5px;
+    margin-left: 10px;
+  }
 }
 
 .authorization__btn__submit {
   cursor: pointer;
 
+  padding: 10px 100px;
+
   background: $primary-black;
   border-radius: 40px;
 
-  padding: 20px 215px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 
-  font-size: 17px;
-  line-height: calc(24 / 18);
+  @media screen and (min-width: 375px) {
+    padding: 15px 110px;
+
+    font-size: 13px;
+    line-height: calc(24 / 15);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 154px;
+    margin-bottom: 7px;
+
+    font-size: 15px;
+    line-height: calc(24 / 15);
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 20px 213px;
+    margin-bottom: 10px;
+
+    font-size: 17px;
+    line-height: calc(24 / 15);
+  }
+
   font-weight: 700;
 
   letter-spacing: -0.01em;
@@ -156,7 +298,13 @@
 }
 .authorization__link {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 13px;
+  @media screen and (min-width: 375px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
   line-height: calc(24 / 18);
 
   letter-spacing: -0.01em;
@@ -166,8 +314,17 @@
   color: rgba(17, 17, 17, 0.5);
 }
 .authorization__link:nth-child(1) {
-  margin-right: 20px;
+  margin-right: 7px;
 
+  @media screen and (min-width: 375px) {
+    margin-right: 10px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 20px;
+  }
   color: $accent-color;
 
   text-decoration-line: underline;

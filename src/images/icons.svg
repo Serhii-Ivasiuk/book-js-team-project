@@ -60,8 +60,8 @@
                 d="M22.667 24h-18.667"></path>
         </symbol>
         <symbol id="close-btn" viewBox="0 0 32 32">
-            <path stroke="#111111" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
-                stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286"
+                d="M24 8l-16 16M8 8l16 16"></path>
         </symbol>
         <symbol id="pass" viewBox="0 0 32 32" fill-opacity="0">
             <path stroke="#111111" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
