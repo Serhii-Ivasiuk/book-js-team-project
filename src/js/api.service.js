@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://books-backend.p.goit.global/books';
-const CATEGORY_LIST = '/category-list';
-const TOP_BOOKS = '/top-books';
-const BOOKS_BY_CATEGORY = '/category';
+const BASE_URL = 'https://books-backend.p.goit.global';
+const CATEGORY_LIST = '/books/category-list';
+const TOP_BOOKS = '/books/top-books';
+const BOOKS_BY_CATEGORY = '/books/category';
 const BOOK_BY_ID = '/books';
 
 axios.defaults.baseURL = BASE_URL;
@@ -34,7 +34,7 @@ export async function getTopBooks() {
 }
 
 //for example use function
-// getBooksByCategory().then((data)=> console.log(data));
+// getTopBooks().then((data)=> console.log(data));
 
 export async function getBookDetail(id) {
   const { data } = await axios.get(`${BOOK_BY_ID}/${id}`);
@@ -42,4 +42,4 @@ export async function getBookDetail(id) {
 }
 
 //for example use function
-// getBookDetail(id).then((data)=> console.log(data));
+// getBookDetail('643282b1e85766588626a089').then((data)=> console.log(data));
