@@ -36,7 +36,7 @@ export async function getTopBooks() {
 //for example use function
 // getBooksByCategory().then((data)=> console.log(data));
 
-async function getBookDetail(id) {
+export async function getBookDetail(id) {
   const { data } = await axios.get(`${BOOK_BY_ID}/${id}`);
   return data;
 }
