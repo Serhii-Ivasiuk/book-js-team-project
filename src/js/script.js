@@ -1,1 +1,1 @@
-import {getCategoryList, getBooksByCategory, getTopBooks, getBookDetail} from './api.service';
+import {getCategoryList, getBooksByCategory, getTopBooks, getBookDetail} from './api-service';
