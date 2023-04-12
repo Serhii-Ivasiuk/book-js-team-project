@@ -1,0 +1,24 @@
+.mobile-menu-btn {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  padding: 0;
+
+  background-color: transparent;
+  color: $primary-black;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  @include transition(color);
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-menu-btn__icon {
+  stroke: currentColor;
+}
