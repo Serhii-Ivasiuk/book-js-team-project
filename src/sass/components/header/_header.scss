@@ -1,8 +1,9 @@
-.header__container {
-  display: flex;
-  align-items: center;
-
-  border: 1.5px solid #111111;
-  border-radius: 0px 0px 8px 8px;
-  background-color: $header-color-light;
-}
+@import './header-container';
+@import './logo';
+@import './navigation';
+@import './switcher';
+@import './sign-up-btn';
+@import './burger-menu-btn';
+@import './user-bar';
+@import './user-bar-btn';
+@import './log-out-btn';
