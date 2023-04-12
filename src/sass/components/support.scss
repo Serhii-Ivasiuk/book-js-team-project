@@ -28,6 +28,17 @@ padding-left: 40px;
 padding-top: 24px;
 }
 
+.support_icon{
+   position: absolute;
+   top: 24px;
+   margin-left: 12px;
+}
+
+.support_list{
+   padding-top: 40px;
+   padding-bottom: 16px;
+}
+
 .support_btn{
    position: absolute;
    bottom: 20px;
@@ -39,8 +50,3 @@ padding-top: 24px;
    border-radius:20px;
 }
 
-.support_icon{
-   position: absolute;
-   top: 24px;
-   margin-left: 12px;
-}
