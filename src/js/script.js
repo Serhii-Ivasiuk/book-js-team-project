@@ -4,3 +4,5 @@ import {
   getTopBooks,
   getBookDetail,
 } from './api-service';
+import './firebase';
+import './user-bar-dropdown';
