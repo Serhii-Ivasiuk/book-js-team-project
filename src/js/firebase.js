@@ -15,6 +15,7 @@ const refs = {
 };
 
 refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
+refs.autirizationFormEl.addEventListener('submit', handelSignInUserAccount);
 console.log(refs.userEmailEl);
 
 const firebaseConfig = {
@@ -61,12 +62,21 @@ function handelRegistrUser(evt) {
       console.log(error.message);
     });
 }
-// signInWithEmailAndPassword(auth, email, password)
-//   .then(userCredential => {
-//     const user = userCredential.user;
-//     console.log(user);
-//   })
-//   .catch(error => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
+
+function handelSignInUserAccount(evt) {
+  evt.preventDefault();
+
+  const {
+    elements: { name, email, password },
+  } = evt.currentTarget;
+
+  signInWithEmailAndPassword(auth, email.value, password.value)
+    .then(userCredential => {
+      const user = userCredential.user;
+      console.log(user);
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+}
