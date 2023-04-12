@@ -1,6 +1,12 @@
 export default function scrollToTop() {
   let toTopButton = document.querySelector('.button--back-to-top');
   let displayHeight = document.documentElement.clientHeight;
+  let isListenerAdded = false;
+
+  window.onload = function () {
+    toTopButton.style.pointerEvents = 'none';
+    toTopButton.style.opacity = '0';
+  };
 
   window.onscroll = function () {
     scrollFunction();
@@ -12,20 +18,27 @@ export default function scrollToTop() {
       document.documentElement.scrollTop > displayHeight / 2
     ) {
       toTopButton.removeAttribute('style');
+      if (!isListenerAdded) {
+        toTopButton.addEventListener('click', backToTop);
+        isListenerAdded = true;
+      }
     } else {
       toTopButton.style.pointerEvents = 'none';
       toTopButton.style.opacity = '0';
+      if (isListenerAdded) {
+        toTopButton.removeEventListener('click', backToTop);
+        isListenerAdded = false;
+      }
     }
   }
 
-  if (!toTopButton.hasAttribute('style')) {
-    toTopButton.addEventListener('click', backToTop);
-
-    function backToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+  function backToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    toTopButton.removeAttribute('style');
+    toTopButton.removeEventListener('click', backToTop);
+    isListenerAdded = false;
   }
 }
