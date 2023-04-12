@@ -10,6 +10,7 @@
 // common
 @import './common/reset';
 @import './common/common';
+@import './common/container';
 // components
 // header
 @import './components/header/header';
@@ -19,5 +20,4 @@
 @import './components/header/sign-up-btn';
 @import './components/header/burger-menu-btn';
 // main
-@import './components/container';
 @import './components/book-card';
