@@ -13,8 +13,13 @@
   z-index: 1;
   cursor: pointer;
 
-  pointer-events: none;
-  opacity: 0;
+  pointer-events: inherit;
+  opacity: 0.8;
 
   transition: $transition-time $transition-cubic;
+
+  &:hover {
+    transition: $transition-time $transition-cubic;
+    opacity: 1;
+  }
 }
