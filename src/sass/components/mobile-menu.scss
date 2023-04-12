@@ -1,0 +1,171 @@
+.container {
+  width: 767px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 767px) {
+  .header {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 64px;
+    background-color: aqua;
+  }
+  .mobile__menu {
+    display: block;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: 748px;
+    background-image: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
+    // max-width: 480px;
+    // margin: 0 auto;
+  }
+  .mobile__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    background-image: url('../images/mob-menu@1x0.jpg');
+
+    background-position: bottom right;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/mob-menu@2x0.jpg');
+      background-position: bottom right;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .sign-up-btn {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 184px;
+    padding: 13px 14px;
+    margin-top: 40px;
+    background: $accent-color;
+    border: 1.5px solid $primary-black;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  .sign-up-btn__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    letter-spacing: -0.04em;
+    color: $header-color-light;
+  }
+
+  .user__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 130px;
+  }
+
+  .user__icon {
+    margin-right: 9px;
+  }
+
+  .user__name {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: calc(29 / 22);
+    letter-spacing: -0.02em;
+    color: $header-color-light;
+  }
+
+  .mobile__thumb {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+  }
+
+  .mobile__home {
+    display: flex;
+    align-items: flex-start;
+  }
+  .mobile__home,
+  .mobile__shoplist {
+    display: inline-flex;
+    margin: auto;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: $header-color-light;
+  }
+
+  .is-active {
+    padding: 8px 16px;
+    background: $action-color;
+    border-radius: 36px;
+    color: $primary-black;
+    .shoplist__icon {
+      fill: $primary-black;
+    }
+  }
+  .mobile__home-item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .mobile__shoplist {
+    align-items: start;
+  }
+
+  .shoplist__icon {
+    fill: $header-color-light;
+    padding-left: 4px;
+  }
+
+  .mobile__logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    position: absolute;
+    width: 118px;
+    height: 48px;
+    left: 20px;
+    bottom: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    letter-spacing: -0.04em;
+    color: $primary-black;
+    background-color: $header-color-light;
+    border: 1.5px solid $primary-black;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  .mobile__logout:hover,
+  .mobile__logout:focus {
+    background-color: $accent-color;
+    color: $header-color-light;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile__menu {
+    display: none;
+  }
+}
