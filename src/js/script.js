@@ -4,5 +4,3 @@ import {
   getTopBooks,
   getBookDetail,
 } from './api-service';
-
-import './firebase';
