@@ -1,4 +1,5 @@
 .authorization__bacdrop {
+  z-index: 1000;
   position: fixed;
 
   top: 0;
@@ -26,7 +27,7 @@
     top: -918px;
   }
   width: 963px;
-  height: 1134px;
+  height: 1055px;
 
   left: -646px;
   top: -718px;
@@ -41,8 +42,8 @@
   width: 300px;
   padding: 40px 15px 15px;
   @media screen and (min-width: 375px) {
-    width: 350px;
-    padding: 50px 20px 20px;
+    width: 335px;
+    padding: 40px 20px;
   }
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -70,10 +71,6 @@
   width: 20px;
   height: 20px;
 
-  @media screen and (min-width: 375px) {
-    width: 24px;
-    height: 24px;
-  }
   @media screen and (min-width: 768px) {
     width: 28px;
     height: 28px;
@@ -89,8 +86,8 @@
   right: 10px;
 
   @media screen and (min-width: 375px) {
-    top: 15px;
-    right: 15px;
+    top: 14px;
+    right: 2%;
   }
   @media screen and (min-width: 768px) {
     top: 20px;
@@ -116,10 +113,10 @@
   margin-bottom: 13px;
 
   @media screen and (min-width: 375px) {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
   @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 28px;
@@ -127,10 +124,10 @@
 }
 
 .authorization__field:nth-child(3) {
-  margin-bottom: 20px;
+  margin-bottom: 17px;
 
   @media screen and (min-width: 375px) {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -142,7 +139,8 @@
   font-size: 14px;
 
   @media screen and (min-width: 375px) {
-    padding: 15px 30px;
+    height: 50px;
+    padding: 16px 24px;
     font-size: 18px;
   }
   @media screen and (min-width: 768px) {
@@ -164,16 +162,16 @@
 .authorization__label {
   position: absolute;
 
-  top: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 20px;
 
   font-size: 13px;
 
   @media screen and (min-width: 375px) {
-    top: 18px;
     left: 30px;
 
-    font-size: 15px;
+    font-size: 16px;
   }
   @media screen and (min-width: 768px) {
     left: 40px;
@@ -196,8 +194,16 @@
 
 .authorization__input:not(:placeholder-shown) + .authorization__label,
 .authorization__input:focus + .authorization__label {
-  top: -13;
+  top: -15%;
   font-size: 10px;
+  @media screen and (min-width: 375px) {
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -20%;
+    font-size: 15px;
+  }
 }
 
 .authorization__input:focus {
@@ -211,25 +217,25 @@
 }
 
 .authorization__input:valid {
-  outline: 2px solid greenyellow;
+  outline: 2px solid #70b509;
 
   transition: outline 300ms;
 }
 
 .authorization__input:valid ~ .authorization__icon {
-  stroke: rgb(112, 181, 9);
+  stroke: #70b509;
 
   transition: stroke 300ms;
 }
 
 .authorization__input:not(:placeholder-shown):not(:valid) {
-  outline: 2px solid red;
+  outline: 2px solid #db5353;
   transition: outline 300ms;
 }
 
 .authorization__input:not(:placeholder-shown):not(:valid)
   ~ .authorization__icon {
-  stroke: red;
+  stroke: #db5353;
   transition: stroke 300ms;
 }
 
@@ -238,18 +244,18 @@
 
   position: absolute;
 
-  top: 10;
+  top: 50%;
+  transform: translateY(-50%);
   right: 20;
 
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 
   @media screen and (min-width: 375px) {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
 
-    top: 15;
-    right: 25;
+    right: 24;
   }
 
   @media screen and (min-width: 768px) {
@@ -258,38 +264,9 @@
   }
 
   @media screen and (min-width: 1440px) {
-    top: 18;
     right: 32;
   }
 }
-
-// оставил иконку возле строки password если вдруг не понравиться ментору)
-// .authorization__icon__pass {
-//   margin-left: 5px;
-
-//   position: absolute;
-//   top: 10;
-//   right: 20;
-
-//   width: 20px;
-//   height: 20px;
-
-//   @media screen and (min-width: 375px) {
-//     width: 24px;
-//     height: 24px;
-
-//     top: -4px;
-//     margin-left: 7px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     width: 28px;
-//     height: 28px;
-
-//     top: -5px;
-//     margin-left: 10px;
-//   }
-// }
 
 .authorization__btn__submit {
   cursor: pointer;
@@ -302,10 +279,10 @@
   margin-bottom: 6px;
 
   @media screen and (min-width: 375px) {
-    padding: 15px 110px;
+    padding: 16px 113px;
 
-    font-size: 13px;
-    line-height: calc(24 / 15);
+    font-size: 16px;
+    line-height: calc(18 / 16);
   }
 
   @media screen and (min-width: 768px) {
@@ -340,11 +317,13 @@
 .authorization__link__block {
   text-align: center;
 }
+
 .authorization__link {
   font-weight: 700;
   font-size: 13px;
   @media screen and (min-width: 375px) {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: calc(18 / 14);
   }
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -363,6 +342,7 @@
     transition: color 300ms;
   }
 }
+
 .authorization__link:nth-child(1) {
   margin-right: 7px;
 
