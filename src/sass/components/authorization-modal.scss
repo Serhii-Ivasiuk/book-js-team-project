@@ -209,7 +209,7 @@
 
 .authorization__input:focus {
   outline: 2px solid $accent-color;
-  transition: outline 300ms;
+  // transition: outline 300ms;
 }
 
 .authorization__input:focus ~ .authorization__icon {
