@@ -50,15 +50,13 @@
   border-radius: 0 0 22px 22px;
   background-color: $accent-color;
 
-  opacity: 0;
-  visibility: hidden;
-
-  @include transition(opacity);
+  transform-origin: top;
+  transform: scaleY(0);
+  @include transition(transform);
 }
 
 .dropdown.is-active {
-  opacity: 1;
-  visibility: initial;
+  transform: scaleY(1);
 }
 
 .dropdown-list__item {
