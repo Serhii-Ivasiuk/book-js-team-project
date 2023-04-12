@@ -194,9 +194,10 @@
 
 .authorization__input:not(:placeholder-shown) + .authorization__label,
 .authorization__input:focus + .authorization__label {
-  top: -15%;
+  top: -16%;
   font-size: 10px;
   @media screen and (min-width: 375px) {
+    top: -23%;
     font-size: 12px;
   }
 
