@@ -1,0 +1,68 @@
+<!--!REMOOVE inline style="display: none"-->
+<div class="authorization__bacdrop" style="display: none">
+  <!-- elips -->
+  <div class="elips"></div>
+  <!-- modal -->
+  <div class="authorization__modal">
+    <!-- close btn -->
+    <button class="authorization__button__close">
+      <svg class="authorization__icon__close">
+        <use href="./images/icons.svg#close-btn"></use>
+      </svg>
+    </button>
+    <!-- form -->
+    <form class="authorization__form">
+      <!-- inputs -->
+      <div class="authorization__field">
+        <input
+          type="text"
+          name="name"
+          class="authorization__input"
+          id="user_name"
+          required
+          placeholder=" "
+        />
+        <label class="authorization__label" for="user_name">name</label>
+      </div>
+
+      <div class="authorization__field">
+        <input
+          type="email"
+          name="email"
+          class="authorization__input"
+          id="user_email"
+          required
+          placeholder=" "
+        />
+        <label class="authorization__label" for="user_email">email</label>
+        <svg class="authorization__icon">
+          <use href="./images/icons.svg#mail"></use>
+        </svg>
+      </div>
+
+      <div class="authorization__field">
+        <input
+          type="password"
+          name="password"
+          class="authorization__input"
+          id="user_password"
+          required
+          placeholder=" "
+        />
+        <label class="authorization__label" for="user_password"
+          >password
+        </label>
+        <svg class="authorization__icon">
+          <use href="./images/icons.svg#pass"></use>
+        </svg>
+      </div>
+      <!-- btn submit -->
+      <button type="submit" class="authorization__btn__submit">Sign up</button>
+      <!-- links -->
+      <div class="authorization__link__block">
+        <a href="" class="authorization__link">sign up</a>
+        <a href="" class="authorization__link">sign in</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+.user-bar {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    display: block;
+  }
+}
+
+// user-bar-btn
+.user-bar-btn {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 184px;
+  padding: 4px 12px;
+
+  background: $accent-color;
+  border: 0;
+  border-radius: 36px;
+  cursor: pointer;
+}
+
+.user-bar-btn__avatar-icon {
+  margin-right: 9px;
+}
+
+.user-bar-btn__text {
+  margin-right: 4px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: calc(29 / 22);
+  letter-spacing: -0.02em;
+  color: $primary-white;
+}
+
+// dropdown
+.dropdown {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 30px 10px 10px;
+
+  border-radius: 0 0 22px 22px;
+  background-color: $accent-color;
+
+  transform-origin: top;
+  transform: scaleY(0);
+  @include transition(transform);
+}
+
+.user-bar-btn__arrow-icon {
+  @include transition(transform);
+}
+
+.user-bar.is-active {
+  & .dropdown {
+    transform: scaleY(1);
+  }
+  & .user-bar-btn__arrow-icon {
+    transform: scale(1, -1);
+  }
+}
+
+.dropdown-list__item {
+  width: 100%;
+}
+
+// log-out-btn
+.log-out-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 14px 24px;
+
+  background: $primary-white;
+  border: 1.5px solid $primary-black;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.log-out-btn__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
+  color: $primary-black;
+}

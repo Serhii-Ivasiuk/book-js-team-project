@@ -1,0 +1,24 @@
+.sign-up-btn {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 184px;
+    padding: 13px 14px;
+
+    background: $accent-color;
+    border: 1.5px solid $primary-black;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+}
+
+.sign-up-btn__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
+  color: $primary-white;
+}
