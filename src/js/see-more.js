@@ -9,17 +9,19 @@ const refs = {
 
 }
 
-function cutMainTitle(title) {
-  const lastWordCategoryName = title[categoryName.length - 1];
-  let categoryName = title.split(' ');
-  categoryName.pop();
-  let innerCategoryName = categoryName.join(' ');
-  return `${innerCategoryName}<span class="book-card__filter">lastWordCategoryName</span>`;
-}
+
+const maxWidthMobile = window.matchMedia("(max-width: 991px)");
+// function cutMainTitle(title) {
+//   const lastWordCategoryName = title[categoryName.length - 1];
+//   let categoryName = title.split(' ');
+//   categoryName.pop();
+//   let innerCategoryName = categoryName.join(' ');
+//   return `${innerCategoryName}<span class="book-card__filter">lastWordCategoryName</span>`;
+// }
 refs.seeMoreBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     getBooksByCategory('Mass Market Monthly').then((books) => {
-      let mainTitleNormalize = cutMainTitle('Mass Market Monthly');
+      // let mainTitleNormalize = cutMainTitle('Mass Market Monthly');
       const listBooks = books.map(({
                                      amazon_product_url,
                                      book_image,
@@ -53,7 +55,7 @@ refs.seeMoreBtns.forEach((btn) => {
         </li>`;
       }).join(' ');
       refs.booksCategoryContainer.innerHTML = listBooks;
-      refs.mainTitle.innerHTML = mainTitleNormalize;
+      // refs.mainTitle.innerHTML = mainTitleNormalize;
     }).catch((error) => {
       console.log(error.message);
     });
