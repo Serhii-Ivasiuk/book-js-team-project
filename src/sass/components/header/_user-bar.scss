@@ -55,8 +55,17 @@
   @include transition(transform);
 }
 
-.dropdown.is-active {
-  transform: scaleY(1);
+.user-bar-btn__arrow-icon {
+  @include transition(transform);
+}
+
+.user-bar.is-active {
+  & .dropdown {
+    transform: scaleY(1);
+  }
+  & .user-bar-btn__arrow-icon {
+    transform: scale(1, -1);
+  }
 }
 
 .dropdown-list__item {
