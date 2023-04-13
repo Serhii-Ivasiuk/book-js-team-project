@@ -1,28 +1,5 @@
-/* fonts */
-  $font-dm-sans: 'DM Sans';
-
-  /* font sizes */
-  $font-size-sm: 14px;
-  $font-size-lg: 18px;
-  $font-size-5xl: 24px;
-
-  /* Colors */
-  $color-white: #fff;
-  $color-gray-100: #111;
-  $color-mediumblue: #4f2ee8;
-  $color-darkgray: #b4afaf;
-
-  /* Gaps */
-  $gap-xl: 20px;
-  $gap-5xs: 8px;
-
-
-  /* border radiuses */
-  $br-lg: 18px;
-  $br-21xl: 40px;
-  $br-5xs: 8px;
-
-.modal {
+  
+  .modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +13,6 @@
   z-index: 2;
 }
 
-
 .is-open {
   opacity: 1;
   pointer-events: initial;
@@ -46,40 +22,45 @@
   pointer-events: none;
 }
 
+.modal__book__bacdrop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $backdrop-book-color;
+}
+
+
 .pop-up {
-  overflow-x: auto;
   position: relative;
   border-radius: $br-lg;
-  background-color: $color-white;
-  border: 2px solid $color-gray-100;
+  background-color: $primary-white;
+  border: 2px solid #111;
   box-sizing: border-box;
   z-index: 5;
-    width: 335px;
-     height: 806px;
-   
-  @include tablet {
-    width: 579px;
-    height: 501px;
-  
-  };
-
+  width: 335px;
+  height: 806px;
   overflow: hidden;
   max-width: 90%;
   max-height: 90%;
   text-align: left;
-  font-size: $font-size-5xl;
-  color: $color-gray-100;
-  font-family: $font-dm-sans;
+  color: #111;
+   
+  @include tablet {
+  width: 579px;
+  height: 501px;
+  }
+ 
 }
 
 .image {
-
   margin-top: 40px;
   margin-left: 24px;
   border-radius: $br-5xs;
   width: 287px;
   height: 408px;
-  
+ 
    @include tablet {
   width: 192px;
   height: 281px;
@@ -88,25 +69,28 @@
    }
   object-fit: cover;
 }
+
 .author,
 .book-name {
   letter-spacing: -0.04em;
-  font-size: 16px;
-  line-height: 18px;
+  line-height: calc(18/16);
+  text-transform: uppercase;
   @include tablet { 
-  font-size: 24px;
-  line-height: 26px;
+  font-size: $font-size-5xl;
+  line-height: calc(24/26);
 }}
+
 .author {
   font-size: 12px;
-  line-height: 14px;
-  color: $color-darkgray;
+  line-height: calc(14/12);
+  color: $category-title-color;
   font-style: italic;
   @include tablet { 
   font-size: 14px;
-  line-height: 18px;
+  line-height:calc(18/14);
 }
 }
+
 .text{
  @include tablet { 
   position: absolute;
@@ -118,21 +102,22 @@
   justify-content: flex-start;
   gap: $gap-5xs;
 }
-.text-congratulationss{
+.text-congratulations{
   position: absolute;
   width: 242px;
   height: 36px;
   left: 47px;
   top: 730px;
   font-size: 10px;
-  line-height: 12px;
+  line-height: calc(12/10);
  @include tablet {
   top: 433px;
   left: 128px;
   width: 324px;
   font-size: 12px;
   letter-spacing: -0.04em;
-  line-height: 14px;}
+  line-height: calc(14/12);
+}
   color: rgba(17, 17, 17, 0.5);
   text-align: center;
   display: inline-block; 
@@ -145,22 +130,17 @@
   left: 47px;
   top: 730px;
   font-size: 10px;
-  line-height: 12px;
+  line-height: calc(12/10);
   @include tablet {
   top: 433px;
   left: 128px;
   width: 324px;
-
   font-size: 12px;
   letter-spacing: -0.04em;
-  line-height: 14px;}
-  font-family: 'DM Sans';
+  line-height: calc(12/14) ;}
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
   text-align: center;
-  letter-spacing: -0.04em;
   color: rgba(17, 17, 17, 0.5);
 }
 
@@ -170,22 +150,16 @@
   position: absolute; 
   overflow: hidden;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  letter-spacing: -0.01em;
   text-transform: uppercase;
-  font-family: $font-dm-sans;
-  color: $color-gray-100;
+  color: #111;
   text-align: left;
-  font-style: normal;
-  font-weight: 700; 
   font-size: 14px;
-  line-height: 18px;
+  line-height: calc(18/14);
   background-color: transparent; 
-  border: 2px solid #4F2EE8;
-  border-radius: 40px;
+  border: 2px solid $accent-color;
+  border-radius:   $br-21xl;
   width: 279px;
   height: 46px;
   left: 28px;
@@ -197,13 +171,13 @@
   width: 499px;
   height: 64px;
   font-size: 18px;
-  line-height: 24px;
+  line-height: calc(24/18);
    border-radius: $br-21xl;
   }
 &:hover,
   &:focus {
     color: #FFFFFF;
-    background: #4F2EE8;
+    background: $accent-color;
   }
 }
  
@@ -219,7 +193,7 @@
   &:hover,
   &:focus {
     mix-blend-mode: luminosity;
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
   }
 }
 .book1-icon,
@@ -232,30 +206,15 @@
   height: 36px;
 }
 .links {
- 
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: $gap-xl;
 }
-.icon,
-.x-close {
-  position: absolute;
-  overflow: hidden;
-}
-.icon {
-  height: 60.71%;
-  width: 60.71%;
-  top: 19.64%;
-  right: 19.64%;
-  bottom: 19.64%;
-  left: 19.64%;
-  max-width: 100%;
-  max-height: 100%;
-}
 .x-close {
   cursor: pointer;
+  position: absolute;
+  overflow: hidden;
   border: 0;
   padding: 0;
   background-color: transparent;
@@ -263,22 +222,25 @@
   right: 12px;
   width: 28px;
   height: 28px;
+  
+}
+.authorization__icon__close{
+  max-width: 100%;
+  max-height: 100%;
   &:hover,
     &:focus {
-      border: 3px solid rgba(79, 46, 232, 1)
+     stroke:  rgba(79, 46, 232, 1);
      
     }
- 
 }
+
 .annotation {
-  
   margin-bottom: 8px;
   @include tablet { 
    margin-bottom: 18px;
 }
-  font-size: $font-size-sm;
-  letter-spacing: -0.04em;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: calc(18/14);
   display: inline-block;
   width: 279px;
   height: 70px;
