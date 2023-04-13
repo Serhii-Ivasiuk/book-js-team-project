@@ -1,10 +1,13 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getStorage } from 'firebase/storage';
 // import { getFirestore } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
   GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
@@ -23,6 +26,8 @@ const refs = {
   navigationEl: document.querySelector('.navigation'),
   userBar: document.querySelector('.js-user-bar'),
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
+  logOutBtn: document.querySelector('.js-log-out-btn'),
+  userBarBtnText: document.querySelector('.user-bar-btn__text'),
 };
 
 refs.signInLink.addEventListener('click', e => {
@@ -34,14 +39,26 @@ refs.signInLink.addEventListener('click', e => {
   refs.autorizationBtnEl.textContent = 'Sign in';
 });
 
+refs.signUpLink.addEventListener('click', e => {
+  e.preventDefault();
+  refs.signUpLink.classList.add('active-link');
+  refs.signUpLink.classList.remove('desactive-link');
+  refs.signInLink.classList.add('desactive-link');
+  refs.signInLink.classList.remove('active-link');
+  refs.autorizationBtnEl.textContent = 'Sign Up';
+});
+
 refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
 refs.autirizationFormEl.addEventListener('submit', handelSignInUserAccount);
+refs.logOutBtn.addEventListener('click', handelLogOutUserAccount);
 console.log(refs);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfT-rZpY0OALd7KjMrkrFQZlQZKUmMqYA',
   authDomain: 'book-159d3.firebaseapp.com',
+  databaseURL: 'https://book-159d3-default-rtdb.firebaseio.com',
   projectId: 'book-159d3',
+  storageBucket: 'book-159d3.appspot.com',
   storageBucket: 'book-159d3.appspot.com',
   messagingSenderId: '35676359423',
   appId: '1:35676359423:web:0fe005890081fa3d52daca',
@@ -49,42 +66,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
+
+// const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-console.log(provider);
-
-const userCred = signInWithPopup(auth, new GoogleAuthProvider());
-
-// signInWithPopup(auth, provider)
-//   .then(result => {
-//     // This gives you a Google Access Token. You can use it to access the Google API.
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     console.log(credential);
-//     const token = credential.accessToken;
-//     // The signed-in user info.
-//     const user = result.user;
-//     console.log(user);
-//     // IdP data available using getAdditionalUserInfo(result)
-//     // ...
-//   })
-//   .catch(error => {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // The email of the user's account used.
-//     const email = error.customData.email;
-//     // The AuthCredential type that was used.
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//     // ...
-//   });
-// // function signWithGoogle() {
-//   const auth = getAuth();
-//   signInWithRedirect(auth, provider);
-// }
-
-// function handelCheckForm(evt) {}
 
 function handelRegistrUser(evt) {
   evt.preventDefault();
@@ -96,18 +86,18 @@ function handelRegistrUser(evt) {
     Notiflix.Notify.failure('Password should be at least 6 characters');
     return;
   }
-
-  if (refs.autorizationBtnEl.textContent === 'Sign up') {
+  if (refs.signUpLink.classList.contains('active-link')) {
     createUserWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
         const user = userCredential.user;
         user.displayName = name.value;
-        Notiflix.Notify.success(`Hello, ${user.displayName}`);
-        refs.signUpLink.classList.remove('active-link');
-        refs.signUpLink.classList.add('desactive-link');
-        refs.signInLink.classList.remove('desactive-link');
-        refs.signInLink.classList.add('active-link');
-        refs.autorizationBtnEl.textContent = 'Sign in';
+        Notiflix.Notify.success(`Hello, ${user.value}`);
+        refs.autorizationBackdrop.style.display = 'none';
+        refs.navigationEl.classList.remove('visually-hidden');
+        refs.userBar.classList.remove('visually-hidden');
+        refs.signUpHeaderBtn.classList.add('visually-hidden');
+        refs.userBarBtnText.textContent = user.displayName;
+
         evt.target.reset();
       })
       .catch(error => {
@@ -127,11 +117,11 @@ function handelSignInUserAccount(evt) {
   const {
     elements: { name, email, password },
   } = evt.currentTarget;
-
-  if (refs.autorizationBtnEl.textContent === 'Sign in') {
+  if (refs.signInLink.classList.contains('active-link')) {
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
-        // const user = userCredential.user;
+        const user = userCredential.user;
+        user.displayName = name.value;
 
         Notiflix.Notify.success(`Hello, ${name.value}`);
         evt.target.reset();
@@ -139,6 +129,7 @@ function handelSignInUserAccount(evt) {
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
+        refs.userBarBtnText.textContent = user.displayName;
       })
       .catch(error => {
         const errorCode = error.code;
@@ -147,12 +138,32 @@ function handelSignInUserAccount(evt) {
   }
 }
 
-onAuthStateChanged(auth, user => {
-  console.log(user);
-  if (user) {
-    const uid = user.uid;
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+function checkUserAuth() {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log(user);
+      refs.navigationEl.classList.remove('visually-hidden');
+      refs.userBar.classList.remove('visually-hidden');
+      refs.signUpHeaderBtn.classList.add('visually-hidden');
+      refs.userBarBtnText.textContent = user.displayName;
+    } else
+      refs.navigationEl.classList.add('visually-hidden'),
+        refs.userBar.classList.add('visually-hidden'),
+        refs.signUpHeaderBtn.classList.remove('visually-hidden');
+  });
+}
+
+checkUserAuth();
+
+function handelLogOutUserAccount() {
+  signOut(auth)
+    .then(() => {
+      refs.navigationEl.classList.add('visually-hidden'),
+        refs.userBar.classList.add('visually-hidden'),
+        refs.signUpHeaderBtn.classList.remove('visually-hidden');
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+}
