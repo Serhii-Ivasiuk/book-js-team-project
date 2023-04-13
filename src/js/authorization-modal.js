@@ -5,6 +5,9 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   backdrop: document.querySelector('.authorization__bacdrop'),
   modal: document.querySelector('[data-modal]'),
+  signUpLink: document.querySelector('[data-action="sign-up"]'),
+  signInLink: document.querySelector('[data-action="sign-in"]'),
+  autorizationBtnEl: document.querySelector('.authorization__btn__submit'),
 };
 
 refs.openModalBtn.addEventListener('click', openModal);
@@ -38,3 +41,21 @@ function onEscapeKeydown(e) {
     closeModel();
   }
 }
+
+refs.signInLink.addEventListener('click', e => {
+  e.preventDefault();
+  refs.signUpLink.classList.remove('active-link');
+  refs.signUpLink.classList.add('desactive-link');
+  refs.signInLink.classList.remove('desactive-link');
+  refs.signInLink.classList.add('active-link');
+  refs.autorizationBtnEl.textContent = 'Sign in';
+});
+
+refs.signUpLink.addEventListener('click', e => {
+  e.preventDefault();
+  refs.signUpLink.classList.add('active-link');
+  refs.signUpLink.classList.remove('desactive-link');
+  refs.signInLink.classList.add('desactive-link');
+  refs.signInLink.classList.remove('active-link');
+  refs.autorizationBtnEl.textContent = 'Sign Up';
+});

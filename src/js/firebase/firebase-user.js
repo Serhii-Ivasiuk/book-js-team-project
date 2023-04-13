@@ -28,24 +28,6 @@ const refs = {
 };
 const localStorageKey = 'userName';
 
-refs.signInLink.addEventListener('click', e => {
-  e.preventDefault();
-  refs.signUpLink.classList.remove('active-link');
-  refs.signUpLink.classList.add('desactive-link');
-  refs.signInLink.classList.remove('desactive-link');
-  refs.signInLink.classList.add('active-link');
-  refs.autorizationBtnEl.textContent = 'Sign in';
-});
-
-refs.signUpLink.addEventListener('click', e => {
-  e.preventDefault();
-  refs.signUpLink.classList.add('active-link');
-  refs.signUpLink.classList.remove('desactive-link');
-  refs.signInLink.classList.add('desactive-link');
-  refs.signInLink.classList.remove('active-link');
-  refs.autorizationBtnEl.textContent = 'Sign Up';
-});
-
 refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
 refs.autirizationFormEl.addEventListener('submit', handelSignInUserAccount);
 refs.logOutBtn.addEventListener('click', handelLogOutUserAccount);
@@ -135,6 +117,7 @@ function handelLogOutUserAccount() {
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
       refs.userBarBtnText.textContent = '';
+      localStorage.removeItem(localStorageKey);
     })
     .catch(error => {
       const errorCode = error.code;
