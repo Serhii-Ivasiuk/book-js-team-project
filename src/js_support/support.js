@@ -2,9 +2,9 @@ import { arrayFunds } from './array_funds';
 // import Swiper JS
 import Swiper from 'swiper';
 const fundsContainer = document.querySelector( '.support_list' );
-const listMuarkup = createCardMarcup( arrayFunds );
+const listMarkup = createCardMarcup( arrayFunds );
 
-fundsContainer.insertAdjacentHTML( 'beforeend', listMuarkup );
+fundsContainer.insertAdjacentHTML( 'beforeend', listMarkup );
 
 function createCardMarcup( array ) {
   const result = array.map( ( { title, url, img }, index ) => {
