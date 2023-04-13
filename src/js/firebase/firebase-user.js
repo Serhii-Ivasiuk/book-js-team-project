@@ -37,7 +37,6 @@ function handelRegistrUser(evt) {
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
-        refs.userBarBtnText.textContent = user.displayName;
         evt.target.reset();
       })
       .catch(error => {
@@ -69,7 +68,6 @@ function handelSignInUserAccount(evt) {
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
-        refs.userBarBtnText.textContent = user.displayName;
       })
       .catch(error => {
         const errorCode = error.code;
@@ -86,7 +84,7 @@ function checkUserAuth() {
       refs.signUpHeaderBtn.classList.add('visually-hidden');
       refs.userBarBtnText.textContent = user.displayName;
       const userName = localStorage.getItem(localStorageKey);
-      refs.userBarBtnText.textContent = userName;
+      refs.userBarBtnText.innerHTML = userName;
     } else
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
@@ -102,7 +100,7 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
-      refs.userBarBtnText.textContent = '';
+      refs.userBarBtnText.innerHTML = '';
       localStorage.removeItem(localStorageKey);
     })
     .catch(error => {
