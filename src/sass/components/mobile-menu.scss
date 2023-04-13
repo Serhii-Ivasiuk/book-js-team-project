@@ -1,9 +1,16 @@
 @media screen and (max-width: 767px) {
+  .container {
+    max-width: 767px;
+  }
+  .header {
+    position: relative;
+    z-index: 11;
+  }
   .mobile__menu {
-    display: none;
-    // display: flex коли має показуватись
+    display: block;
+    // display: block коли має показуватись
     position: absolute;
-    top: 64px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 748px;
@@ -24,7 +31,7 @@
     background-image: url('../images/mob-menu@1x0.jpg');
 
     background-position: bottom right;
-    background-size: 100%;
+    background-size: contain;
     background-repeat: no-repeat;
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -32,25 +39,25 @@
       (min-resolution: 2dppx) {
       background-image: url('../images/mob-menu@2x0.jpg');
       background-position: bottom right;
-      background-size: 100%;
+      background-size: contain;
       background-repeat: no-repeat;
     }
   }
 
-  .sign-up-btn {
+  .signup-btn {
     display: none;
     align-items: center;
     justify-content: space-between;
     min-width: 184px;
     padding: 13px 14px;
-    margin-top: 40px;
+    margin-top: 104px;
     background: $accent-color;
     border: 1.5px solid $primary-black;
     border-radius: 18px;
     cursor: pointer;
   }
 
-  .sign-up-btn__text {
+  .signup-btn__text {
     font-weight: 500;
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -61,6 +68,7 @@
   .user__container {
     display: flex;
     align-items: center;
+    margin-top: 84px;
     margin-bottom: 130px;
   }
 
