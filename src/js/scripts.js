@@ -10,4 +10,4 @@ import {
 import './user-bar-dropdown';
 
 // to-top-button
-import scrollToTop from './to-top';
+import './to-top';

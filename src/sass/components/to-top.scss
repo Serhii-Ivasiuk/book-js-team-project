@@ -16,10 +16,9 @@
   pointer-events: inherit;
   opacity: 0.8;
 
-  transition: $transition-time $transition-cubic;
+  @include transition(opacity);
 
   &:hover {
-    transition: $transition-time $transition-cubic;
     opacity: 1;
   }
 }

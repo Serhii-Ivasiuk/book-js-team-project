@@ -1,4 +1,4 @@
-export default function scrollToTop() {
+function scrollToTop() {
   let toTopButton = document.querySelector('.button--back-to-top');
   let displayHeight = document.documentElement.clientHeight;
   let isListenerAdded = false;
