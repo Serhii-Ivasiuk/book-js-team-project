@@ -1,14 +1,5 @@
+import { refs } from './utility/refs';
 const ESC_KEY_CODE = 'Escape';
-
-const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  backdrop: document.querySelector('.authorization__bacdrop'),
-  modal: document.querySelector('[data-modal]'),
-  signUpLink: document.querySelector('[data-action="sign-up"]'),
-  signInLink: document.querySelector('[data-action="sign-in"]'),
-  autorizationBtnEl: document.querySelector('.authorization__btn__submit'),
-};
 
 refs.openModalBtn.addEventListener('click', openModal);
 
