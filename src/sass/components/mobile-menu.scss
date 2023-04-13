@@ -1,31 +1,18 @@
-.container {
-  width: 767px;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
 @media screen and (max-width: 767px) {
-  .header {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 64px;
-    background-color: aqua;
-  }
   .mobile__menu {
-    display: block;
+    display: none;
+    // display: flex коли має показуватись
     position: absolute;
     top: 64px;
     left: 0;
     width: 100%;
     height: 748px;
+    z-index: 10;
     background-image: radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
       #4f2ee8 18.03%,
       #ffffff 100%
     );
-    // max-width: 480px;
-    // margin: 0 auto;
   }
   .mobile__overlay {
     position: absolute;
@@ -155,12 +142,12 @@
     border: 1.5px solid $primary-black;
     border-radius: 18px;
     cursor: pointer;
-  }
 
-  .mobile__logout:hover,
-  .mobile__logout:focus {
-    background-color: $accent-color;
-    color: $header-color-light;
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+      color: $header-color-light;
+    }
   }
 }
 
