@@ -17,13 +17,11 @@
 }
 
 .support_title {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 700;
   font-size: 28px;
-  line-height: 1.14;
+  line-height: calc(32 / 28);
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: $primary-white;
 
   padding-left: 40px;
   padding-top: 24px;
