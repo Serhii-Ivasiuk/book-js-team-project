@@ -8,3 +8,6 @@ import {
 
 //  user-bar-dropdown
 import './user-bar-dropdown';
+
+// to-top-button
+import scrollToTop from './to-top';
