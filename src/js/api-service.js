@@ -14,7 +14,7 @@ export async function getCategoryList() {
 }
 
 //for example use function
-getCategoryList().then(data => console.log(data));
+// getCategoryList().then(data => console.log(data));
 
 export async function getBooksByCategory(category) {
   const { data } = await axios.get(BOOKS_BY_CATEGORY, {
