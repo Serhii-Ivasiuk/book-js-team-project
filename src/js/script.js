@@ -6,3 +6,4 @@ import {
 } from './api-service';
 import './firebase';
 import './user-bar-dropdown';
+import './autorization-modal';
