@@ -1,25 +1,27 @@
 .shoplist__item {
-  padding: 24px;
+  padding: 20px;
+
   position: relative;
   background: #ffffff;
   border: 2px solid #4f2ee866;
   border-radius: 16px;
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    padding: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 24px;
   }
 }
 .book__img-container {
-  max-width: 116px;
-  max-height: 165px;
+  max-width: 98px;
+  max-height: 139px;
+
   margin-bottom: 4px;
 
   border-radius: 8px;
   overflow: hidden;
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    max-width: 98px;
-    max-height: 139px;
+  @media screen and (min-width: 768px) {
+    max-width: 116px;
+    max-height: 165px;
   }
 }
 .book__img {
@@ -68,26 +70,25 @@
   }
 }
 .book-links__link:not(:last-child) {
-  margin-right: 16px;
+  margin-right: 14px;
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    margin-right: 14px;
+  @media screen and (min-width: 768px) {
+    margin-right: 16px;
   }
 }
 
 .trash-btn {
-  padding: 0;
-
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 14px;
+  right: 14px;
+  padding: 0;
 
   background-color: transparent;
   border: none;
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    top: 14px;
-    right: 14px;
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 24px;
   }
 }
 
