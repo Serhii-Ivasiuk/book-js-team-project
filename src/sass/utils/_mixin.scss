@@ -54,13 +54,13 @@
 }
 
 @mixin less-then-tablet {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.98px) {
     @content;
   }
 }
 
 @mixin less-then-desktop {
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1199.98px) {
     @content;
   }
 }
