@@ -26,6 +26,7 @@ const refs = {
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
 };
+const localStorageKey = 'userName';
 
 refs.signInLink.addEventListener('click', e => {
   e.preventDefault();
@@ -63,14 +64,12 @@ function handelRegistrUser(evt) {
     createUserWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
         const user = userCredential.user;
-
         Notiflix.Notify.success(`Hello, ${user.value}`);
         refs.autorizationBackdrop.style.display = 'none';
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
         refs.userBarBtnText.textContent = user.displayName;
-
         evt.target.reset();
       })
       .catch(error => {
@@ -89,6 +88,8 @@ function handelSignInUserAccount(evt) {
   const {
     elements: { name, email, password },
   } = evt.currentTarget;
+
+  localStorage.setItem(localStorageKey, name.value);
   if (refs.signInLink.classList.contains('active-link')) {
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
@@ -116,6 +117,8 @@ function checkUserAuth() {
       refs.userBar.classList.remove('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
       refs.userBarBtnText.textContent = user.displayName;
+      const userName = localStorage.getItem(localStorageKey);
+      refs.userBarBtnText.textContent = userName;
     } else
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
@@ -131,6 +134,7 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
+      refs.userBarBtnText.textContent = '';
     })
     .catch(error => {
       const errorCode = error.code;
