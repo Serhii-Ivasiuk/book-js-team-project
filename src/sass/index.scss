@@ -12,6 +12,11 @@
 @import './common/common';
 @import './common/container';
 // components
+
+@import './components/book-card';
+
+@import './components/support.scss';
+
 // header
 @import './components/header/header';
 // main

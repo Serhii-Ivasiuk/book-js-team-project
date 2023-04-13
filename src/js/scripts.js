@@ -6,6 +6,8 @@ import {
   getBookDetail,
 } from './api-service';
 
+import './see-more';
+
 //  user-bar-dropdown
 import './user-bar-dropdown';
 
