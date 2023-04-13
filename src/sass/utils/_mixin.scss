@@ -1,6 +1,62 @@
 // Transitions
 @mixin transition($property...) {
   transition-property: $property;
-  transition-duration: var(--transition-time);
-  transition-timing-function: var(--transition-cubic);
+  transition-duration: $transition-time;
+  transition-timing-function: $transition-cubic;
+}
+
+// Fonts
+@mixin fonts(
+  $fs: false,
+  $lh: false,
+  $fw: false,
+  $ls: 0.1em,
+  $tt: false,
+  $clr: false
+) {
+  @if $fs {
+    font-size: $fs;
+  }
+  @if $lh {
+    line-height: calc($lh / $fs);
+  }
+  @if $fw {
+    font-weight: $fw;
+  }
+  @if $ls {
+    letter-spacing: $ls;
+  }
+  @if $tt {
+    text-transform: $tt;
+  }
+  @if $clr {
+    color: $clr;
+  }
+}
+
+// Devices
+@mixin mobile {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
 }

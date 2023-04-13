@@ -1,3 +1,7 @@
+// normalize
+@import '~node_modules/modern-normalize/modern-normalize.css';
+// fonts
+@import './common/fonts';
 // vendors
 @import './vendors/visually-hidden';
 // utils
@@ -6,6 +10,12 @@
 // common
 @import './common/reset';
 @import './common/common';
+@import './common/container';
 // components
-@import './components/header';
+// header
+@import './components/header/header';
 @import './components/mobile-menu';
+// main
+@import './components/categories';
+@import './components/book-card';
+@import './components/authorization-modal.scss';
