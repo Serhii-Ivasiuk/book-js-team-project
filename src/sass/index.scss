@@ -14,8 +14,10 @@
 // components
 // header
 @import './components/header/header';
-@import './components/mobile-menu';
+
 // main
 @import './components/categories';
 @import './components/book-card';
 @import './components/authorization-modal.scss';
+// mob menu
+@import './components/mobile-menu';
