@@ -8,3 +8,4 @@ import {
 
 //  user-bar-dropdown
 import './user-bar-dropdown';
+import './authorization-modal';
