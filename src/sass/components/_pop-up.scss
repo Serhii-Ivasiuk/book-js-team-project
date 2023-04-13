@@ -177,6 +177,7 @@
 &:hover,
   &:focus {
     color: #FFFFFF;
+    transition: background-color 300ms;
     background: $accent-color;
   }
 }
@@ -211,6 +212,7 @@
   justify-content: flex-start;
   gap: $gap-xl;
 }
+
 .x-close {
   cursor: pointer;
   position: absolute;
@@ -222,17 +224,23 @@
   right: 12px;
   width: 28px;
   height: 28px;
-  
-}
-.authorization__icon__close{
-  max-width: 100%;
-  max-height: 100%;
+ }
+.icon__close {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
   &:hover,
-    &:focus {
-     stroke:  rgba(79, 46, 232, 1);
-     
-    }
+  &:focus {
+    stroke: $accent-color;
+    mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.55));
+  }
 }
+
+
 
 .annotation {
   margin-bottom: 8px;
