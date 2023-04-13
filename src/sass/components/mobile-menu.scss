@@ -1,6 +1,12 @@
+.wrapper {
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 767px) {
   .container {
-    max-width: 767px;
+    max-width: 375px;
   }
   .header {
     position: relative;
@@ -10,7 +16,7 @@
     display: block;
     // display: block коли має показуватись
     position: absolute;
-    top: 0;
+    top: -64px;
     left: 0;
     width: 100%;
     max-width: 375px;
