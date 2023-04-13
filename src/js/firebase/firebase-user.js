@@ -1,3 +1,4 @@
+import { refs } from '../utility/refs';
 import { app } from './firebace-config';
 import {
   getAuth,
@@ -11,21 +12,6 @@ import Notiflix from 'notiflix';
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-const refs = {
-  autirizationFormEl: document.querySelector('.authorization__form'),
-  userNameEl: document.querySelector('#user_name'),
-  userEmailEl: document.querySelector('#user_email'),
-  userPasswordEl: document.querySelector('#user_password'),
-  autorizationBtnEl: document.querySelector('.authorization__btn__submit'),
-  signUpLink: document.querySelector('[data-action="sign-up"]'),
-  signInLink: document.querySelector('[data-action="sign-in"]'),
-  autorizationBackdrop: document.querySelector('.authorization__bacdrop'),
-  navigationEl: document.querySelector('.navigation'),
-  userBar: document.querySelector('.js-user-bar'),
-  signUpHeaderBtn: document.querySelector('.sign-up-btn'),
-  logOutBtn: document.querySelector('.js-log-out-btn'),
-  userBarBtnText: document.querySelector('.user-bar-btn__text'),
-};
 const localStorageKey = 'userName';
 
 refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
@@ -51,7 +37,6 @@ function handelRegistrUser(evt) {
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
-        refs.userBarBtnText.textContent = user.displayName;
         evt.target.reset();
       })
       .catch(error => {
@@ -83,7 +68,6 @@ function handelSignInUserAccount(evt) {
         refs.navigationEl.classList.remove('visually-hidden');
         refs.userBar.classList.remove('visually-hidden');
         refs.signUpHeaderBtn.classList.add('visually-hidden');
-        refs.userBarBtnText.textContent = user.displayName;
       })
       .catch(error => {
         const errorCode = error.code;
@@ -100,7 +84,7 @@ function checkUserAuth() {
       refs.signUpHeaderBtn.classList.add('visually-hidden');
       refs.userBarBtnText.textContent = user.displayName;
       const userName = localStorage.getItem(localStorageKey);
-      refs.userBarBtnText.textContent = userName;
+      refs.userBarBtnText.innerHTML = userName;
     } else
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
@@ -116,7 +100,7 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
-      refs.userBarBtnText.textContent = '';
+      refs.userBarBtnText.innerHTML = '';
       localStorage.removeItem(localStorageKey);
     })
     .catch(error => {

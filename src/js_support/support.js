@@ -1,10 +1,12 @@
 import { arrayFunds } from './array_funds';
+import { refs } from '../js/utility/refs';
+
 // import Swiper JS
 import Swiper from 'swiper';
-const fundsContainer = document.querySelector('.support_list');
+
 const listMarkup = createCardMarcup(arrayFunds);
 
-fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
+refs.fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
 
 function createCardMarcup(array) {
   const result = array
