@@ -10,9 +10,20 @@
 // common
 @import './common/reset';
 @import './common/common';
+@import './common/container';
 // components
 @import './components/header';
 @import './components/container';
 @import './components/main-grid';
 @import './components/bookshop';
 @import './components/book-card';
+// import Swiper styles
+@import 'swiper/swiper.scss';
+@import './components/support.scss';
+// header
+@import './components/header/header';
+// main
+@import './components/categories';
+@import './components/book-card';
+@import './components/to-top';
+@import './components/authorization-modal.scss';
