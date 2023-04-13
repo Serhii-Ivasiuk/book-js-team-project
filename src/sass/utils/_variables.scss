@@ -1,13 +1,11 @@
-:root {
-  // Transitions
-  --transition-time: 250ms;
-  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
-}
+//---------------- Transitions ----------------
+$transition-time: 250ms;
+$transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 
-//----------------------------------------Fonts--------------------------------
+//---------------- Fonts ----------------------
 $font-main: 'DM Sans', 'Montserrat', 'Arial', sans-serif;
 
-//---------------------------------------Colors-------------------------------
+//---------------- Colors ---------------------
 //Light Theme
 $header-color-light: #ffffff;
 $body-color-light: #f6f6f6;
@@ -22,6 +20,7 @@ $categories-el-dark: #ffffff99;
 
 //Text
 $primary-black: #111111;
+$primary-white: #ffffff;
 $secondary-black: #202024;
 $author-color: #b4afaf;
 $category-title-color: #b4afaf;

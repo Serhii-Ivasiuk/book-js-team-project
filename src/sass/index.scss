@@ -10,11 +10,16 @@
 // common
 @import './common/reset';
 @import './common/common';
+@import './common/container';
 // components
-@import './components/header';
 
-@import './components/container';
 @import './components/book-card';
 
 @import './components/support.scss';
 
+// header
+@import './components/header/header';
+// main
+@import './components/categories';
+@import './components/book-card';
+@import './components/authorization-modal.scss';
