@@ -1,28 +1,30 @@
 import { arrayFunds } from './array_funds';
 // import Swiper JS
 import Swiper from 'swiper';
-const fundsContainer = document.querySelector( '.support_list' );
-const listMarkup = createCardMarcup( arrayFunds );
+const fundsContainer = document.querySelector('.support_list');
+const listMarkup = createCardMarcup(arrayFunds);
 
-fundsContainer.insertAdjacentHTML( 'beforeend', listMarkup );
+fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
 
-function createCardMarcup( array ) {
-  const result = array.map( ( { title, url, img }, index ) => {
-    return `<li class='support_items swiper-slide'>
-         <p>${ index + 1 }</p>
-         <a class='support_link' href='${ url }' target='_blank'>
+function createCardMarcup(array) {
+  const result = array
+    .map(({ title, url, img }, index) => {
+      return `<li class='support_items swiper-slide'>
+         <p>${index + 1}</p>
+         <a class='support_link' href='${url}' target='_blank'>
             <img
               class='gallery__image'
-              src='${ img }'
-              alt='${ title }'
+              src='${img}'
+              alt='${title}'
             />
          </a>
      </li>`;
-  } ).join( '' );
+    })
+    .join('');
   return result;
 }
 
-new Swiper( '.support-slider', {
+new Swiper('.support-slider', {
   // Optional parameters
   direction: 'vertical',
   loop: false,
@@ -31,6 +33,5 @@ new Swiper( '.support-slider', {
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  }
-} );
-
+  },
+});

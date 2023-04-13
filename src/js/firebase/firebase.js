@@ -1,16 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getStorage } from 'firebase/storage';
-// import { getFirestore } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
 } from 'firebase/auth';
 import Notiflix from 'notiflix';
 
@@ -51,7 +47,6 @@ refs.signUpLink.addEventListener('click', e => {
 refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
 refs.autirizationFormEl.addEventListener('submit', handelSignInUserAccount);
 refs.logOutBtn.addEventListener('click', handelLogOutUserAccount);
-console.log(refs);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfT-rZpY0OALd7KjMrkrFQZlQZKUmMqYA',
@@ -71,8 +66,6 @@ const db = getFirestore(app);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 
-// const app = initializeApp(firebaseConfig);
-
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
@@ -90,7 +83,7 @@ function handelRegistrUser(evt) {
     createUserWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
         const user = userCredential.user;
-        user.displayName = name.value;
+
         Notiflix.Notify.success(`Hello, ${user.value}`);
         refs.autorizationBackdrop.style.display = 'none';
         refs.navigationEl.classList.remove('visually-hidden');
@@ -121,7 +114,6 @@ function handelSignInUserAccount(evt) {
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then(userCredential => {
         const user = userCredential.user;
-        user.displayName = name.value;
 
         Notiflix.Notify.success(`Hello, ${name.value}`);
         evt.target.reset();
@@ -141,7 +133,6 @@ function handelSignInUserAccount(evt) {
 function checkUserAuth() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user);
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');

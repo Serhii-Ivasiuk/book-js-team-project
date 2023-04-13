@@ -9,7 +9,7 @@ import {
 import './see-more';
 
 import '../js_support/support';
-import './firebase';
+import './firebase/firebase';
 import './user-bar-dropdown';
 import './autorization-modal';
 
