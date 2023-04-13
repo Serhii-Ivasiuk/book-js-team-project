@@ -13,6 +13,7 @@ import '../js_support/support';
 
 //  user-bar-dropdown
 import './user-bar-dropdown';
+import './authorization-modal';
 
 // to-top-button
 import './to-top';
