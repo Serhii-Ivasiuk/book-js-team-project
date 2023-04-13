@@ -12,14 +12,12 @@
 @import './common/common';
 @import './common/container';
 // components
-
+@import './components/main-grid';
+@import './components/bookshop';
 @import './components/book-card';
-
 // import Swiper styles
 @import 'swiper/swiper.scss';
-
 @import './components/support.scss';
-
 // header
 @import './components/header/header';
 // main

@@ -17,10 +17,10 @@ export async function getCategoryList() {
 // getCategoryList().then(data => console.log(data));
 
 export async function getBooksByCategory(category) {
-  const { data } = await axios.get(BOOKS_BY_CATEGORY,{
+  const { data } = await axios.get(BOOKS_BY_CATEGORY, {
     params: {
-      category
-    }
+      category,
+    },
   });
   return data;
 }

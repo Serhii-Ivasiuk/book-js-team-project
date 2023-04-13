@@ -1,0 +1,81 @@
+/* === STYLES FOR BOOKCASE === */
+// Copied from book-card
+.bookcase {
+  &__cda {
+    margin-bottom: 40px;
+
+    @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+
+    @include tablet {
+      font-size: 48px;
+      line-height: calc(52 / 48);
+    }
+  }
+
+  &__filter {
+    color: $accent-color;
+  }
+}
+
+/* === STYLES FOR BOOKSHELF === */
+
+.bookshelf {
+  &__item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    // Copied from book-card
+    margin-bottom: 18px;
+
+    @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
+
+    @include tablet {
+      line-height: calc(24 / 14);
+    }
+  }
+
+  &__content {
+    margin-bottom: 8px;
+    @include tablet {
+      margin-bottom: 20px;
+    }
+    @include desktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__btn {
+    // Copied from book-card
+    display: block;
+    margin-left: auto;
+    padding: 14px 28px;
+
+    @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
+
+    border: 2px solid $accent-color;
+    border-radius: 40px;
+
+    &:hover,
+    &:focus {
+      color: $header-color-light;
+      background-color: $accent-color;
+    }
+  }
+}
+
+// Replace by js
+
+.book-card__item:nth-last-child(-n + 4) {
+  @include less-then-tablet {
+    display: none;
+  }
+}
+
+// Replace by js
+
+.book-card__item:nth-last-child(-n + 2) {
+  @include less-then-desktop {
+    display: none;
+  }
+}
