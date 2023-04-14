@@ -22,41 +22,68 @@
   pointer-events: none;
 }
 
-.modal__book__bacdrop{
+.modal__book__backdrop{
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1000;
   background-color: $backdrop-book-color;
 }
 
 
 .pop-up {
   position: relative;
+  display: flex;
+  flex-direction:  column;
+  overflow-x: auto;
   border-radius: $br-lg;
   background-color: $primary-white;
-  border: 2px solid #111;
-  box-sizing: border-box;
+  border: 2px solid $primary-black;
   z-index: 5;
   width: 335px;
-  height: 806px;
-  overflow: hidden;
+  overflow: scroll;
   max-width: 90%;
   max-height: 90%;
-  text-align: left;
-  color: #111;
+  color: $primary-black;
+  padding: 40px 24px ;
    
   @include tablet {
-  width: 579px;
-  height: 501px;
+    display: flex;
+    margin: auto;
+   width: 579px;
+   height: 501px;
   }
- 
-}
+ .main-block{
+  margin-bottom: 40px;
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 26px;
+  }
+ }
 
+.book__information{
+  
+    @include tablet { 
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-bottom: 40px;
+}
+}
+}
+// 
 .image {
-  margin-top: 40px;
-  margin-left: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom:14px;
+  display: block;
   border-radius: $br-5xs;
   width: 287px;
   height: 408px;
@@ -64,97 +91,85 @@
    @include tablet {
   width: 192px;
   height: 281px;
-  margin-top: 40px;
-  margin-left: 40px;
+   margin-top: 0px;
+   margin-right: 24px;
+   margin-left: 16px;
+    
    }
   object-fit: cover;
 }
 
-.author,
+
 .book-name {
   letter-spacing: -0.04em;
   line-height: calc(18/16);
   text-transform: uppercase;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 4px;
   @include tablet { 
   font-size: $font-size-5xl;
   line-height: calc(24/26);
+  margin-bottom: 8px;
 }}
 
 .author {
   font-size: 12px;
   line-height: calc(14/12);
+  letter-spacing: -0.04em;
   color: $category-title-color;
   font-style: italic;
+  margin-bottom: 18px;
   @include tablet { 
   font-size: 14px;
   line-height:calc(18/14);
+  margin-bottom: 20px;
 }
 }
 
 .text{
- @include tablet { 
-  position: absolute;
-  top: 40px;
-  left: 256px;}
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: $gap-5xs;
 }
 .text-congratulations{
-  position: absolute;
-  width: 242px;
-  height: 36px;
-  left: 47px;
-  top: 730px;
+  display: flex; 
+  justify-content: center;
+  text-align: center;
+   width: 242px;
   font-size: 10px;
   line-height: calc(12/10);
- @include tablet {
-  top: 433px;
-  left: 128px;
-  width: 324px;
+  padding-left: 18px;
+  @include tablet {
+  width: 424px;
+  padding-left: 128px;
   font-size: 12px;
   letter-spacing: -0.04em;
   line-height: calc(14/12);
 }
   color: rgba(17, 17, 17, 0.5);
-  text-align: center;
-  display: inline-block; 
+  
 }
 
 .congratulations{
-  position: absolute;
-  width: 242px;
-  height: 36px;
-  left: 47px;
-  top: 730px;
   font-size: 10px;
   line-height: calc(12/10);
-  @include tablet {
-  top: 433px;
-  left: 128px;
-  width: 324px;
-  font-size: 12px;
   letter-spacing: -0.04em;
-  line-height: calc(12/14) ;}
-  font-style: normal;
-  font-weight: 400;
-  text-align: center;
   color: rgba(17, 17, 17, 0.5);
+  @include tablet {
+  line-height: calc(12/14) ;}
+  font-weight: 400;
+  
 }
 
 
 .btn {
   cursor: pointer;
-  position: absolute; 
-  overflow: hidden;
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  color: #111;
-  text-align: left;
+  color: $primary-black ;
   font-size: 14px;
   line-height: calc(18/14);
   background-color: transparent; 
@@ -162,13 +177,13 @@
   border-radius:   $br-21xl;
   width: 279px;
   height: 46px;
-  left: 28px;
-  top: 676px;
+  bottom: 24px;
+  margin-bottom: 8px;
 
 @include tablet {
-  top: 361px;
-  left: 40px;
+  
   width: 499px;
+  margin-left: 16px;
   height: 64px;
   font-size: 18px;
   line-height: calc(24/18);
@@ -185,7 +200,6 @@
 .amazon-icon,
 .book1-icon,
 .book2-icon {
-  position: relative;
   width: 62px;
   height: 19px;
   flex-shrink: 0;
@@ -216,7 +230,6 @@
 .x-close {
   cursor: pointer;
   position: absolute;
-  overflow: hidden;
   border: 0;
   padding: 0;
   background-color: transparent;
@@ -225,40 +238,24 @@
   width: 28px;
   height: 28px;
  }
+
 .icon__close {
-  position: relative;
   width: 28px;
   height: 28px;
-  flex-shrink: 0;
-  object-fit: cover;
-  mix-blend-mode: luminosity;
+  stroke: $primary-black;
   &:hover,
   &:focus {
-    stroke: $accent-color;
-    mix-blend-mode: luminosity;
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.55));
+   stroke: $accent-color;
   }
 }
 
-
-
 .annotation {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   @include tablet { 
    margin-bottom: 18px;
 }
   font-size: 14px;
   line-height: calc(18/14);
   display: inline-block;
-  width: 279px;
-  height: 70px;
-}
-
-.book__information{
-  display: flex;
-  margin-left: 24px;
-  margin-top: 14px;
-    @include tablet { 
-      margin-bottom: 0;
-}
+  
 }
