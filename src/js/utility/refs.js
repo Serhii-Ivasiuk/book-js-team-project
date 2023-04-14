@@ -32,7 +32,7 @@ const refs = {
 
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
-  seeMoreBtns: document.querySelectorAll('.book-card__btn'),
+  seeMoreBtns: document.querySelectorAll('[data-see-more]'),
   mainTitle: document.querySelector('.book-card__title'),
   mainTitleColorWord: document.querySelector('.book-card__filter'),
 

@@ -7,23 +7,23 @@ import {
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { refs } from './utility/refs';
 
-refs.seeMoreBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    getBooksByCategory('Mass Market Monthly')
-      .then(books => {
-        const listBooks = books
-          .map(
-            ({
-              amazon_product_url,
-              book_image,
-              author,
-              book_image_height,
-              book_image_width,
-              buy_links,
-              description,
-              title,
-            }) => {
-              return `<li class='book-card__item'>
+
+refs.seeMoreBtns.forEach( ( btn ) => {
+  btn.addEventListener( 'click', () => {
+    getBooksByCategory( 'Mass Market Monthly' ).then( ( books ) => {
+
+      const listBooks = books.map( ( {
+        amazon_product_url,
+        book_image,
+        author,
+        book_image_height,
+        book_image_width,
+        buy_links,
+        description,
+        title,
+      } ) => {
+
+        return `<li class='book-card__item'>
           <a class='book-card__link' href='#'>
             <div class='book-card__wrapper'>
               <img
