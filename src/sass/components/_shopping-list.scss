@@ -1,17 +1,11 @@
-/* === STYLES FOR MAIN GRID === */
+//SHOPPING LIST STYLES
+
 .grid-container.shopping-list {
   padding-top: 40px;
   display: grid;
   grid-template-rows: 228px 352px;
   row-gap: 40px;
   outline: 1px solid blue;
-
-  //   @include tablet {
-  //     grid-template-columns: repeat(2, 1fr);
-  //     grid-template-rows: 472px;
-  //     row-gap: 100px;
-  //     column-gap: 32px;
-  //   }
 
   @include desktop {
     grid-template-columns: 356px 996px;
@@ -40,7 +34,6 @@
   @include less-then-desktop {
     display: none;
   }
-  //   background-color: cadetblue;
 }
 
 .shoplist__list.shopping-list {

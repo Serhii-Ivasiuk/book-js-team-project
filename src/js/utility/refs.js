@@ -1,6 +1,13 @@
 export { refs };
 
 const refs = {
+  //-------   MOBOLE-MENU   ---------- //
+  signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
+  userMobileContainer: document.querySelector('.js-user-container'),
+  mibileNav: document.querySelector('.js-mobile-thumb'),
+  mobileLogOutBtn: document.querySelector('.js-mobile-logout'),
+  userMobileBarBtnText: document.querySelector('.js-user-mobile-name'),
+
   //------- AUTORIZATION-MODAL ---------- //
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
