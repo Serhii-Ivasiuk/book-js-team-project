@@ -2,6 +2,7 @@ import { refs } from './utility/refs';
 
 refs.userBarBtn.addEventListener('click', handleUserBarBtnClick);
 refs.logOutBtn.addEventListener('click', handleLogOutBtnClick);
+refs.mobileLogOutBtn.addEventListener('click', handleLogOutBtnClick);
 
 function handleUserBarBtnClick() {
   refs.userBar.classList.toggle('is-active');
