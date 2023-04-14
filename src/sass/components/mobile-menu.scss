@@ -1,3 +1,8 @@
+// for test menu scroll
+// body {
+//   overflow: hidden;
+// }
+
 .header {
   position: relative;
   z-index: 11;
@@ -5,8 +10,12 @@
 
 .wrapper {
   position: relative;
+  top: -64px;
   max-width: 375px;
+  min-width: 320px;
   margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto;
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -17,7 +26,7 @@
   display: block;
   position: absolute;
   overflow-y: auto;
-  top: -64px;
+  top: 0px;
   left: 0;
   width: 100%;
   min-height: 700px;
