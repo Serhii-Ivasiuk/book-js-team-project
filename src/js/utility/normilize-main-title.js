@@ -4,5 +4,5 @@ export function normalizeMainTitle(title) {
   let categoryName = title.split(' ');
   categoryName.pop();
   let innerCategoryName = categoryName.join(' ');
-  return `${innerCategoryName} <span class="book-card__filter">${lastWordCategoryName}</span>`;
+  return `${innerCategoryName} <span class="bookcase__filter">${lastWordCategoryName}</span>`;
 }

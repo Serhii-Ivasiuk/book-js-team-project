@@ -49,3 +49,11 @@
   color: $accent-color;
   text-transform: uppercase;
 }
+
+.categories__item{
+  &--fixed {
+  position: sticky;
+  top: 0;
+  background:$primary-white;
+}
+}
