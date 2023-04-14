@@ -15,3 +15,4 @@ import './authorization-modal';
 
 // to-top-button
 import './to-top';
+import './bookshelf';
