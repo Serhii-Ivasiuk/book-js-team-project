@@ -1,0 +1,44 @@
+<form class="authorization__form display-form" id="sign-in">
+  <!-- inputs -->
+
+  <div class="authorization__field">
+    <input
+      type="email"
+      name="email"
+      class="authorization__input"
+      id="user_email"
+      required
+      placeholder=" "
+    />
+    <label class="authorization__label" for="user_email">email</label>
+    <svg class="authorization__icon">
+      <use href="./images/icons.svg#mail"></use>
+    </svg>
+  </div>
+
+  <div class="authorization__field">
+    <input
+      type="password"
+      name="password"
+      class="authorization__input"
+      id="user_password"
+      required
+      placeholder=" "
+    />
+    <label class="authorization__label" for="user_password">password </label>
+    <svg class="authorization__icon">
+      <use href="./images/icons.svg#pass"></use>
+    </svg>
+  </div>
+  <!-- btn submit -->
+  <button type="submit" class="authorization__btn__submit">Sign in</button>
+  <!-- links -->
+  <div class="authorization__link__block">
+    <button class="authorization__link desactive-link" data-action="sign-up">
+      sign up
+    </button>
+    <button class="authorization__link active-link" data-action="sign-in">
+      sign in
+    </button>
+  </div>
+</form>
