@@ -48,7 +48,7 @@
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     @content;
   }
 }
@@ -60,7 +60,7 @@
 }
 
 @mixin less-then-desktop {
-  @media screen and (max-width: 1199.98px) {
+  @media screen and (max-width: 1439.98px) {
     @content;
   }
 }

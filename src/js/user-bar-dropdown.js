@@ -1,11 +1,8 @@
-const refs = {
-  userBar: document.querySelector('.js-user-bar'),
-  userBarBtn: document.querySelector('.js-user-bar-btn'),
-  logOutBtn: document.querySelector('.js-log-out-btn'),
-};
+import { refs } from './utility/refs';
 
 refs.userBarBtn.addEventListener('click', handleUserBarBtnClick);
 refs.logOutBtn.addEventListener('click', handleLogOutBtnClick);
+refs.mobileLogOutBtn.addEventListener('click', handleLogOutBtnClick);
 
 function handleUserBarBtnClick() {
   refs.userBar.classList.toggle('is-active');
