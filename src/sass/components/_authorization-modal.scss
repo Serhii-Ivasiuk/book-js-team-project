@@ -343,13 +343,23 @@
 
   text-transform: uppercase;
 
-  color: rgba(17, 17, 17, 0.5);
+  // color: rgba(17, 17, 17, 0.5);
 
   &:hover,
   &:focus {
     color: $accent-color;
     transition: color 300ms;
   }
+}
+
+.active-link {
+  color: $accent-color;
+
+  text-decoration-line: underline;
+}
+
+.desactive-link {
+  color: rgba(17, 17, 17, 0.5);
 }
 
 .authorization__link:nth-child(1) {
@@ -364,7 +374,8 @@
   @media screen and (min-width: 1440px) {
     margin-right: 20px;
   }
-  color: $accent-color;
+  //   color: $accent-color;
 
-  text-decoration-line: underline;
+  //   text-decoration-line: underline;
+  //
 }
