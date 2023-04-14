@@ -1,6 +1,5 @@
 export function normalizeMainTitle(title) {
   let lastWordCategoryName = title.split(' ');
-  console.log(lastWordCategoryName);
   lastWordCategoryName = lastWordCategoryName[lastWordCategoryName.length - 1];
   let categoryName = title.split(' ');
   categoryName.pop();

@@ -16,3 +16,6 @@ import './authorization-modal';
 
 // to-top-button
 import './to-top';
+
+// render category list
+import './render-categories';
