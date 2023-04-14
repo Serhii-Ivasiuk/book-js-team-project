@@ -5,16 +5,20 @@
   top: 0;
   left: 0;
 
-  width: 100%;
+  width: 0;
   height: 100%;
 
   background-color: $accent-color;
 
   overflow-y: scroll;
+
+  transition: opacity 300ms;
 }
 .authorization__bacdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+
+  transition: opacity 300ms;
 }
 
 .elips {
