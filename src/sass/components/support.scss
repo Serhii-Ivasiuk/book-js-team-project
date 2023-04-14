@@ -1,7 +1,8 @@
 .support_container {
   position: relative;
 
-  width: 335px;
+  width: 100%;
+  // width: 375px; replaced by 100% for responsive mobile to 375px
   height: 352px;
 
   background-image: radial-gradient(
