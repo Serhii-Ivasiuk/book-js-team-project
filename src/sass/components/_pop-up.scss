@@ -1,261 +1,228 @@
-  
-  .modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.pop-up__backdrop {
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.is-open {
-  opacity: 1;
-  pointer-events: initial;
-}
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal__book__backdrop{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
   background-color: $backdrop-book-color;
+  overflow-y: auto;
+  opacity: 1;
+  @include transition(opacity);
 }
 
+.modal__pop-up {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-height: 75vh;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  max-width: 579px;
+  overflow-y: scroll;
 
-.pop-up {
-  position: relative;
-  display: flex;
-  flex-direction:  column;
-  overflow-x: auto;
+  border: 2px solid $header-color-dark;
   border-radius: $br-lg;
-  background-color: $primary-white;
-  border: 2px solid $primary-black;
-  z-index: 5;
-  width: 335px;
-  overflow: scroll;
-  max-width: 90%;
-  max-height: 90%;
-  color: $primary-black;
-  padding: 40px 24px ;
-   
-  @include tablet {
-    display: flex;
-    margin: auto;
-   width: 579px;
-   height: 501px;
-  }
- .main-block{
-  margin-bottom: 40px;
-  @include tablet {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 26px;
-  }
- }
+  background-color: $header-color-light;
+  @include transition(transform);
 
-.book__information{
-  
-    @include tablet { 
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       margin-bottom: 40px;
-}
-}
-}
-// 
-.image {
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom:14px;
-  display: block;
-  border-radius: $br-5xs;
-  width: 287px;
-  height: 408px;
- 
-   @include tablet {
-  width: 192px;
-  height: 281px;
-   margin-top: 0px;
-   margin-right: 24px;
-   margin-left: 16px;
-    
-   }
-  object-fit: cover;
-}
-
-
-.book-name {
-  letter-spacing: -0.04em;
-  line-height: calc(18/16);
-  text-transform: uppercase;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-bottom: 4px;
-  @include tablet { 
-  font-size: $font-size-5xl;
-  line-height: calc(24/26);
-  margin-bottom: 8px;
-}}
-
-.author {
-  font-size: 12px;
-  line-height: calc(14/12);
-  letter-spacing: -0.04em;
-  color: $category-title-color;
-  font-style: italic;
-  margin-bottom: 18px;
-  @include tablet { 
-  font-size: 14px;
-  line-height:calc(18/14);
-  margin-bottom: 20px;
-}
-}
-
-.text{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.text-congratulations{
-  display: flex; 
-  justify-content: center;
-  text-align: center;
-   width: 242px;
-  font-size: 10px;
-  line-height: calc(12/10);
-  padding-left: 18px;
-  @include tablet {
-  width: 424px;
-  padding-left: 128px;
-  font-size: 12px;
-  letter-spacing: -0.04em;
-  line-height: calc(14/12);
-}
-  color: rgba(17, 17, 17, 0.5);
-  
-}
-
-.congratulations{
-  font-size: 10px;
-  line-height: calc(12/10);
-  letter-spacing: -0.04em;
-  color: rgba(17, 17, 17, 0.5);
-  @include tablet {
-  line-height: calc(12/14) ;}
-  font-weight: 400;
-  
-}
-
-
-.btn {
-  cursor: pointer;
-   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  color: $primary-black ;
-  font-size: 14px;
-  line-height: calc(18/14);
-  background-color: transparent; 
-  border: 2px solid $accent-color;
-  border-radius:   $br-21xl;
-  width: 279px;
-  height: 46px;
-  bottom: 24px;
-  margin-bottom: 8px;
-
-@include tablet {
-  
-  width: 499px;
-  margin-left: 16px;
-  height: 64px;
-  font-size: 18px;
-  line-height: calc(24/18);
-   border-radius: $br-21xl;
-  }
-&:hover,
-  &:focus {
-    color: #FFFFFF;
-    transition: background-color 300ms;
-    background: $accent-color;
+  @media screen and (max-width: 767px) {
+    padding: 24px 40px;
+    max-width: 335px;
   }
 }
- 
-.amazon-icon,
-.book1-icon,
-.book2-icon {
-  width: 62px;
-  height: 19px;
-  flex-shrink: 0;
-  object-fit: cover;
-  mix-blend-mode: luminosity;
-  &:hover,
-  &:focus {
-    mix-blend-mode: luminosity;
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
-  }
-}
-.book1-icon,
-.book2-icon {
-  width: 33px;
-  height: 32px;
-}
-.book2-icon {
-  width: 38px;
-  height: 36px;
-}
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: $gap-xl;
-}
 
-.x-close {
-  cursor: pointer;
+.pop-up__button__close {
   position: absolute;
-  border: 0;
-  padding: 0;
+  top: 24px;
+  right: 24px;
   background-color: transparent;
-  top: 12px;
-  right: 12px;
-  width: 28px;
-  height: 28px;
- }
+  border: 0;
+  cursor: pointer;
 
-.icon__close {
-  width: 28px;
-  height: 28px;
-  stroke: $primary-black;
-  &:hover,
-  &:focus {
-   stroke: $accent-color;
+  @media screen and (max-width: 767px) {
+    top: 6px;
+    right: 6px;
   }
 }
 
-.annotation {
-  margin-bottom: 20px;
-  @include tablet { 
-   margin-bottom: 18px;
+.pop-up__icon-close {
+  display: block;
+
+  stroke: $primary-black;
+
+  @media screen and (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
 }
-  font-size: 14px;
-  line-height: calc(18/14);
-  display: inline-block;
-  
+
+.pop-up__icon-close:hover,
+.pop-up__icon-close:focus {
+  stroke: $accent-color;
+  @include transition(stroke);
+}
+
+.pop-up__list {
+  @include tablet {
+    display: flex;
+  }
+}
+
+.pop-up__list {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+}
+
+.book-card__container {
+  @include tablet {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+}
+
+.pop-up__img {
+  border-radius: $br-5xs;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 14px;
+    max-width: 287px;
+    height: 408px;
+  }
+}
+
+.card__book-name {
+  margin-bottom: 8px;
+  @include fonts(24px, 28px, 700, -0.04em, false, $header-color-dark);
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}
+
+.card__book-author {
+  margin-bottom: 20px;
+  @include fonts(14px, 18px, 400, -0.04em, false, $author-color);
+  font-style: italic;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+  }
+}
+
+.card__book-text {
+  margin-bottom: 20px;
+  height: 70px;
+  @include fonts(14px, 18px, 400, -0.04em, false, $header-color-dark);
+
+  @include tablet {
+    overflow-y: scroll;
+  }
+  // overflow: auto;
+  // -ms-overflow-style: none;
+  // scrollbar-width: none;
+}
+
+.card__book-text::-webkit-scrollbar {
+  @include tablet {
+    width: 0;
+    height: 0;
+  }
+}
+
+.book-shop__thumb {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.book-shop__link {
+  mix-blend-mode: luminosity;
+
+  transition-property: filter;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  &:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+}
+
+.pop-up__add-btn {
+  padding: 20px;
+  @include fonts(18px, 24px, 700, -0.01em, uppercase, $header-color-dark);
+
+  border: 2px solid $accent-color;
+  border-radius: $br-21xl;
+
+  @media screen and (max-width: 767px) {
+    padding: 14px;
+  }
+
+  @include tablet {
+    min-width: 499px;
+  }
+}
+
+.btn__container {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.pop-up__add-btn:hover,
+.pop-up__add-btn:focus {
+  color: $primary-white;
+  background: $accent-color;
+}
+
+.pop-up__remove-btn {
+  padding: 20px;
+  @include fonts(18px, 24px, 700, -0.01em, uppercase, $header-color-dark);
+
+  border: 2px solid $accent-color;
+  border-radius: $br-21xl;
+
+  @media screen and (max-width: 767px) {
+    padding: 14px 0;
+    width: 279px;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+
+  @include tablet {
+    min-width: 499px;
+  }
+}
+
+.pop-up__remove-btn:hover,
+.pop-up__remove-btn:focus {
+  color: $primary-white;
+  background: $accent-color;
+}
+
+.pop-up__description {
+  margin: 0 auto;
+  margin-top: 8px;
+  @include fonts(12px, 14px, 400, -0.04em, false, $backdrop-book-desc-color);
+
+  @media screen and (max-width: 767px) {
+    font-size: 10px;
+    line-height: calc(12 / 10);
+    text-align: center;
+  }
+
+  @include tablet {
+    width: 324px;
+  }
 }
