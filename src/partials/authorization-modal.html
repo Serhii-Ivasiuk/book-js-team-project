@@ -10,7 +10,23 @@
       </svg>
     </button>
     <!-- form -->
-    <include src="./partials/form-sing-in.html"></include>
     <include src="./partials/form-sing-up.html"></include>
+    <include src="./partials/form-sing-in.html"></include>
+    <div class="authorization__link__block">
+      <button
+        type="button"
+        class="authorization__link active-link"
+        data-action="sign-up"
+      >
+        sign up
+      </button>
+      <button
+        type="button"
+        class="authorization__link desactive-link"
+        data-action="sign-in"
+      >
+        sign in
+      </button>
+    </div>
   </div>
 </div>

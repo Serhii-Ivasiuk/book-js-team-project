@@ -34,7 +34,6 @@ function onEscapeKeydown(e) {
 }
 
 refs.signUpLink.disabled = true;
-console.log(refs.signUpLink);
 
 refs.signInLink.addEventListener('click', e => {
   e.preventDefault();
@@ -47,8 +46,8 @@ refs.signInLink.addEventListener('click', e => {
   refs.signInForm.classList.remove('display-form');
   refs.signUpForm.classList.add('display-form');
 
-  refs.signInLink.disabled = true;
   refs.signUpLink.disabled = false;
+  refs.signInLink.disabled = true;
 });
 
 refs.signUpLink.addEventListener('click', e => {
