@@ -1,0 +1,24 @@
+.button--back-to-top {
+  display: inline-block;
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+
+  border: none;
+  border-radius: 100%;
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  z-index: 1;
+  cursor: pointer;
+
+  pointer-events: inherit;
+  opacity: 0.8;
+
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,48 +1,71 @@
-.book-card {
-  padding-bottom: 80px;
+// .book-card {
+//   // padding-bottom: 80px;
+
+//   // @include tablet {
+//   //   padding-bottom: 100px;
+//   // }
+
+//   @include desktop {
+//     padding-top: 40px;
+//     padding-bottom: 72px;
+//   }
+// }
+
+//  ПЕРЕНЕСЕНО В bookshop.scss
+
+// .book-card__title {
+//   margin-bottom: 40px;
+
+//   @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+
+//   @include tablet {
+//     font-size: 48px;
+//     line-height: calc(52 / 48);
+//   }
+// }
+
+// .book-card__filter {
+//   color: $accent-color;
+// }
+
+//  ПЕРЕНЕСЕНО В bookshop.scss
+
+// .book-card__category-subtitle {
+//   margin-bottom: 18px;
+
+//   @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
+
+//   @include tablet {
+//     line-height: calc(24 / 14);
+//   }
+// }
+
+// .book-card__list {
+//   margin-bottom: 30px;
+// }
+
+.book-card__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 535px;
+  row-gap: 40px;
 
   @include tablet {
-    padding-bottom: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 366px;
+    column-gap: 25px;
   }
 
   @include desktop {
-    padding-top: 40px;
-    padding-bottom: 72px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 306px;
+    column-gap: 24px;
   }
-}
-
-.book-card__title {
-  margin-bottom: 40px;
-
-  @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
-
-  @include tablet {
-    font-size: 48px;
-    line-height: calc(52 / 48);
-  }
-}
-
-.book-card__filter {
-  color: $accent-color;
-}
-
-.book-card__category-subtitle {
-  margin-bottom: 18px;
-
-  @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
-
-  @include tablet {
-    line-height: calc(24 / 14);
-  }
-}
-
-.book-card__list {
-  margin-bottom: 30px;
 }
 
 .book-card__link {
   display: inline-block;
-  height: 100%;
+  height: 85%;
 }
 
 .book-card__image {
@@ -103,19 +126,20 @@
   font-style: italic;
 }
 
-.book-card__btn {
-  display: block;
-  margin-left: auto;
-  padding: 14px 28px;
+//  ПЕРЕНЕСЕНО В bookshop.scss
+// .book-card__btn {
+//   display: block;
+//   margin-left: auto;
+//   padding: 14px 28px;
 
-  @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
+//   @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
 
-  border: 2px solid $accent-color;
-  border-radius: 40px;
-}
+//   border: 2px solid $accent-color;
+//   border-radius: 40px;
+// }
 
-.book-card__btn:hover,
-.book-card__btn:focus {
-  color: $header-color-light;
-  background-color: $accent-color;
-}
+// .book-card__btn:hover,
+// .book-card__btn:focus {
+//   color: $header-color-light;
+//   background-color: $accent-color;
+// }

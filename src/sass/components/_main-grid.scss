@@ -1,0 +1,54 @@
+/* === STYLES FOR MAIN GRID === */
+.grid-container {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 228px 352px auto;
+  row-gap: 40px;
+  outline: 1px solid blue;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 472px auto;
+    row-gap: 100px;
+    column-gap: 32px;
+  }
+
+  @include desktop {
+    grid-template-columns: 356px 996px;
+    grid-template-rows: 472px 490px auto;
+    row-gap: 100px;
+    column-gap: 40px;
+  }
+}
+
+.bookcase {
+  @include tablet {
+    grid-column: 1 / 3;
+  }
+
+  @include desktop {
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+  }
+}
+
+.categories-wrap {
+  //   background-color: tomato;
+}
+
+.support-wrap {
+  @include desktop {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  //   background-color: cadetblue;
+}
+
+.categories-wrap,
+.support-wrap,
+.bookcase {
+  width: 100%;
+  height: 100%;
+  outline: 1px solid green;
+}
