@@ -1,37 +1,35 @@
-.wrapper {
-  position: relative;
-  max-width: 375px;
-  margin: 0 auto;
-}
-
 .header {
   position: relative;
   z-index: 11;
 }
+
+.wrapper {
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
 .mobile__menu {
   display: block;
-  // display: block коли має показуватись
   position: absolute;
   overflow-y: auto;
   top: -64px;
   left: 0;
   width: 100%;
+  min-height: 700px;
   max-width: 375px;
   height: 100vh;
   z-index: 10;
-  background-image: radial-gradient(
-    183.6% 183.01% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #ffffff 100%
-  );
-}
-.mobile__overlay {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/mob-menu@1x.png');
+  background-image: url('../images/mob-menu@1x.png'),
+    radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,20 +37,23 @@
   @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('../images/mob-menu@2x.png');
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url('../images/mob-menu@2x.png'),
+      radial-gradient(
+        183.6% 183.01% at 59.76% -23.42%,
+        #4f2ee8 18.03%,
+        #ffffff 100%
+      );
   }
 }
 
 .signup-btn {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   min-width: 184px;
-  padding: 13px 14px;
   margin-top: 104px;
+  padding: 13px 14px;
+
   background: $accent-color;
   border: 1.5px solid $primary-black;
   border-radius: 18px;
@@ -64,7 +65,7 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: $header-color-light;
+  color: $primary-white;
 }
 
 .user__container {
@@ -89,15 +90,9 @@
   align-items: center;
 }
 
-.mobile__home {
-  // display: flex;
-  // align-items: flex-start;
-}
-
 .mobile__home,
 .mobile__shoplist {
   display: inline-flex;
-  // margin: auto;
   font-weight: 500;
   font-size: 14px;
   line-height: calc(18 / 14);
@@ -115,6 +110,7 @@
     fill: $primary-black;
   }
 }
+
 .mobile__home-item:not(:last-child) {
   margin-bottom: 16px;
 }
@@ -142,7 +138,6 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: $primary-black;
   background-color: $header-color-light;
   border: 1.5px solid $primary-black;
   border-radius: 18px;
@@ -152,11 +147,5 @@
   &:focus {
     background-color: $accent-color;
     color: $header-color-light;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    display: none;
   }
 }
