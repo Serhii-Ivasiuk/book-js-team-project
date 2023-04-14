@@ -1,5 +1,16 @@
 //SHOPPING LIST STYLES
 
+.shoplist__list {
+  display: grid;
+  grid-gap: 20px;
+
+  margin-bottom: 40px;
+
+  @include less-then-tablet {
+    margin-bottom: 20px;
+  }
+}
+
 .grid-container.shopping-list {
   padding-top: 40px;
   display: grid;
