@@ -2,6 +2,7 @@ import { refs } from './utility/refs';
 const ESC_KEY_CODE = 'Escape';
 
 refs.openModalBtn.addEventListener('click', openModal);
+refs.signUpMobileBtn.addEventListener('click', openModal);
 
 function onBackdropClick(e) {
   if (e.currentTarget === e.target) {
