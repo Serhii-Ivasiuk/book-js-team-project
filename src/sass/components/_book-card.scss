@@ -51,6 +51,10 @@
   row-gap: 40px;
   grid-template-rows: fit-content(1%);
 
+  @include mobile {
+    grid-auto-rows: auto;
+  }
+
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 366px;
