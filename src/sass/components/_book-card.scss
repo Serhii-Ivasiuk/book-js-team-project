@@ -47,28 +47,18 @@
 .book-card__list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 535px;
+  grid-auto-rows: auto;
   row-gap: 40px;
   grid-template-rows: fit-content(1%);
 
-  @include mobile {
-    grid-auto-rows: auto;
-  }
-
-  @include resp-mobile {
-    grid-auto-rows: auto;
-  }
-
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 366px;
     column-gap: 25px;
   }
 
   @include desktop {
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 306px;
-    column-gap: 24px;
+    column-gap: 25px;
   }
 }
 
