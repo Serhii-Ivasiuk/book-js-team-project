@@ -1,0 +1,61 @@
+//SHOPPING LIST STYLES
+
+.shoplist__list {
+  display: grid;
+  grid-gap: 20px;
+
+  margin-bottom: 40px;
+
+  @include less-then-tablet {
+    margin-bottom: 20px;
+  }
+}
+
+.grid-container.shopping-list {
+  padding-top: 40px;
+  display: grid;
+  row-gap: 40px;
+
+  grid-template-rows: none;
+
+  outline: 1px solid blue;
+
+  @include desktop {
+    grid-template-columns: 356px 996px;
+    row-gap: 100px;
+    column-gap: 40px;
+  }
+}
+
+.bookcase.shopping-list {
+  display: grid;
+
+  @include tablet {
+    grid-column: 2;
+  }
+
+  @include desktop {
+    grid-area: 3 / 2 / 1 / 2;
+  }
+}
+
+.support-wrap.shopping-list {
+  @include desktop {
+    grid-area: auto;
+  }
+
+  @include less-then-desktop {
+    display: none;
+  }
+}
+
+.shoplist__list.shopping-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  margin-bottom: 40px;
+
+  @include less-then-tablet {
+    margin-bottom: 20px;
+  }
+}
