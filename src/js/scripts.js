@@ -19,3 +19,6 @@ import './to-top';
 
 // render category list
 import './render-categories';
+
+// pop up
+import './close-pop-up';
