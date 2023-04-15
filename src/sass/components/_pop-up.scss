@@ -14,6 +14,24 @@
   display: none;
 }
 
+.pop-up__book-info {
+  @include mobile {
+    width: 287px;
+  }
+  @include tablet {
+    width: 279px;
+  }
+}
+
+.pop-up__block-img {
+  @include mobile {
+    width: 287px;
+  }
+  @include tablet {
+    width: 192px;
+  }
+}
+
 .modal__pop-up {
   position: fixed;
   top: 50%;
