@@ -69,7 +69,6 @@
 .book-card__image {
   width: 335px;
   height: 485px;
-  border-radius: 8px;
 
   @include tablet {
     height: 316px;
@@ -84,6 +83,9 @@
   position: relative;
   overflow: hidden;
   height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $category-title-color;
 }
 
 .book-card__overlay {
