@@ -10,6 +10,10 @@
   @include transition(opacity);
 }
 
+.pop-up__backdrop.is-hidden {
+  display: none;
+}
+
 .modal__pop-up {
   position: fixed;
   top: 50%;
