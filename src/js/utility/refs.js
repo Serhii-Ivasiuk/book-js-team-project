@@ -39,4 +39,9 @@ const refs = {
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
+
+  //------------- POP UP ------------- //
+  // Close
+  popupCloseBtn: document.querySelector('.pop-up__button__close'),
+  popupBackdrop: document.querySelector('.pop-up__backdrop'),
 };
