@@ -10,17 +10,14 @@
     <nav class="navigation visually-hidden">
       <ul class="navigation__list">
         <li class="navigation__item">
-          <a
-            class="navigation__link navigation__link--active"
-            href="./index.html"
-          >
+          <a class="navigation__link navigation__link--active" href=".">
             <span>Home</span>
           </a>
         </li>
         <li class="navigation__item">
           <a
             class="navigation__link navigation__link--active navigation__link--with-icon"
-            href="#"
+            href="./shopping-list.html"
           >
             <span>Shopping list</span>
             <svg class="mobile-menu-btn__icon" width="20" height="20">
@@ -86,9 +83,13 @@
     </ul>
 
     <!-- Burger menu btn -->
-    <button class="mobile-menu-btn" type="button">
+    <button class="mobile-menu-btn js-mobile-menu-btn" type="button">
       <svg class="mobile-menu-btn__icon" width="28" height="28">
-        <use href="./images/icons.svg#burger"></use>
+        <use class="js-mobile-menu-open" href="./images/icons.svg#burger"></use>
+        <use
+          class="js-mobile-menu-close"
+          href="./images/icons.svg#close-btn"
+        ></use>
       </svg>
     </button>
   </div>

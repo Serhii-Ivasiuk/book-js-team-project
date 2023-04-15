@@ -3,7 +3,7 @@ import { refs } from './utility/refs';
 
 export function renderAllCategories() {
 
-  const mainTitleAllCategories = `<h1 class='bookcase__cda'>
+  let mainTitleAllCategories = `<h1 class='bookcase__cda'>
           Best Sellers <span class='bookcase__filter'>Books</span>
         </h1>`;
 
@@ -11,6 +11,14 @@ export function renderAllCategories() {
   containerBookshelfList.classList.add('bookshelf__list');
 
   getTopBooks().then( ( allCategories ) => {
+
+    if(!Boolean(allCategories.length)) {
+      mainTitleAllCategories = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
+          There are no data to display, please select another category
+        </h1>`;
+      return refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
+    }
+
     const result = allCategories.map( ( { list_name, books } ) => {
       return `
           <li class='bookshelf__item'>
