@@ -1,5 +1,8 @@
 export function normalizeMainTitle(title) {
   let lastWordCategoryName = title.split(' ');
+  if(lastWordCategoryName.length === 1) {
+    return lastWordCategoryName;
+  }
   lastWordCategoryName = lastWordCategoryName[lastWordCategoryName.length - 1];
   let categoryName = title.split(' ');
   categoryName.pop();

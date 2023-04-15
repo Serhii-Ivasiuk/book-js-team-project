@@ -50,10 +50,10 @@
   text-transform: uppercase;
 }
 
-.categories__item{
+.categories__item {
   &--fixed {
-  position: sticky;
-  top: 0;
-  background:$primary-white;
-}
+    position: sticky;
+    top: 0;
+    background: $primary-white;
+  }
 }

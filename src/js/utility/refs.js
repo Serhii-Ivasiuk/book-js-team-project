@@ -30,10 +30,11 @@ const refs = {
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
 
+  //----------- MAIN PAGE------------- //
+  mainSectionCategories: document.querySelector('.bookcase'),
+
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
-  seeMoreBtns: document.querySelectorAll('[data-see-more]'),
-  mainTitle: document.querySelector('.book-card__title'),
   mainTitleColorWord: document.querySelector('.book-card__filter'),
 
   //------------- SUPPORT------------- //
