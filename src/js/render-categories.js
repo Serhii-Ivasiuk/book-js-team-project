@@ -1,6 +1,7 @@
 import { getBooksByCategory, getCategoryList, getTopBooks } from './api-service';
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
+import { refs } from './utility/refs';
 
 const categoriesList = document.querySelector( '.categories__list' );
 const sectionCategory = document.querySelector( '.bookcase' );
@@ -28,7 +29,7 @@ export function onCategoryItemClick( e ) {
     return;
   }
 
-  const mainTitle = document.createElement( 'h1' );
+  let mainTitle = document.createElement( 'h1' );
   const conteinerCategoryBooks = document.createElement( 'ul' );
   mainTitle.classList.add( 'bookcase__cda' );
   mainTitle.innerHTML = normalizeMainTitle( categoryName );
@@ -40,7 +41,16 @@ export function onCategoryItemClick( e ) {
     return;
   }
 
+
   getBooksByCategory( categoryName ).then( data => {
+
+    if(!Boolean(data.length)) {
+      mainTitle = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
+            There are no data to display, please select another category
+          </h1>`;
+      return refs.mainSectionCategories.innerHTML = mainTitle;
+    }
+
     const booksList = data.map(
       ( {
         book_image,
