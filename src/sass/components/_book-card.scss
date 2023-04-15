@@ -90,26 +90,6 @@
   }
 }
 
-.book-card__image {
-  // @include resp-mobile {
-  //   max-height: 485px;
-  // }
-
-  // @include mobile {
-  //   height: 485px;
-  // }
-  // height: 485px;
-  border-radius: 8px;
-  height: 100%;
-  // @include tablet {
-  //   height: 316px;
-  // }
-
-  // @include desktop {
-  //   height: 256px;
-  // }
-}
-
 .book-card__wrapper {
   position: relative;
   overflow: hidden;
