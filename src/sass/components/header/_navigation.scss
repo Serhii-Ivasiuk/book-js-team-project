@@ -21,6 +21,7 @@
   line-height: calc(18 / 14);
   font-weight: 500;
   text-transform: uppercase;
+  color: var(--primary-text-color);
 }
 
 .navigation__link--with-icon {
@@ -32,5 +33,6 @@
   font-weight: 700;
 
   border-radius: 36px;
+  color: $header-color-dark;
   background-color: $action-color;
 }
