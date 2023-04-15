@@ -12,7 +12,7 @@
 }
 
 .grid-container.shopping-list {
-  padding-top: 40px;
+  padding: 40px 20px;
   display: grid;
   row-gap: 40px;
 
@@ -20,10 +20,19 @@
 
   outline: 1px solid blue;
 
+  @include tablet {
+    padding: 40px 32px;
+    column-gap: 0;
+  }
+
   @include desktop {
     grid-template-columns: 356px 996px;
     row-gap: 100px;
     column-gap: 40px;
+    padding: 40px 24px;
+  }
+  & > section {
+    outline: 1px solid green;
   }
 }
 
