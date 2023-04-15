@@ -35,6 +35,8 @@ const refs = {
   lightColorSwitcher: document.querySelector('[data=light-color]'),
   logoLightSvg: document.querySelector('.js-logo-light-svg'),
   logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
+  mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
+  mobMenuEl: document.querySelector('.wrapper'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
