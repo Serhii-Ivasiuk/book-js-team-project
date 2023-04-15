@@ -1,0 +1,176 @@
+.pop-up__backdrop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $backdrop-book-color;
+  opacity: 1;
+  @include transition(opacity);
+}
+
+.pop-up__backdrop.is-hidden {
+  display: none;
+}
+
+.modal__pop-up {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 335px;
+  max-height: 90vh;
+  padding: 40px 24px;
+  transform: translate(-50%, -50%);
+
+  border: 2px solid $header-color-dark;
+  border-radius: 18px;
+  background-color: $header-color-light;
+  overflow-y: auto;
+  @include transition(transform);
+
+  @include tablet {
+    padding: 40px;
+    width: 579px;
+  }
+}
+
+.pop-up__button__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  @include tablet {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.pop-up__icon-close {
+  display: block;
+  stroke: $primary-black;
+  @include transition(stroke);
+
+  @media screen and (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: $accent-color;
+  }
+}
+
+.book-card__container {
+  margin-bottom: 40px;
+
+  @include tablet {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.pop-up__img {
+  width: 100%;
+  border-radius: 8px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 14px;
+  }
+}
+
+.card__book-name {
+  margin-bottom: 8px;
+  @include fonts(24px, 28px, 700, -0.04em, false, $header-color-dark);
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}
+
+.card__book-author {
+  margin-bottom: 20px;
+  @include fonts(14px, 18px, 400, -0.04em, false, $author-color);
+  font-style: italic;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+  }
+}
+
+.card__book-text {
+  margin-bottom: 14px;
+  min-height: 70px;
+  max-height: 145px;
+  @include fonts(14px, 18px, 400, -0.04em, false, $header-color-dark);
+  overflow-y: auto;
+}
+
+.modal__pop-up::-webkit-scrollbar,
+.card__book-text::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.book-shop__thumb {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.book-shop__link {
+  mix-blend-mode: luminosity;
+  @include transition(filter);
+  &:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+}
+
+.pop-up__add-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 28px;
+  @include fonts(18px, 24px, 700, -0.01em, uppercase, $header-color-dark);
+
+  border: 2px solid $accent-color;
+  border-radius: 32px;
+
+  @include transition(color, background-color);
+
+  @include tablet {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.pop-up__add-btn:hover,
+.pop-up__add-btn:focus {
+  color: $primary-white;
+  background-color: $accent-color;
+}
+
+.pop-up__description {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  @include fonts(12px, 14px, 400, -0.04em, false, $backdrop-book-desc-color);
+
+  @media screen and (max-width: 767px) {
+    width: 242px;
+    font-size: 10px;
+    line-height: calc(12 / 10);
+  }
+
+  @include tablet {
+    width: 324px;
+  }
+}
