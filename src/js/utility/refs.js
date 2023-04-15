@@ -32,12 +32,18 @@ const refs = {
   mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
   mobMenuEl: document.querySelector('.wrapper'),
 
+  //----------- MAIN PAGE------------- //
+  mainSectionCategories: document.querySelector('.bookcase'),
+
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
-  seeMoreBtns: document.querySelectorAll('.book-card__btn'),
-  mainTitle: document.querySelector('.book-card__title'),
   mainTitleColorWord: document.querySelector('.book-card__filter'),
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
+
+  //------------- POP UP ------------- //
+  // Close
+  popupCloseBtn: document.querySelector('.pop-up__button__close'),
+  popupBackdrop: document.querySelector('.pop-up__backdrop'),
 };
