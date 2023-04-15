@@ -47,41 +47,28 @@
 .book-card__list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 535px;
+  grid-auto-rows: auto;
   row-gap: 40px;
-
-  @include resp-mobile {
-    grid-auto-rows: auto;
-  }
+  grid-template-rows: fit-content(1%);
 
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 366px;
     column-gap: 25px;
   }
 
   @include desktop {
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 306px;
-    column-gap: 24px;
+    column-gap: 25px;
   }
 }
 
 .book-card__link {
-  // inline-block replaced by block (to delete margin after link
-  display: block;
-  // height: 90.65%;
+  display: inline-block;
+}
 
-  // height written for link instead of img
-  // for div-wrap and img height = 100%
-
-  @include resp-mobile {
-    max-height: 485px;
-  }
-
-  @include mobile {
-    height: 485px;
-  }
+.book-card__image {
+  width: 335px;
+  height: 485px;
 
   @include tablet {
     height: 316px;
@@ -92,30 +79,13 @@
   }
 }
 
-.book-card__image {
-  // @include resp-mobile {
-  //   max-height: 485px;
-  // }
-
-  // @include mobile {
-  //   height: 485px;
-  // }
-  // height: 485px;
-  border-radius: 8px;
-  height: 100%;
-  // @include tablet {
-  //   height: 316px;
-  // }
-
-  // @include desktop {
-  //   height: 256px;
-  // }
-}
-
 .book-card__wrapper {
   position: relative;
   overflow: hidden;
   height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $category-title-color;
 }
 
 .book-card__overlay {

@@ -36,10 +36,11 @@ const refs = {
   logoLightSvg: document.querySelector('.js-logo-light-svg'),
   logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
 
+  //----------- MAIN PAGE------------- //
+  mainSectionCategories: document.querySelector('.bookcase'),
+
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
-  seeMoreBtns: document.querySelectorAll('.book-card__btn'),
-  mainTitle: document.querySelector('.book-card__title'),
   mainTitleColorWord: document.querySelector('.book-card__filter'),
 
   //------------- SUPPORT------------- //
@@ -47,5 +48,10 @@ const refs = {
 
   //------------- POP-UP-MODAL------------- //
   amazonLink: document.querySelectorAll('.js-amazon-link'),
+
+  //------------- POP UP ------------- //
+  // Close
+  popupCloseBtn: document.querySelector('.pop-up__button__close'),
+  popupBackdrop: document.querySelector('.pop-up__backdrop'),
 };
 console.log(refs);

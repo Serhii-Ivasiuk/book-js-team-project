@@ -8,6 +8,7 @@ import {
 //import dark/ligth theme
 import './dark-light-theme';
 
+import './main-page-all-catigories';
 //import see more
 import './see-more';
 
@@ -22,3 +23,6 @@ import './to-top';
 
 // render category list
 import './render-categories';
+
+// pop up
+import './close-pop-up';

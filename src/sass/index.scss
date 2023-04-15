@@ -22,12 +22,14 @@
 @import './components/support.scss';
 // header
 @import './components/header/header';
-
 // main
 @import './components/categories';
 @import './components/book-card';
 @import './components/to-top';
 @import './components/authorization-modal.scss';
+// shopping list
+@import './components/shopping-list';
 // modal
-@import './components/pop-up'; // mob menu
+@import './components/pop-up';
+// mob menu
 @import './components/mobile-menu';
