@@ -50,6 +50,10 @@
   grid-auto-rows: 535px;
   row-gap: 40px;
 
+  @include resp-mobile {
+    grid-auto-rows: auto;
+  }
+
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 366px;
@@ -64,13 +68,20 @@
 }
 
 .book-card__link {
-  display: inline-block;
-  height: 85%;
-}
+  // inline-block replaced by block (to delete margin after link
+  display: block;
+  // height: 90.65%;
 
-.book-card__image {
-  height: 485px;
-  border-radius: 8px;
+  // height written for link instead of img
+  // for div-wrap and img height = 100%
+
+  @include resp-mobile {
+    max-height: 485px;
+  }
+
+  @include mobile {
+    height: 485px;
+  }
 
   @include tablet {
     height: 316px;
@@ -81,9 +92,30 @@
   }
 }
 
+.book-card__image {
+  // @include resp-mobile {
+  //   max-height: 485px;
+  // }
+
+  // @include mobile {
+  //   height: 485px;
+  // }
+  // height: 485px;
+  border-radius: 8px;
+  height: 100%;
+  // @include tablet {
+  //   height: 316px;
+  // }
+
+  // @include desktop {
+  //   height: 256px;
+  // }
+}
+
 .book-card__wrapper {
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .book-card__overlay {
