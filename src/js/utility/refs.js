@@ -29,6 +29,8 @@ const refs = {
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
+  mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
+  mobMenuEl: document.querySelector('.wrapper'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
