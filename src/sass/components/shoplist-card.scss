@@ -48,6 +48,7 @@
 
   border-radius: 8px;
   overflow: hidden;
+  outline: 1px solid $category-title-color;
 
   @media screen and (min-width: 768px) {
     max-width: 116px;

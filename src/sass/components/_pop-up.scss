@@ -78,6 +78,7 @@
 .pop-up__img {
   width: 100%;
   border-radius: 8px;
+  outline: 1px solid $category-title-color;
 
   @media screen and (max-width: 767px) {
     margin-bottom: 14px;
