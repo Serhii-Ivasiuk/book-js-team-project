@@ -5,6 +5,9 @@ import {
   getBookDetail,
 } from './api-service';
 
+//import dark/ligth theme
+import './dark-light-theme';
+
 //import see more
 import './see-more';
 

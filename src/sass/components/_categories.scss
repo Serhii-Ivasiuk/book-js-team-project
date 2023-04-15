@@ -31,7 +31,7 @@
 .categories__name {
   line-height: calc(18 / 16);
   letter-spacing: -0.02em;
-  color: $categories-el-light;
+  color: var(--categories-links-color);
   @include transition(color);
 
   &:hover,
@@ -48,14 +48,13 @@
 
 .categories__active {
   font-weight: 700;
-  color: $accent-color;
+  color: var(--categories-links-active-color);
   text-transform: uppercase;
 }
 
-.categories__item{
+.categories__item {
   &--fixed {
-  position: sticky;
-  top: 0;
-  background:$primary-white;
-}
+    position: sticky;
+    top: 0;
+  }
 }

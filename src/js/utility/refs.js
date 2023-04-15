@@ -1,7 +1,9 @@
 export { refs };
 
 const refs = {
-  //-------   MOBOLE-MENU   ---------- //
+  //-------   HTML   ---------- //
+  html: document.querySelector('html'),
+  //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
   mibileNav: document.querySelector('.js-mobile-thumb'),
@@ -29,6 +31,10 @@ const refs = {
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
+  darkColorSwitcher: document.querySelector('[data=dark-color]'),
+  lightColorSwitcher: document.querySelector('[data=light-color]'),
+  logoLightSvg: document.querySelector('.js-logo-light-svg'),
+  logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
 
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
@@ -38,4 +44,8 @@ const refs = {
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
+
+  //------------- POP-UP-MODAL------------- //
+  amazonLink: document.querySelectorAll('.js-amazon-link'),
 };
+console.log(refs);

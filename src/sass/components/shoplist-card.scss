@@ -4,7 +4,7 @@
   padding: 18px;
 
   position: relative;
-  background: #ffffff;
+  background-color: var(--header-bg-color);
   border: 2px solid #4f2ee866;
   border-radius: 16px;
 
@@ -88,7 +88,7 @@
 .book-title__title {
   margin-bottom: 4px;
 
-  color: $primary-black;
+  color: var(--primary-text-color);
 
   font-size: 16px;
   font-weight: 700;
@@ -146,7 +146,7 @@
   align-self: end;
   order: 7;
 
-  color: $primary-black;
+  color: var(--primary-text-color);
 
   font-size: 14px;
   line-height: 1.3;
