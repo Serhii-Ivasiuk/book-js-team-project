@@ -1,10 +1,12 @@
 .categories {
   height: 228px;
   overflow-y: scroll;
+  // added for responsive mobile to 375px
+  width: 100%;
 
-  @media screen and (max-width: 767.98px) {
-    max-width: 335px;
-  }
+  // @media screen and (max-width: 767.98px) {
+  //   max-width: 335px;
+  // }
 
   @media screen and (min-width: 768px) {
     width: 337px;

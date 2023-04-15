@@ -1,7 +1,11 @@
 .support_container {
   width: 335px;
   height: 490px;
-  background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+  background-image: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
   border-radius: 16px;
   margin-left: auto;
   margin-right: auto;
@@ -13,7 +17,7 @@
 }
 
 .support_title {
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
   color: #fff;
   padding-top: 0;
   padding-left: 0;
@@ -72,6 +76,7 @@
   border-radius: 20px;
   border: none;
 }
-.swiper, swiper-container {
+.swiper,
+swiper-container {
   height: 100%;
 }
