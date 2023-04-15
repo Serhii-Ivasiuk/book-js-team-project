@@ -5,6 +5,7 @@ import {
   getBookDetail,
 } from './api-service';
 
+import './main-page-all-catigories'
 //import see more
 import './see-more';
 

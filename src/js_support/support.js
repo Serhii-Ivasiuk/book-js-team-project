@@ -12,7 +12,7 @@ function createCardMarcup(array) {
   const result = array
     .map(({ title, url, img }, index) => {
       return `<li class='support_items swiper-slide'>
-         <p>${index + 1}</p>
+         <p>${index < 11 ? '0' + (index + 1) : index }</p>
          <a class='support_link' href='${url}' target='_blank'>
             <img
               class='gallery__image'
@@ -30,6 +30,8 @@ new Swiper('.support-slider', {
   // Optional parameters
   direction: 'vertical',
   loop: false,
+  slidesPerView: 6,
+  slidesOffsetAfter: 100,
 
   // Navigation arrows
   navigation: {
