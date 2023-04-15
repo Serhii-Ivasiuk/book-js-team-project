@@ -5,6 +5,7 @@ import {
   getBookDetail,
 } from './api-service';
 
+import './main-page-all-catigories'
 //import see more
 import './see-more';
 
@@ -12,6 +13,7 @@ import '../js_support/support';
 import './firebase/firebase-user';
 import './user-bar-dropdown';
 import './authorization-modal';
+import './bookshelf';
 
 // to-top-button
 import './to-top';

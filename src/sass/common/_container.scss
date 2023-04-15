@@ -6,8 +6,8 @@
   padding-right: 20px;
   outline: 1px solid crimson;
 
-  @media screen and (max-width: 767.98px) {
-    max-width: 375px;
+  @media screen and (min-width: 375px) {
+    width: 375px;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -18,5 +18,9 @@
     width: 1440px;
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  @media screen and (max-width: 374.98px) {
+    max-width: 374.98px;
   }
 }

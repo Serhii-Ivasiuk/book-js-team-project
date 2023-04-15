@@ -2,7 +2,7 @@
 .grid-container {
   padding-top: 40px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: 228px 352px auto;
   row-gap: 40px;
   outline: 1px solid blue;
@@ -33,16 +33,11 @@
   }
 }
 
-.categories-wrap {
-  //   background-color: tomato;
-}
-
 .support-wrap {
   @include desktop {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
   }
-  //   background-color: cadetblue;
 }
 
 .categories-wrap,
