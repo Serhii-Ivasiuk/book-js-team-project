@@ -3,6 +3,7 @@ export { refs };
 const refs = {
   //-------   HTML   ---------- //
   html: document.querySelector('html'),
+
   //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
@@ -52,8 +53,6 @@ const refs = {
   amazonLink: document.querySelectorAll('.js-amazon-link'),
 
   //------------- POP UP ------------- //
-  // Close
   popupCloseBtn: document.querySelector('.pop-up__button__close'),
   popupBackdrop: document.querySelector('.pop-up__backdrop'),
 };
-console.log(refs);
