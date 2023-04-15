@@ -30,7 +30,7 @@ const refs = {
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
   mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
-  mobMenuEl: document.querySelector('.wrapper'),
+  mobMenuEl: document.querySelector('.mobile-menu-wrapper'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
