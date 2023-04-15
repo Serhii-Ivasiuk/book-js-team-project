@@ -23,14 +23,14 @@
   stroke: currentColor;
 }
 
-js-mobile-menu-close {
+.js-mobile-menu-close {
   display: none;
 }
 
-.mobile-menu-btn.is-open .js-mobile-menu-close {
+.js-mobile-menu-btn.is-open .js-mobile-menu-close {
   display: block;
 }
 
-.mobile-menu-btn.is-open .js-mobile-menu-open {
+.js-mobile-menu-btn.is-open .js-mobile-menu-open {
   display: none;
 }
