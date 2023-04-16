@@ -3,35 +3,81 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   background-color: $backdrop-book-color;
   opacity: 1;
-  @include transition(opacity);
+  visibility: initial;
+  @include transition(opacity, visibility);
 }
 
 .pop-up__backdrop.is-hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  & .modal__pop-up {
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+.pop-up__book-info {
+  max-width: 287px;
+
+  @include tablet {
+    width: 279px;
+  }
+}
+
+.pop-up__block-img {
+  max-width: 287px;
+  max-height: 408px;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $category-title-color;
+  @include tablet {
+    width: 192px;
+    height: 281px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 14px;
+  }
 }
 
 .modal__pop-up {
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
-  width: 335px;
-  max-height: 90vh;
+  min-width: 280px;
+  max-width: 335px;
+  max-height: 80vh;
   padding: 40px 24px;
-  transform: translate(-50%, -50%);
 
   border: 2px solid var(--primary-text-color);
   border-radius: 18px;
   background-color: var(--pop-up-bg-color);
   overflow-y: auto;
-  @include transition(transform);
+
+  opacity: 1;
+  visibility: initial;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(1);
+  @include transition(transform, opacity, visibility);
+
+  @media screen and (max-width: 375px) {
+    width: auto;
+    max-width: 335px;
+  }
 
   @include tablet {
     padding: 40px;
-    width: 579px;
+    max-width: 579px;
   }
 }
 
@@ -77,12 +123,8 @@
 
 .pop-up__img {
   width: 100%;
-  border-radius: 8px;
+  max-height: 100%;
   outline: 1px solid $category-title-color;
-
-  @media screen and (max-width: 767px) {
-    margin-bottom: 14px;
-  }
 }
 
 .card__book-name {
@@ -130,8 +172,9 @@
 
 .book-shop__link {
   mix-blend-mode: luminosity;
-
-  @include transition(filter);
+  transition-property: filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  // @include transition(filter);
   &:hover {
     filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
   }
@@ -160,6 +203,10 @@
 
   @include transition(color, background-color);
 
+  @media screen and (max-width: 375px) {
+    font-size: calc(18vw * 100 / 375);
+  }
+
   @include tablet {
     padding: 20px;
     width: 100%;
@@ -176,23 +223,25 @@
   text-align: center;
   margin: 0 auto;
   margin-top: 8px;
+  max-width: 242px;
 
   @include fonts(
+    10px,
     12px,
-    14px,
     400,
     -0.04em,
     false,
     var(--categories-links-color)
   );
 
-  @media screen and (max-width: 767px) {
-    width: 242px;
-    font-size: 10px;
+  @media screen and (max-width: 375px) {
+    font-size: calc(10vw * 100 / 375);
     line-height: calc(12 / 10);
   }
 
   @include tablet {
     width: 324px;
+    font-size: 12;
+    line-height: calc(14 / 12);
   }
 }
