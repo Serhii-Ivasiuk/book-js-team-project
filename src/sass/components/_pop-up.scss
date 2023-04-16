@@ -83,16 +83,16 @@
 
 .pop-up__button__close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 2px;
   background-color: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
 
   @include tablet {
-    top: 24px;
-    right: 24px;
+    top: 16px;
+    right: 2px;
   }
 }
 
@@ -155,7 +155,7 @@
   min-height: 70px;
   max-height: 145px;
   @include fonts(14px, 18px, 400, -0.04em, false, var(--primary-text-color));
-  overflow-y: auto;
+  // overflow-y: auto;
 }
 
 .modal__pop-up::-webkit-scrollbar,
@@ -246,37 +246,56 @@
   }
 }
 
-.scroll-container {
-  position: fixed;
-  overflow-y: scroll;
-  height: 100%;
-  padding: 40px 24px;
-
-  @include tablet {
-    padding: 40px;
-  }
-
-  // Custom scroll-bar
-
+// Custom scroll-bar for modal pop-up
+.modal__pop-up {
   /* width */
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 36px;
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
-    border-radius: 2px;
-    background-color: $scroll-color-light;
+    background: var(--pop-up-bg-color);
+    border-radius: 18px;
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background-color: $accent-color;
+    border-radius: 18px;
+    background-color: $scroll-color-light;
+    border: 14px solid var(--pop-up-bg-color);
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background-color: $action-color;
+    background-color: rgba($scroll-color-light, 0.5);
+  }
+}
+
+// Custom scroll-bar for book-text
+
+.card__book-text {
+  overflow-y: scroll;
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: var(--pop-up-bg-color);
+    border-radius: 6px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: $scroll-color-light;
+    border: 3px solid var(--pop-up-bg-color);
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($scroll-color-light, 0.5);
   }
 }
