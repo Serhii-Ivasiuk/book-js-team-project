@@ -74,7 +74,14 @@
 }
 
 .book-card__name {
-  @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
+  @include fonts(
+    16px,
+    18px,
+    700,
+    -0.04em,
+    uppercase,
+    var(--primary-text-color)
+  );
   margin-bottom: 4px;
 }
 
