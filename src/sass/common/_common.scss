@@ -3,5 +3,5 @@
 body {
   font-family: $font-main;
 
-  background-color: $body-color-light;
+  background-color: var(--body-bg-color);
 }
