@@ -59,7 +59,11 @@ const refs = {
 
   //------------LOCAL STORAGE--------------//
   addToLocalBtn: document.querySelector('.js-add-to-local'),
+
   //------------SHOPPING LIST--------------//
   shoppingList: document.querySelector('.shoplist__list'),
   deleteBookBtn: document.querySelector('.js-delete-book'),
+
+  //------------- SPINNER ------------- //
+  spinner: document.querySelector('#loader-wrapper'),
 };
