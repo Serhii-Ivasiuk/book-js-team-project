@@ -59,3 +59,27 @@
     background: $primary-white;
   }
 }
+
+// custom scrollbar categories
+
+.categories::-webkit-scrollbar{
+  width: 8px;
+  
+}
+
+.categories::-webkit-scrollbar-track{
+  background-color: #f6f6f6;
+}
+
+.categories::-webkit-scrollbar-thumb{
+background: linear-gradient(
+  $accent-color 18.03%,
+  #FFFFFF 100%);
+border-radius: 16px;
+border: 1px solid #f6f6f6;
+}
+
+.categories::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(0deg,$accent-color 18.03%,
+      #FFFFFF 100%);
+}
