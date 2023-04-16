@@ -1,8 +1,9 @@
 /* === STYLES FOR MAIN GRID === */
 .grid-container {
   padding-top: 40px;
+  padding-bottom: 80px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: 228px 352px auto;
   row-gap: 40px;
   outline: 1px solid blue;
@@ -12,6 +13,7 @@
     grid-template-rows: 472px auto;
     row-gap: 100px;
     column-gap: 32px;
+    padding-bottom: 100px;
   }
 
   @include desktop {
@@ -33,16 +35,11 @@
   }
 }
 
-.categories-wrap {
-  //   background-color: tomato;
-}
-
 .support-wrap {
   @include desktop {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
   }
-  //   background-color: cadetblue;
 }
 
 .categories-wrap,

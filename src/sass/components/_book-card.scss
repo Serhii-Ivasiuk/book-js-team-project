@@ -1,76 +1,29 @@
-// .book-card {
-//   // padding-bottom: 80px;
-
-//   // @include tablet {
-//   //   padding-bottom: 100px;
-//   // }
-
-//   @include desktop {
-//     padding-top: 40px;
-//     padding-bottom: 72px;
-//   }
-// }
-
-//  ПЕРЕНЕСЕНО В bookshop.scss
-
-// .book-card__title {
-//   margin-bottom: 40px;
-
-//   @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
-
-//   @include tablet {
-//     font-size: 48px;
-//     line-height: calc(52 / 48);
-//   }
-// }
-
-// .book-card__filter {
-//   color: $accent-color;
-// }
-
-//  ПЕРЕНЕСЕНО В bookshop.scss
-
-// .book-card__category-subtitle {
-//   margin-bottom: 18px;
-
-//   @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
-
-//   @include tablet {
-//     line-height: calc(24 / 14);
-//   }
-// }
-
-// .book-card__list {
-//   margin-bottom: 30px;
-// }
-
 .book-card__list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 535px;
+  grid-auto-rows: auto;
   row-gap: 40px;
+  grid-template-rows: fit-content(1%);
+  margin-bottom: 0;
 
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 366px;
     column-gap: 25px;
   }
 
   @include desktop {
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 306px;
-    column-gap: 24px;
+    column-gap: 25px;
   }
 }
 
 .book-card__link {
   display: inline-block;
-  height: 85%;
 }
 
 .book-card__image {
+  width: 335px;
   height: 485px;
-  border-radius: 8px;
 
   @include tablet {
     height: 316px;
@@ -84,6 +37,10 @@
 .book-card__wrapper {
   position: relative;
   overflow: hidden;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $category-title-color;
 }
 
 .book-card__overlay {
@@ -117,7 +74,14 @@
 }
 
 .book-card__name {
-  @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
+  @include fonts(
+    16px,
+    18px,
+    700,
+    -0.04em,
+    uppercase,
+    var(--primary-text-color)
+  );
   margin-bottom: 4px;
 }
 

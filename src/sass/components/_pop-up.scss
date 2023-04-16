@@ -1,0 +1,247 @@
+.pop-up__backdrop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: $backdrop-book-color;
+  opacity: 1;
+  visibility: initial;
+  @include transition(opacity, visibility);
+}
+
+.pop-up__backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  & .modal__pop-up {
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+.pop-up__book-info {
+  max-width: 287px;
+
+  @include tablet {
+    width: 279px;
+  }
+}
+
+.pop-up__block-img {
+  max-width: 287px;
+  max-height: 408px;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $category-title-color;
+  @include tablet {
+    width: 192px;
+    height: 281px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 14px;
+  }
+}
+
+.modal__pop-up {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  min-width: 280px;
+  max-width: 335px;
+  max-height: 80vh;
+  padding: 40px 24px;
+
+  border: 2px solid var(--primary-text-color);
+  border-radius: 18px;
+  background-color: var(--pop-up-bg-color);
+  overflow-y: auto;
+
+  opacity: 1;
+  visibility: initial;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(1);
+  @include transition(transform, opacity, visibility);
+
+  @media screen and (max-width: 375px) {
+    width: auto;
+    max-width: 335px;
+  }
+
+  @include tablet {
+    padding: 40px;
+    max-width: 579px;
+  }
+}
+
+.pop-up__button__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  @include tablet {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.pop-up__icon-close {
+  display: block;
+  stroke: var(--primary-text-color);
+  @include transition(stroke);
+
+  @media screen and (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: $accent-color;
+  }
+}
+
+.book-card__container {
+  margin-bottom: 40px;
+
+  @include tablet {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.pop-up__img {
+  width: 100%;
+  max-height: 100%;
+  outline: 1px solid $category-title-color;
+}
+
+.card__book-name {
+  margin-bottom: 8px;
+  @include fonts(24px, 28px, 700, -0.04em, false, var(--primary-text-color));
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}
+
+.card__book-author {
+  margin-bottom: 20px;
+  @include fonts(14px, 18px, 400, -0.04em, false, $author-color);
+  font-style: italic;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+  }
+}
+
+.card__book-text {
+  margin-bottom: 14px;
+  min-height: 70px;
+  max-height: 145px;
+  @include fonts(14px, 18px, 400, -0.04em, false, var(--primary-text-color));
+  overflow-y: auto;
+}
+
+.modal__pop-up::-webkit-scrollbar,
+.card__book-text::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.book-shop__thumb {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.book-shop__link {
+  mix-blend-mode: luminosity;
+  transition-property: filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  // @include transition(filter);
+  &:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+}
+
+.amazon-link {
+  filter: brightness(0) invert(1);
+}
+
+.pop-up__add-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 28px;
+  @include fonts(
+    18px,
+    24px,
+    700,
+    -0.01em,
+    uppercase,
+    var(--primary-text-color)
+  );
+
+  background-color: inherit;
+  border: 2px solid $accent-color;
+  border-radius: 32px;
+
+  @include transition(color, background-color);
+
+  @media screen and (max-width: 375px) {
+    font-size: calc(18vw * 100 / 375);
+  }
+
+  @include tablet {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.pop-up__add-btn:hover,
+.pop-up__add-btn:focus {
+  color: $primary-white;
+  background-color: $accent-color;
+}
+
+.pop-up__description {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  max-width: 242px;
+
+  @include fonts(
+    10px,
+    12px,
+    400,
+    -0.04em,
+    false,
+    var(--categories-links-color)
+  );
+
+  @media screen and (max-width: 375px) {
+    font-size: calc(10vw * 100 / 375);
+    line-height: calc(12 / 10);
+  }
+
+  @include tablet {
+    width: 324px;
+    font-size: 12;
+    line-height: calc(14 / 12);
+  }
+}

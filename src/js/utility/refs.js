@@ -1,7 +1,10 @@
 export { refs };
 
 const refs = {
-  //-------   MOBOLE-MENU   ---------- //
+  //-------   HTML   ---------- //
+  html: document.querySelector('html'),
+
+  //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
   mibileNav: document.querySelector('.js-mobile-thumb'),
@@ -31,13 +34,31 @@ const refs = {
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
+  darkColorSwitcher: document.querySelector('[data=dark-color]'),
+  lightColorSwitcher: document.querySelector('[data=light-color]'),
+  logoLightSvg: document.querySelector('.js-logo-light-svg'),
+  logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
+  mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
+  mobMenuEl: document.querySelector('.mobile-menu-wrapper'),
+
+  //----------- MAIN PAGE------------- //
+  mainSectionCategories: document.querySelector('.bookcase'),
 
   //----------- BOOKSHOP------------- //
   booksCategoryContainer: document.querySelector('.book-card__list'),
-  seeMoreBtns: document.querySelectorAll('.book-card__btn'),
-  mainTitle: document.querySelector('.book-card__title'),
   mainTitleColorWord: document.querySelector('.book-card__filter'),
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
+
+  //------------- POP-UP-MODAL------------- //
+  amazonLink: document.querySelectorAll('.js-amazon-link'),
+
+  //------------- POP UP ------------- //
+  popupCloseBtn: document.querySelector('.pop-up__button__close'),
+  popupBackdrop: document.querySelector('.pop-up__backdrop'),
+  popupCardContainer: document.querySelector('.book-card__container'),
+
+  //------------- SPINNER ------------- //
+  spinner: document.querySelector('#loader-wrapper'),
 };
