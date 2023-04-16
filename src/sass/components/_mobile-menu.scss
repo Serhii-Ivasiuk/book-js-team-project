@@ -1,21 +1,15 @@
-// for test menu scroll
-// body {
-//   overflow: hidden;
-// }
-
 .header {
   position: relative;
-  z-index: 11;
+  z-index: 20;
 }
 
-.wrapper {
-  display: none;
-  position: relative;
-  top: -64px;
-  max-width: 375px;
-  min-width: 320px;
-  margin: 0 auto;
-  height: 100vh;
+.mobile-menu-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
 
   transform: translateY(-100%);
@@ -23,7 +17,6 @@
   @include transition(transform);
 
   &.is-open {
-    display: block;
     transform: translateY(0%);
   }
 
@@ -32,17 +25,23 @@
   }
 }
 
+.mobile-menu-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .mobile__menu {
-  display: block;
-  position: absolute;
-  overflow-y: auto;
-  top: 0px;
+  position: relative;
+  top: 0;
   left: 0;
   width: 100%;
-  min-height: 700px;
+
   max-width: 375px;
+  min-width: 320px;
+  min-height: 800px;
+
   height: 100vh;
-  z-index: 10;
+  padding-top: 84px;
   background-image: url('../images/mob-menu@1x.png'),
     radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
@@ -86,7 +85,6 @@
 .user__container {
   display: flex;
   align-items: center;
-  margin-top: 84px;
   margin-bottom: 130px;
   gap: 9px;
 }
@@ -104,9 +102,12 @@
 .mobile__home,
 .mobile__shoplist {
   display: inline-flex;
+  padding: 8px 16px;
+  margin-left: -16px;
+
   @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
   &.is-active {
-    padding: 8px 16px;
+    margin-left: 0px;
     background: $action-color;
     border-radius: 36px;
     color: $primary-black;
@@ -117,7 +118,7 @@
 }
 
 .mobile__home-item:not(:last-child) {
-  margin-bottom: 16px;
+  margin-bottom: 9px;
 }
 
 .mobile__shoplist {
