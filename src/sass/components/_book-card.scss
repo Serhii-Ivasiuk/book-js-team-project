@@ -4,16 +4,18 @@
   grid-auto-rows: auto;
   row-gap: 40px;
   grid-template-rows: fit-content(1%);
-  margin-bottom: 0;
+  margin-bottom: 8px;
 
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 25px;
+    margin-bottom: 20px;
   }
 
   @include desktop {
     grid-template-columns: repeat(5, 1fr);
     column-gap: 25px;
+    margin-bottom: 32px;
   }
 }
 
