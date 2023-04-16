@@ -21,9 +21,11 @@
   line-height: calc(18 / 14);
   font-weight: 500;
   text-transform: uppercase;
+  color: var(--primary-text-color);
 }
 
 .navigation__link--with-icon {
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
