@@ -16,6 +16,9 @@ import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
 
 const bookshelfContainer = document.querySelector('.bookcase');
+let localBooks = [];
+let curBookId = '';
+updateLocalBooks();
 
 bookshelfContainer.addEventListener('click', onClickBook);
 
@@ -27,17 +30,24 @@ async function onClickBook(e) {
   }
 
   const bookId = e.target.closest('.book-card__link').dataset.id;
+  curBookId = bookId;
 
   const bookData = await getBookDetail(bookId);
   const markup = createMarkupCard(bookData);
+  let isBookInLocal = localBooks.includes(curBookId);
 
   refs.popupCardContainer.innerHTML = markup;
+
+  isBookInLocal
+    ? (refs.addToLocalBtn.innerHTML = 'remove from the shopping list')
+    : (refs.addToLocalBtn.innerHTML = 'add to shopping list');
 
   const buyLinks = bookData.buy_links;
 
   refs.popupBackdrop.classList.remove('is-hidden');
   refs.popupCloseBtn.addEventListener('click', closePopUp);
   refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
+  refs.addToLocalBtn.addEventListener('click', bookToLocal);
   window.addEventListener('keydown', onPopUpEscapeKeydown);
 }
 
@@ -140,4 +150,31 @@ function createMarkupCard({
         ></a>
       </div>
     </div>`;
+}
+
+function bookToLocal() {
+  let isBookInLocal = localBooks.includes(curBookId);
+  if (isBookInLocal) {
+    const index = localBooks.indexOf(curBookId);
+    if (index !== -1) {
+      localBooks.splice(index, 1);
+      console.log(localBooks);
+      refs.addToLocalBtn.innerHTML = 'add to shopping list';
+      updateLocal();
+    }
+  } else {
+    localBooks.push(curBookId);
+    console.log(localBooks);
+    refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
+    updateLocal();
+  }
+}
+
+function updateLocalBooks() {
+  const localBooksId = localStorage.getItem('books-id');
+  // localBooks = JSON.parse(localBooksId);
+}
+
+function updateLocal() {
+  localStorage.setItem('books-id', JSON.stringify(localBooks));
 }

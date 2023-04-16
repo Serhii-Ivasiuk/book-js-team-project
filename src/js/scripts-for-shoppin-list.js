@@ -1,4 +1,5 @@
 import { getBookDetail } from './api-service';
+import { renderBooksCards } from './render-local-storage';
 
 //import dark/ligth theme
 import './dark-light-theme';

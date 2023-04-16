@@ -1,4 +1,5 @@
 import { refs } from './utility/refs';
+import { bookToLocal } from './bookshelf';
 const ESC_KEY_POPUP = 'Escape';
 
 // click on backdrop closes Pop Up
@@ -22,5 +23,6 @@ export function closePopUp() {
   // remove listeners from closeModalBtn, backdrop, keydown(escape)
   refs.popupCloseBtn.removeEventListener('click', closePopUp);
   refs.popupBackdrop.removeEventListener('click', onPopUpBackdropClick);
+  refs.addToLocalBtn.removeEventListener('click', bookToLocal);
   window.removeEventListener('keydown', onPopUpEscapeKeydown);
 }

@@ -56,4 +56,10 @@ const refs = {
   popupCloseBtn: document.querySelector('.pop-up__button__close'),
   popupBackdrop: document.querySelector('.pop-up__backdrop'),
   popupCardContainer: document.querySelector('.book-card__container'),
+
+  //------------LOCAL STORAGE--------------//
+  addToLocalBtn: document.querySelector('.js-add-to-local'),
+  //------------SHOPPING LIST--------------//
+  shoppingList: document.querySelector('.shoplist__list'),
+  deleteBookBtn: document.querySelector('.js-delete-book'),
 };
