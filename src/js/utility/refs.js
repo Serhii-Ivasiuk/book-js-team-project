@@ -31,6 +31,8 @@ const refs = {
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
   mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
   mobMenuEl: document.querySelector('.mobile-menu-wrapper'),
+  mainPageEl: document.querySelectorAll('.js-main-page-link'),
+  listPageEl: document.querySelectorAll('.js-list-page-link'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
