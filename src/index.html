@@ -11,6 +11,99 @@
   </head>
   <body>
     <!-- partials -->
+    <div class="pop-up__backdrop is-hidden">
+  <div class="modal__pop-up">
+    <button class="pop-up__button__close" data-modal-close>
+      <svg class="pop-up__icon-close" width="28" height="28">
+        <use href="./images/icons.svg#close-btn"></use>
+      </svg>
+    </button>
+
+    <div class="book-card__container">
+      <img
+        class="pop-up__img"
+        src="./images/book-modal/image1@2x.png"
+        alt="NA"
+      />
+      <div class="pop-up__book-info">
+        <h2 class="card__book-name">HELLO BEAUTIFUL</h2>
+        <h3 class="card__book-author">Ann Napolitano</h3>
+        <p class="card__book-text">
+          In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark
+          past resurfaces as he gets to the know the family of his college
+          sweetheart. In a homage to Louisa May Alcott’s “Little Women,” a young
+          man’s dark past resurfaces as he gets to the know the family of his
+          college sweetheart. In a homage to Louisa May Alcott’s “Little Women,”
+          a young man’s dark past resurfaces as he gets to the know the family
+          of his college sweetheart. In a homage to Louisa May Alcott’s “Little
+          Women,” a young man’s dark past resurfaces as he gets to the know the
+          family of his college sweetheart. In a homage to Louisa May Alcott’s
+          “Little Women,” a young man’s dark past resurfaces as he gets to the
+          know the family of his college sweetheart.
+        </p>
+        <div class="book-shop__thumb">
+          <a href="" class="book-shop__link" target="_blank">
+            <picture>
+              <source
+                srcset="
+                  ./images/book-modal/amazon@1x.png 1x,
+                  ./images/book-modal/amazon@2x.png 2x
+                "
+              />
+              <img
+                class="book-shop__img"
+                src="./images/book-modal/amazon@1x.png"
+                alt="amazon"
+                width="48"
+              />
+            </picture>
+          </a>
+          <a href="" class="book-shop__link" target="_blank"
+            ><picture>
+              <source
+                srcset="
+                  ./images/book-modal/apple@1x.png 1x,
+                  ./images/book-modal/apple@2x.png 2x
+                "
+              />
+              <img
+                class="book-shop__img"
+                src="./images/book-modal/apple@1x.png"
+                alt="apple"
+                width="28"
+              /> </picture
+          ></a>
+          <a href="" class="book-shop__link" target="_blank"
+            ><picture>
+              <source
+                srcset="
+                  ./images/book-modal/book-shop@1x.png 1x,
+                  ./images/book-modal/book-shop@2x.png 2x
+                "
+              />
+              <img
+                class="book-shop__img"
+                src="./images/book-modal/book-shop@1x.png"
+                alt="book-shop"
+                width="32"
+              /> </picture
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn__container">
+      <button type="button" class="pop-up__add-btn">
+        Add to shopping list
+        <!-- remove from the shopping list -->
+      </button>
+      <p class="pop-up__description">
+        Сongratulations! You have added the book to the shopping list. To
+        delete, press the button “Remove from the shopping list”.
+      </p>
+    </div>
+  </div>
+</div>
     <include src="./partials/header.html"></include>
     <include src="./partials/mobile-menu.html"></include>
     <include src="./partials/bookshop-main.html"></include>
