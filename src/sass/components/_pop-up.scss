@@ -114,7 +114,6 @@
 
 .book-card__container {
   margin-bottom: 40px;
-  overflow-y: scroll;
 
   @include tablet {
     display: flex;
@@ -161,8 +160,8 @@
 
 .modal__pop-up::-webkit-scrollbar,
 .card__book-text::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  // width: 0;
+  // height: 0;
 }
 
 .book-shop__thumb {
