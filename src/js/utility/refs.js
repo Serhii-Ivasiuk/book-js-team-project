@@ -55,4 +55,8 @@ const refs = {
   //------------- POP UP ------------- //
   popupCloseBtn: document.querySelector('.pop-up__button__close'),
   popupBackdrop: document.querySelector('.pop-up__backdrop'),
+  popupCardContainer: document.querySelector('.book-card__container'),
+
+  //------------- SPINNER ------------- //
+  spinner: document.querySelector('#loader-wrapper'),
 };
