@@ -39,4 +39,5 @@ const refs = {
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
+  sliderBtn: document.querySelector('.support_btn'),
 };

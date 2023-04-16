@@ -1,12 +1,13 @@
-import { arrayFunds } from './array_funds';
-import { refs } from '../js/utility/refs';
+import { arrayFunds } from './utility/array_funds';
+import { refs } from './utility/refs';
 
 // import Swiper JS
 import Swiper from 'swiper';
-
 const listMarkup = createCardMarcup(arrayFunds);
 
 refs.fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
+
+refs.sliderBtn.addEventListener('click', hendleListSliderClick);
 
 function createCardMarcup(array) {
   const result = array
@@ -26,16 +27,21 @@ function createCardMarcup(array) {
   return result;
 }
 
-new Swiper('.support-slider', {
+const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'vertical',
-  loop: false,
-  slidesPerView: 6,
+  loop: true,
+  slidesPerView: 4,
   slidesOffsetAfter: 100,
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+  speed: 200,
+  breakpoints: {
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 6,
+    },
+  }
 });
+
+function hendleListSliderClick(){
+  swiper.slideNext();
+}

@@ -1,6 +1,6 @@
 .support_container {
-  width: 335px;
-  height: 490px;
+  // width: 335px;
+  height: 352px;
   background-image: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
@@ -10,10 +10,20 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   box-shadow: 0 10px 10px #f5f5f71a;
   box-sizing: border-box;
   padding: 24px 40px;
+
+  @media screen and (min-width: 768px) {
+    // width: 335px;
+    height: 472px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    // width: 356px;
+    height: 490px;
+  }
 }
 
 .support_title {
@@ -30,14 +40,30 @@
 .support_icon {
   margin-left: 12px;
 }
-.support-slider {
-  margin-top: 10px;
-}
-.support_list {
-  padding-bottom: 16px;
-  height: 100%;
-}
+
+// .support-slider {
+//   height: 188px;
+//   margin-top: 10px;
+//   overflow: hidden;
+// }
+
+// .support_list {
+//   height: 188px;
+//   padding-bottom: 16px;
+//   height: 100%;
+//   overflow: hidden;
+
+//   @media screen and (min-width: 768px) { 
+//     height: 292px;
+//   }
+
+//   @media screen and (min-width: 1440px) {
+//     height: 490px;
+//   }
+// }
+
 .support_items {
+  height: 32px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -48,7 +74,7 @@
 
 .support_link {
   height: 32px;
-  width: 131px;
+  // width: 131px;
   text-align: left;
 }
 
@@ -75,7 +101,9 @@
   padding: 1px;
   border-radius: 20px;
   border: none;
+  z-index: 1;
 }
+
 .swiper,
 swiper-container {
   height: 100%;
