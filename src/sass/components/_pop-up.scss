@@ -19,19 +19,21 @@
   top: 50%;
   left: 50%;
   width: 335px;
-  max-height: 90vh;
-  padding: 40px 24px;
+  // max-height: 90vh;
+  height: 762px;
+  // padding: 40px 24px;
   transform: translate(-50%, -50%);
 
   border: 2px solid var(--primary-text-color);
   border-radius: 18px;
   background-color: var(--pop-up-bg-color);
-  overflow-y: auto;
+  overflow-y: scroll;
   @include transition(transform);
 
   @include tablet {
-    padding: 40px;
+    // padding: 40px;
     width: 579px;
+    height: 465px;
   }
 }
 
@@ -68,6 +70,7 @@
 
 .book-card__container {
   margin-bottom: 40px;
+  overflow-y: scroll;
 
   @include tablet {
     display: flex;
@@ -194,5 +197,40 @@
 
   @include tablet {
     width: 324px;
+  }
+}
+
+.scroll-container {
+  position: fixed;
+  overflow-y: scroll;
+  height: 100%;
+  padding: 40px 24px;
+
+  @include tablet {
+    padding: 40px;
+  }
+
+  // Custom scroll-bar
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: $scroll-color-light;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: $accent-color;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $action-color;
   }
 }
