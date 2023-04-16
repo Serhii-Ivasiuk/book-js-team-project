@@ -46,4 +46,6 @@ const refs = {
   // Close
   popupCloseBtn: document.querySelector('.pop-up__button__close'),
   popupBackdrop: document.querySelector('.pop-up__backdrop'),
+  //------------- SPINNER ------------- //
+  spinner: document.querySelector('#loader-wrapper'),
 };
