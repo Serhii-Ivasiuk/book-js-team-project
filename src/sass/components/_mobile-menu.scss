@@ -102,9 +102,12 @@
 .mobile__home,
 .mobile__shoplist {
   display: inline-flex;
+  padding: 8px 16px;
+  margin-left: -16px;
+
   @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
   &.is-active {
-    padding: 8px 16px;
+    margin-left: 0px;
     background: $action-color;
     border-radius: 36px;
     color: $primary-black;
@@ -115,7 +118,7 @@
 }
 
 .mobile__home-item:not(:last-child) {
-  margin-bottom: 16px;
+  margin-bottom: 9px;
 }
 
 .mobile__shoplist {

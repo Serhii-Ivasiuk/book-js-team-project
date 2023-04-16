@@ -5,7 +5,8 @@
   padding: 0;
 
   background-color: transparent;
-  color: $primary-black;
+  color: var(--primary-text-color);
+  stroke: currentColor;
   cursor: pointer;
 
   &:hover {
@@ -19,8 +20,8 @@
   }
 }
 
-.mobile__menu > .mobile-menu-btn__icon {
-  fill: var(--primary-text-color);
+.navigation__link > .mobile-menu-btn__icon {
+  fill: currentColor;
 }
 
 .js-mobile-menu-close {
@@ -33,4 +34,13 @@
 
 .js-mobile-menu-btn.is-open .js-mobile-menu-open {
   display: none;
+}
+
+.js-mobile-menu-btn {
+  // display: inline-block;
+  // width: 1em;
+  // height: 1em;
+  // stroke-width: 0;
+  // stroke: currentColor;
+  // fill: currentColor;
 }
