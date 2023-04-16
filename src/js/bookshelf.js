@@ -27,14 +27,12 @@ async function onClickBook(e) {
   }
 
   const bookId = e.target.closest('.book-card__link').dataset.id;
-
   const bookData = await getBookDetail(bookId);
   const markup = createMarkupCard(bookData);
 
   refs.popupCardContainer.innerHTML = markup;
 
-  const buyLinks = bookData.buy_links;
-
+  document.body.style.overflow = 'hidden';
   refs.popupBackdrop.classList.remove('is-hidden');
   refs.popupCloseBtn.addEventListener('click', closePopUp);
   refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
@@ -80,7 +78,7 @@ function createMarkupCard({
   return `<div class="pop-up__block-img"> <img
       class="pop-up__img "
       src=${book_image}
-      alt="NA"
+      alt='${title}'
       width=${book_image_width}
       heigth=${book_image_height}
     />

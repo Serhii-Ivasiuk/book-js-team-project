@@ -23,4 +23,5 @@ export function closePopUp() {
   refs.popupCloseBtn.removeEventListener('click', closePopUp);
   refs.popupBackdrop.removeEventListener('click', onPopUpBackdropClick);
   window.removeEventListener('keydown', onPopUpEscapeKeydown);
+  document.body.style.overflow = '';
 }
