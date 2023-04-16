@@ -1,17 +1,19 @@
+import { refs } from './utility/refs';
 import { doc } from 'firebase/firestore/lite';
 import { getBookDetail } from './api-service';
 
-import image from '../images/book-modal/amazon@1x.png';
-import image2x from '../images/book-modal/amazon@2x.png';
-// import image from './images/book-modal/amazon@1x.png';
-// import image2x from './images/book-modal/amazon@2x.png';
-// import image from './images/book-modal/amazon@1x.png';
-// import image2x from './images/book-modal/amazon@2x.png';
+import {
+  onPopUpBackdropClick,
+  onPopUpEscapeKeydown,
+  closePopUp,
+} from './close-pop-up';
 
-const refs = {
-  div: document.querySelector('.book-card__container'),
-  backdropDiv: document.querySelector('.pop-up__backdrop'),
-};
+import amazon from '../images/book-modal/amazon@1x.png';
+import amazon2x from '../images/book-modal/amazon@2x.png';
+import apple from '../images/book-modal/apple@1x.png';
+import apple2x from '../images/book-modal/apple@2x.png';
+import bookShop from '../images/book-modal/book-shop@1x.png';
+import bookShop2x from '../images/book-modal/book-shop@2x.png';
 
 const bookshelfContainer = document.querySelector('.bookcase');
 
@@ -26,10 +28,17 @@ async function onClickBook(e) {
 
   const bookId = e.target.closest('.book-card__link').dataset.id;
 
-  await getBookDetail(bookId).then(data => {
-    refs.div.innerHTML = createMarkupCard(data);
-  });
-  refs.backdropDiv.classList.remove('is-hidden');
+  const bookData = await getBookDetail(bookId);
+  const markup = createMarkupCard(bookData);
+
+  refs.popupCardContainer.innerHTML = markup;
+
+  const buyLinks = bookData.buy_links;
+
+  refs.popupBackdrop.classList.remove('is-hidden');
+  refs.popupCloseBtn.addEventListener('click', closePopUp);
+  refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
+  window.addEventListener('keydown', onPopUpEscapeKeydown);
 }
 
 function createMarkupCard({
@@ -39,6 +48,7 @@ function createMarkupCard({
   book_image_width,
   book_image,
   description,
+  buy_links,
 }) {
   if (!description) {
     description = 'N/A';
@@ -49,6 +59,24 @@ function createMarkupCard({
   if (!title) {
     title = 'N/A';
   }
+
+  let amazonLink = '';
+  let appleLink = '';
+  let bookShopLink = '';
+
+  buy_links.forEach(link => {
+    if (link.name === 'Amazon') {
+      amazonLink = link.url;
+    }
+
+    if (link.name === 'Apple Books') {
+      appleLink = link.url;
+    }
+
+    if (link.name === 'Bookshop') {
+      bookShopLink = link.url;
+    }
+  });
   return `<div class="pop-up__block-img"> <img
       class="pop-up__img "
       src=${book_image}
@@ -64,48 +92,48 @@ function createMarkupCard({
         ${description}
       </p>
       <div class="book-shop__thumb">
-        <a href="" class="book-shop__link" target="_blank">
+        <a href="${amazonLink}" class="book-shop__link" target="_blank">
           <picture>
             <source
               srcset="
-                ${image},
-                ${image2x}
+                ${amazon},
+                ${amazon2x}
               "
             />
             <img
               class="book-shop__img"
-              src="./images/book-modal/amazon@1x.png"
+              src="${amazon}"
               alt="amazon"
               width="48"
             />
           </picture>
         </a>
-        <a href="" class="book-shop__link" target="_blank"
+        <a href="${appleLink}" class="book-shop__link" target="_blank"
           ><picture>
             <source
               srcset="
-                ./images/book-modal/apple@1x.png 1x,
-                ./images/book-modal/apple@2x.png 2x
+                ${apple},
+                ${apple2x}
               "
             />
             <img
               class="book-shop__img"
-              src="./images/book-modal/apple@1x.png"
+              src="${apple}"
               alt="apple"
               width="28"
             /> </picture
         ></a>
-        <a href="" class="book-shop__link" target="_blank"
+        <a href="${bookShopLink}" class="book-shop__link" target="_blank"
           ><picture>
             <source
               srcset="
-                ./images/book-modal/book-shop@1x.png 1x,
-                ./images/book-modal/book-shop@2x.png 2x
+                ${bookShop},
+                ${bookShop2x}
               "
             />
             <img
               class="book-shop__img"
-              src="./images/book-modal/book-shop@1x.png"
+              src="${bookShop}"
               alt="book-shop"
               width="32"
             /> </picture
