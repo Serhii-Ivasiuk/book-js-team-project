@@ -25,13 +25,18 @@
 
 .categories__name {
   display: block;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  line-height: calc(18 / 16);
+  width: 100%;
+  padding: 12px 0;
+
+  text-align: left;
   letter-spacing: -0.02em;
+  line-height: calc(18 / 16);
+  text-shadow: unset;
+
+  border: 0;
+  background-color: transparent;
   color: var(--categories-links-color);
 
-  text-shadow: unset;
   @include transition(color, text-shadow);
 
   &:hover {
