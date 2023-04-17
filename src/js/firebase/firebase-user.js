@@ -1,5 +1,6 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
+import { toggleMenu } from '../modal-menu';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -43,7 +44,9 @@ function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
   // hide mobile menu
-  refs.mobMenuEl.classList.remove('is-open');
+  // refs.mobMenuEl.classList.remove('is-open');
+  // refs.mobMenuBtn.classList.remove('is-open');
+  toggleMenu();
 
   const {
     elements: { email, password },
