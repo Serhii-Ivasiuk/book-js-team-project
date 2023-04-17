@@ -79,6 +79,15 @@ function createMarkupCard({
   description,
   buy_links,
 }) {
+  if (!book_image) {
+    book_image = './images/empty-pic.jpg';
+  }
+  if (!book_image_height) {
+    book_image_height = 500;
+  }
+  if (!book_image_width) {
+    book_image_width = 330;
+  }
   if (!description) {
     description = 'N/A';
   }
