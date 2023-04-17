@@ -44,6 +44,8 @@ const refs = {
   logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
   mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
   mobMenuEl: document.querySelector('.mobile-menu-wrapper'),
+  mainPageEl: document.querySelectorAll('.js-main-page-link'),
+  listPageEl: document.querySelectorAll('.js-list-page-link'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
