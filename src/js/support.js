@@ -1,7 +1,6 @@
 import { arrayFunds } from './utility/array_funds';
 import { refs } from './utility/refs';
 import Swiper, { Navigation } from 'swiper';
-// import Swiper JS
 import Swiper from 'swiper';
 
 const listMarkup = createCardMarcup(arrayFunds);
@@ -10,7 +9,7 @@ refs.fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
 
 function createCardMarcup(array) {
   const result = array
-    .map(({ title, url, img, img_2x, }, index) => {
+    .map(({ title, url, img, img_2x }, index) => {
       return `<li class='support_items swiper-slide'>
          <p>${index < 11 ? '0' + (index + 1) : index}</p>
          <a class='support_link' href='${url}' target='_blank'>
