@@ -3,7 +3,7 @@ import { refs } from './utility/refs';
 let isMenuOpen = false;
 refs.mobMenuBtn.addEventListener('click', toggleMenu);
 
-function toggleMenu() {
+export function toggleMenu() {
   isMenuOpen = !isMenuOpen;
   refs.mobMenuEl.classList.toggle('is-open');
   refs.mobMenuBtn.classList.toggle('is-open');
@@ -26,7 +26,7 @@ function onWidestScreen() {
 }
 function onTurnScreen(e) {
   if (!e.matches && isMenuOpen) {
-    refs.mobMenuEl.classList.remove('is-open');
+    refs.mobMenuEl.classList.toggle('is-open');
     refs.mobMenuBtn.classList.toggle('is-open');
     isMenuOpen = false;
     document.body.style.overflow = '';
