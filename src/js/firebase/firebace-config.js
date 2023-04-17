@@ -1,8 +1,5 @@
 import { initializeApp } from 'firebase/app';
 
-import { getFirestore } from 'firebase/firestore/lite';
-import { getStorage } from 'firebase/storage';
-
 const firebaseConfig = {
   apiKey: 'AIzaSyDfT-rZpY0OALd7KjMrkrFQZlQZKUmMqYA',
   authDomain: 'book-159d3.firebaseapp.com',
@@ -13,20 +10,5 @@ const firebaseConfig = {
   appId: '1:35676359423:web:0fe005890081fa3d52daca',
 };
 
-// // Get a list of cities from your database
-// async function getCities(db) {
-//   const citiesCol = collection(db, 'cities');
-//   const citySnapshot = await getDocs(citiesCol);
-//   const cityList = citySnapshot.docs.map(doc => doc.data());
-//   return cityList;
-// }
-
-//
-
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-
-export const db = getFirestore(app);
-
-// Initialize Cloud Storage and get a reference to the service
-export const storage = getStorage(app);
