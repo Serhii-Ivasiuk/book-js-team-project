@@ -16,8 +16,10 @@ import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
 
 const bookshelfContainer = document.querySelector('.bookcase');
+let idsForCheck = [];
 let localBooks = [];
-let curBookId = '';
+let curBookId = [];
+let userBooksId = [];
 
 localStorage.getItem('books-id') === null
   ? localStorage.setItem('books-id', JSON.stringify([]))
@@ -32,19 +34,31 @@ async function onClickBook(e) {
     return;
   }
 
+  updateLocal();
+
   const bookId = e.target.closest('.book-card__link').dataset.id;
   curBookId = bookId;
 
   const bookData = await getBookDetail(bookId);
   const markup = createMarkupCard(bookData);
 
-  let isBookInLocal = localBooks.includes(curBookId);
+  curBookId = {
+    bookId,
+    bookData,
+  };
 
   refs.popupCardContainer.innerHTML = markup;
 
-  isBookInLocal
-    ? (refs.addToLocalBtn.innerHTML = 'remove from the shopping list')
-    : (refs.addToLocalBtn.innerHTML = 'add to shopping list');
+  localBooks.forEach(book => {
+    idsForCheck.push(book.bookId);
+  });
+  if (idsForCheck.includes(curBookId.bookId)) {
+    refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
+    refs.popupDesc.style.opacity = '1';
+  } else {
+    refs.addToLocalBtn.innerHTML = 'add to shopping list';
+    refs.popupDesc.style.opacity = '0';
+  }
 
   const buyLinks = bookData.buy_links;
 
@@ -158,17 +172,18 @@ function createMarkupCard({
 }
 
 function bookToLocal() {
-  let isBookInLocal = localBooks.includes(curBookId);
+  const isBookInLocal = localBooks.some(
+    book => book.bookId === curBookId.bookId
+  );
   if (isBookInLocal) {
-    const index = localBooks.indexOf(curBookId);
-    if (index !== -1) {
-      localBooks.splice(index, 1);
-      refs.addToLocalBtn.innerHTML = 'add to shopping list';
-      updateLocal();
-    }
+    localBooks = localBooks.filter(book => book.bookId !== curBookId.bookId);
+    refs.addToLocalBtn.innerHTML = 'add to shopping list';
+    refs.popupDesc.style.opacity = '0';
+    updateLocal();
   } else {
     localBooks.push(curBookId);
     refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
+    refs.popupDesc.style.opacity = '1';
     updateLocal();
   }
 }
@@ -180,4 +195,5 @@ function updateLocalBooks() {
 
 function updateLocal() {
   localStorage.setItem('books-id', JSON.stringify(localBooks));
+  idsForCheck = [];
 }

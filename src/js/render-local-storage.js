@@ -29,13 +29,14 @@ function checkLocalBooks() {
   } else {
     noBooksMarkup();
   }
+  if (localBooks.length <= 3) {
+    refs.pagination.style.display = 'none';
+  }
 }
 
 function renderBooks() {
-  booksId.forEach(id => {
-    getBookDetail(id).then(data => {
-      bookCardMarkup(data);
-    });
+  booksId.forEach(book => {
+    bookCardMarkup(book.bookData);
   });
 }
 
@@ -163,18 +164,18 @@ function noBooksMarkup() {
 refs.shoppingList.addEventListener('click', e => {
   if (e.target.classList.contains('js-delete-book')) {
     const curBookId = e.target.closest('.book__container').dataset.id;
-    let isBookInLocal = booksId.includes(curBookId);
-    if (isBookInLocal) {
-      const index = booksId.indexOf(curBookId);
-      if (index !== -1) {
+    booksId.forEach((book, index) => {
+      if (book.bookId === curBookId) {
         booksId.splice(index, 1);
-        updateLocal();
         e.target.closest('.shoplist__item').remove();
+        updateLocal();
       }
+    });
+
+    if (booksId.length < 1) {
+      noBooksMarkup();
+      refs.pagination.style.display = 'none';
     }
-  }
-  if (booksId.length < 1) {
-    noBooksMarkup();
   }
 });
 
