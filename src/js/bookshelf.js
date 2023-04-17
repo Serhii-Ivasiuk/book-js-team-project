@@ -171,7 +171,7 @@ function createMarkupCard({
     </div>`;
 }
 
-function bookToLocal() {
+export function bookToLocal() {
   const isBookInLocal = localBooks.some(
     book => book.bookId === curBookId.bookId
   );
