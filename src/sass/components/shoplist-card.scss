@@ -142,6 +142,10 @@
   }
 }
 
+.dark .book-links__link:first-child {
+  filter: brightness(0) invert(1);
+}
+
 .book-overview {
   grid-row: 4/5;
   grid-column: 1/3;
