@@ -32,8 +32,6 @@ async function onClickBook(e) {
     return;
   }
 
-  console.log(document.querySelector('.book-card__container').childNodes);
-
   const bookId = e.target.closest('.book-card__link').dataset.id;
   curBookId = bookId;
 
