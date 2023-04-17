@@ -3,6 +3,7 @@ export { refs };
 const refs = {
   //-------   HTML   ---------- //
   html: document.querySelector('html'),
+  logo: document.querySelector('.logo'),
 
   //-------   CATEGORIES   ---------- //
   categoriesList: document.querySelector('.categories__list'),

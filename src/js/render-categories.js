@@ -2,7 +2,7 @@ import { getBooksByCategory, getCategoryList } from './api-service';
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
-
+import { notFound } from './utility/404';
 getCategoryList()
   .then(categoryList => {
     const categoryListItems = categoryList
@@ -58,7 +58,8 @@ export function onCategoryItemClick(e) {
         mainTitle = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
             There are no data to display, please select another category
           </h1>`;
-        return (refs.mainSectionCategories.innerHTML = mainTitle);
+        refs.mainSectionCategories.innerHTML = mainTitle;
+        return refs.mainSectionCategories.insertAdjacentHTML('beforeend',  notFound());
       }
 
       const booksList = data
@@ -73,14 +74,14 @@ export function onCategoryItemClick(e) {
             _id,
           }) => {
             return `<li class='book-card__item'>
-  <a class='book-card__link' href='#' data-id='${_id}'>
+  <a class='book-card__link' href='#' data-id='${ _id }'>
     <div class='book-card__wrapper'>
       <img
         class='book-card__image'
-        src='${book_image}'
+        src='${ book_image }'
         alt="Here must be book's name"
-        width='${book_image_width}'
-        height = '${book_image_height}'
+        width='${ book_image_width }'
+        height = '${ book_image_height }'
       />
       <div class='book-card__overlay'>
         <p class='book-card__quick-view-text'>quick view</p>
@@ -88,8 +89,8 @@ export function onCategoryItemClick(e) {
     </div>
   </a>
   <div class='book-card__wrap'>
-    <h3 class='book-card__name'>${title}</h3>
-    <p class='book-card__author'>${author}</p>
+    <h3 class='book-card__name'>${ title ? title : 'N/A' }</h3>
+    <p class='book-card__author'>${ author ? author : 'N/A' }</p>
   </div>
 </li>`;
           }
