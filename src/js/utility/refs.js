@@ -4,6 +4,10 @@ const refs = {
   //-------   HTML   ---------- //
   html: document.querySelector('html'),
 
+  //-------   CATEGORIES   ---------- //
+  categoriesList: document.querySelector('.categories__list'),
+  sectionCategory: document.querySelector('.bookcase'),
+
   //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
