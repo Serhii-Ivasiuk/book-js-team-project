@@ -25,14 +25,14 @@
   gap: 12px;
   margin-bottom: 40px;
 
-  font-size: 23px;
+  font-size: 28px;
   font-weight: 700;
   line-height: calc(32 / 28);
   letter-spacing: -0.04em;
   color: $primary-white;
 
-  @media screen and(min-width: 360px){
-    font-size: 28px;
+  @media screen and (max-width: 375px) {
+    font-size: calc(28vw * 0.95 * 100 / 375);
   }
 }
 
@@ -85,9 +85,8 @@
   &:hover,
   &:focus {
     transform: scale(1.2);
-  };
+  }
 }
-
 
 .swiper {
   margin-bottom: 16px;
