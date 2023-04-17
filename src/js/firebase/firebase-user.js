@@ -42,6 +42,9 @@ function handelRegistrUser(evt) {
 function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
+  // hide mobile menu
+  refs.mobMenuEl.classList.remove('is-open');
+
   const {
     elements: { email, password },
   } = evt.currentTarget;
@@ -85,7 +88,6 @@ function createUser(auth, userEmail, userPassword, userName) {
       refs.signUpMobileBtn.classList.add('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
     })
-    // display-none
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
         Notiflix.Notify.failure(
@@ -98,8 +100,7 @@ function createUser(auth, userEmail, userPassword, userName) {
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(user => {
-      form;
+    .then(() => {
       refs.autorizationBackdrop.style.display = 'none';
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
