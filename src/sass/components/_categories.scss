@@ -87,3 +87,23 @@
 .categories::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-hower-bg-color);
 }
+
+// sticky elements
+
+ @media screen and (min-width: 1440px){
+  .sticky-elements{
+    position: sticky;
+      top: 20px;
+      overflow-y: scroll;
+        height: 100vh;
+  }
+  .categories-wrap{
+    margin-bottom: 86px;   
+    height: unset;           
+  }
+    .sticky-elements::-webkit-scrollbar{
+      width: 0;
+      background-color:transparent;
+    }
+ }
+
