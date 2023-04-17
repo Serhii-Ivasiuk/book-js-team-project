@@ -106,14 +106,19 @@
   margin-left: -16px;
 
   @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
-  &.is-active {
-    margin-left: 0px;
-    background: $action-color;
-    border-radius: 36px;
-    color: $primary-black;
-    .shoplist__icon {
-      fill: $primary-black;
-    }
+
+}
+
+.is-active-now {
+  font-weight: 700;
+  padding: 8px 16px;
+  background: $action-color;
+  border-radius: 36px;
+  color: $primary-black;
+  .shoplist__icon {
+    fill: $primary-black;
+
+
   }
 }
 
