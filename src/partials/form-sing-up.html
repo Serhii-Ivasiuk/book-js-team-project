@@ -17,7 +17,7 @@
       type="email"
       name="email"
       class="authorization__input"
-      id="user_email"
+      id="user_email_up"
       required
       placeholder=" "
     />
@@ -32,9 +32,11 @@
       type="password"
       name="password"
       class="authorization__input"
-      id="user_password"
+      id="user_password_up"
       required
       placeholder=" "
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+      title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."
     />
     <label class="authorization__label" for="user_password">password </label>
     <svg class="authorization__icon">
