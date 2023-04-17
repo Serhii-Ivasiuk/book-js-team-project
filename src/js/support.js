@@ -1,8 +1,9 @@
 import { arrayFunds } from './utility/array_funds';
 import { refs } from './utility/refs';
-
+import Swiper, { Navigation } from 'swiper';
 // import Swiper JS
 import Swiper from 'swiper';
+
 const listMarkup = createCardMarcup(arrayFunds);
 
 refs.fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
