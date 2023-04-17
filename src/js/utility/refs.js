@@ -1,7 +1,14 @@
 export { refs };
 
 const refs = {
-  //-------   MOBOLE-MENU   ---------- //
+  //-------   HTML   ---------- //
+  html: document.querySelector('html'),
+
+  //-------   CATEGORIES   ---------- //
+  categoriesList: document.querySelector('.categories__list'),
+  sectionCategory: document.querySelector('.bookcase'),
+
+  //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
   mibileNav: document.querySelector('.js-mobile-thumb'),
@@ -21,6 +28,8 @@ const refs = {
   signUpLink: document.querySelector('[data-action="sign-up"]'),
   signInLink: document.querySelector('[data-action="sign-in"]'),
   autorizationBackdrop: document.querySelector('.authorization__bacdrop'),
+  signInForm: document.querySelector('#sign-in'),
+  signUpForm: document.querySelector('#sign-up'),
 
   //------------ HEADER -------------//
   navigationEl: document.querySelector('.navigation'),
@@ -29,6 +38,14 @@ const refs = {
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
+  darkColorSwitcher: document.querySelector('[data=dark-color]'),
+  lightColorSwitcher: document.querySelector('[data=light-color]'),
+  logoLightSvg: document.querySelector('.js-logo-light-svg'),
+  logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
+  mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),
+  mobMenuEl: document.querySelector('.mobile-menu-wrapper'),
+  mainPageEl: document.querySelectorAll('.js-main-page-link'),
+  listPageEl: document.querySelectorAll('.js-list-page-link'),
 
   //----------- MAIN PAGE------------- //
   mainSectionCategories: document.querySelector('.bookcase'),
@@ -39,5 +56,25 @@ const refs = {
 
   //------------- SUPPORT------------- //
   fundsContainer: document.querySelector('.support_list'),
-  sliderBtn: document.querySelector('.support_btn'),
+
+  //------------- POP-UP-MODAL------------- //
+  amazonLink: document.querySelectorAll('.js-amazon-link'),
+
+  //------------- POP UP ------------- //
+  popupCloseBtn: document.querySelector('.pop-up__button__close'),
+  popupBackdrop: document.querySelector('.pop-up__backdrop'),
+  popupCardContainer: document.querySelector('.book-card__container'),
+  popupDesc: document.querySelector('.pop-up__description'),
+
+  //------------LOCAL STORAGE--------------//
+  addToLocalBtn: document.querySelector('.js-add-to-local'),
+
+  //------------SHOPPING LIST--------------//
+  shoppingList: document.querySelector('.shoplist__list'),
+  shoppingListItem: document.querySelector('.js-shoplist__item'),
+  deleteBookBtn: document.querySelector('.js-delete-book'),
+  pagination: document.querySelector('.pagination.shopping-list'),
+
+  //------------- SPINNER ------------- //
+  spinner: document.querySelector('#loader-wrapper'),
 };

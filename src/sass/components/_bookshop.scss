@@ -4,7 +4,7 @@
   &__cda {
     margin-bottom: 40px;
 
-    @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+    @include fonts(32px, 38px, 700, -0.04em, false, var(--primary-text-color));
 
     @include tablet {
       font-size: 48px;
@@ -51,8 +51,15 @@
     margin-left: auto;
     padding: 14px 28px;
 
-    @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
-
+    @include fonts(
+      14px,
+      18px,
+      700,
+      -0.01em,
+      uppercase,
+      var(--primary-text-color)
+    );
+    background-color: inherit;
     border: 2px solid $accent-color;
     border-radius: 40px;
 

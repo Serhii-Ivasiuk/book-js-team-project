@@ -1,5 +1,6 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
+import { toggleMenu } from '../modal-menu';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -7,15 +8,17 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-const localStorageKey = 'userName';
+// Initialize Realtime Database and get a reference to the service
+const db = getDatabase();
 
-refs.autirizationFormEl.addEventListener('submit', handelRegistrUser);
-refs.autirizationFormEl.addEventListener('submit', handelSignInUserAccount);
+refs.signUpForm.addEventListener('submit', handelRegistrUser);
+refs.signInForm.addEventListener('submit', handelSignInUserAccount);
 refs.logOutBtn.addEventListener('click', handelLogOutUserAccount);
 refs.mobileLogOutBtn.addEventListener('click', handelLogOutUserAccount);
 
@@ -25,87 +28,122 @@ function handelRegistrUser(evt) {
   const {
     elements: { name, email, password },
   } = evt.currentTarget;
-  if (password.value.length < 6) {
-    Notiflix.Notify.failure('Password should be at least 6 characters');
-    return;
-  }
-  if (refs.signUpLink.classList.contains('active-link')) {
-    createUserWithEmailAndPassword(auth, email.value, password.value)
-      .then(userCredential => {
-        const user = userCredential.user;
-        Notiflix.Notify.success(`Hello, ${user.value}`);
-        refs.autorizationBackdrop.style.display = 'none';
-        refs.navigationEl.classList.remove('visually-hidden');
-        refs.userBar.classList.remove('visually-hidden');
-        refs.userMobileContainer.classList.remove('visually-hidden');
-        refs.mibileNav.classList.remove('visually-hidden');
-        refs.mobileLogOutBtn.classList.remove('visually-hidden');
-        refs.signUpMobileBtn.classList.add('visually-hidden');
-        refs.signUpHeaderBtn.classList.add('visually-hidden');
-        evt.target.reset();
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          Notiflix.Notify.failure(
-            'A user with this email address is already registered'
-          );
-        }
-      });
+
+  validatePassword(password.value);
+  let userEmail = email.value;
+  let userPassword = password.value;
+  let userName = name.value;
+  if (createUser(auth, userEmail, userPassword, userName)) {
+    setTimeout(() => {
+      evt.target.reset();
+    }, 3000);
   }
 }
 
 function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
+  // hide mobile menu
+  // refs.mobMenuEl.classList.remove('is-open');
+  // refs.mobMenuBtn.classList.remove('is-open');
+  toggleMenu();
+
   const {
-    elements: { name, email, password },
+    elements: { email, password },
   } = evt.currentTarget;
 
-  localStorage.setItem(localStorageKey, name.value);
-  if (refs.signInLink.classList.contains('active-link')) {
-    signInWithEmailAndPassword(auth, email.value, password.value)
-      .then(userCredential => {
-        const user = userCredential.user;
+  let userEmail = email.value;
+  let userPassword = password.value;
 
-        Notiflix.Notify.success(`Hello, ${name.value}`);
-        evt.target.reset();
-        refs.autorizationBackdrop.style.display = 'none';
-        refs.navigationEl.classList.remove('visually-hidden');
-        refs.userBar.classList.remove('visually-hidden');
-        refs.userMobileContainer.classList.remove('visually-hidden');
-        refs.mibileNav.classList.remove('visually-hidden');
-        refs.mobileLogOutBtn.classList.remove('visually-hidden');
-        refs.signUpMobileBtn.classList.add('visually-hidden');
-        refs.signUpHeaderBtn.classList.add('visually-hidden');
-      })
-      .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+  if (signInUserAccount(auth, userEmail, userPassword)) {
+    setTimeout(() => {
+      evt.target.reset();
+    }, 3000);
   }
 }
 
+//записуємо у сховище Database облікові дані користувача
+function writeUserData(userId, userName, userEmail) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: userName,
+    email: userEmail,
+  });
+}
+
+// реєструємо нового користвуча
+function createUser(auth, userEmail, userPassword, userName) {
+  createUserWithEmailAndPassword(auth, userEmail, userPassword)
+    .then(cred => {
+      userId = cred.user.uid;
+      //зберігаємо його облікові дані у сховище Database
+      writeUserData(userId, userName, userEmail);
+
+      Notiflix.Notify.success(
+        `Hello, ${userName}, your registration was successful`
+      );
+      refs.autorizationBackdrop.style.display = 'none';
+      refs.navigationEl.classList.remove('visually-hidden');
+      refs.userBar.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
+      refs.signUpMobileBtn.classList.add('visually-hidden');
+      refs.signUpHeaderBtn.classList.add('visually-hidden');
+    })
+    .catch(error => {
+      if (error.code === 'auth/email-already-in-use') {
+        Notiflix.Notify.failure(
+          'A user with this email address is already registered'
+        );
+      }
+    });
+}
+
+//створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
+function signInUserAccount(auth, userEmail, userPassword) {
+  signInWithEmailAndPassword(auth, userEmail, userPassword)
+    .then(() => {
+      refs.autorizationBackdrop.style.display = 'none';
+      refs.navigationEl.classList.remove('visually-hidden');
+      refs.userBar.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
+      refs.signUpMobileBtn.classList.add('visually-hidden');
+      refs.signUpHeaderBtn.classList.add('visually-hidden');
+    })
+    .catch(error => {
+      if (error.code === 'auth/wrong-password') {
+        Notiflix.Notify.failure('Your password is wrong, please try again');
+      }
+      // const errorCode = error.code;
+      // console.log(errorCode);
+      // const errorMessage = error.message;
+      // console.log(errorMessage);
+    });
+}
+
+//перевіряємо, чи єактивний User на сторінці
 function checkUserAuth() {
   onAuthStateChanged(auth, user => {
     if (user) {
+      //витягуємо із сховища ID поточного користувача та записуємо його ім'я в userBarBtnText
+      const userNameRef = ref(db, 'users/' + user.uid);
+      onValue(userNameRef, name => {
+        const currentUserName = name.val();
+        refs.userBarBtnText.innerHTML = currentUserName.username;
+        refs.userMobileBarBtnText.innerHTML = currentUserName.username;
+      });
+
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
-      const userName = localStorage.getItem(localStorageKey);
-      refs.userBarBtnText.innerHTML = userName;
-      refs.userMobileBarBtnText.innerHTML = userName;
-    } else
-      refs.navigationEl.classList.add('visually-hidden'),
-        refs.userBar.classList.add('visually-hidden'),
-        refs.signUpHeaderBtn.classList.remove('visually-hidden'),
-        refs.userMobileContainer.classList.add('visually-hidden'),
-        refs.mibileNav.classList.add('visually-hidden'),
-        refs.mobileLogOutBtn.classList.add('visually-hidden'),
-        refs.signUpMobileBtn.classList.remove('visually-hidden');
+    }
   });
 }
 
@@ -117,16 +155,20 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.add('visually-hidden'),
-        refs.mibileNav.classList.add('visually-hidden'),
-        refs.mobileLogOutBtn.classList.add('visually-hidden'),
+      refs.userMobileContainer.classList.add('display-none'),
+        refs.mibileNav.classList.add('display-none'),
+        refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
-      refs.userBarBtnText.innerHTML = '';
-      refs.userMobileBarBtnText.innerHTML = '';
-      localStorage.removeItem(localStorageKey);
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
+}
+
+function validatePassword(password) {
+  if (password.length < 6) {
+    Notiflix.Notify.failure('Password should be at least 6 characters');
+    return;
+  }
 }

@@ -1,0 +1,49 @@
+<form class="authorization__form" id="sign-up">
+  <!-- inputs -->
+  <div class="authorization__field">
+    <input
+      type="text"
+      name="name"
+      class="authorization__input"
+      id="user_name"
+      required
+      placeholder="&#32;"
+      autocomplete="off"
+    />
+    <label class="authorization__label" for="user_name">name</label>
+  </div>
+
+  <div class="authorization__field">
+    <input
+      type="email"
+      name="email"
+      class="authorization__input"
+      id="user_email_up"
+      required
+      placeholder="&#32;"
+    />
+    <label class="authorization__label" for="user_email_up">email</label>
+    <svg class="authorization__icon">
+      <use href="./images/icons.svg#mail"></use>
+    </svg>
+  </div>
+
+  <div class="authorization__field">
+    <input
+      type="password"
+      name="password"
+      class="authorization__input"
+      id="user_password_up"
+      required
+      placeholder="&#32;"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+      title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."
+    />
+    <label class="authorization__label" for="user_password_up">password </label>
+    <svg class="authorization__icon">
+      <use href="./images/icons.svg#pass"></use>
+    </svg>
+  </div>
+  <!-- btn submit -->
+  <button type="submit" class="authorization__btn__submit">Sign up</button>
+</form>

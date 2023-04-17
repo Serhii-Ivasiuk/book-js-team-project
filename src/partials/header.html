@@ -1,26 +1,30 @@
 <header class="header">
   <div class="container header__container">
-    <!-- Logo -->
-    <a href="./index.html" class="logo">
-      <svg width="83" height="28">
+    <!-- Logo-->
+    <a href="./" class="logo">
+      <!-- Logo-light-->
+      <svg class="js-logo-light-svg" width="83" height="28">
         <use href="./images/icons.svg#logo-light"></use>
       </svg>
+
+      <!-- Logo-dark-->
+      <svg class="js-logo-dark-svg visually-hidden" width="83" height="28">
+        <use href="./images/icons.svg#logo-dark"></use>
+      </svg>
     </a>
+
     <!-- Navigation -->
     <nav class="navigation visually-hidden">
       <ul class="navigation__list">
         <li class="navigation__item">
-          <a
-            class="navigation__link navigation__link--active"
-            href="./index.html"
-          >
+          <a class="navigation__link js-main-page-link" href="./">
             <span>Home</span>
           </a>
         </li>
         <li class="navigation__item">
           <a
-            class="navigation__link navigation__link--active navigation__link--with-icon"
-            href="#"
+            class="navigation__link navigation__link--with-icon js-list-page-link"
+            href="./shopping-list.html"
           >
             <span>Shopping list</span>
             <svg class="mobile-menu-btn__icon" width="20" height="20">
@@ -35,6 +39,7 @@
       <legend class="switcher__legend visually-hidden">Схема</legend>
       <input
         class="switcher__radio switcher__radio--light"
+        data="light-color"
         type="radio"
         name="color-scheme"
         value="light"
@@ -43,6 +48,7 @@
       />
       <input
         class="switcher__radio switcher__radio--dark"
+        data="dark-color"
         type="radio"
         name="color-scheme"
         value="dark"
@@ -66,7 +72,7 @@
           <svg class="user-bar-btn__avatar-icon" width="37" height="37">
             <use href="./images/icons.svg#user-ico"></use>
           </svg>
-          <span class="user-bar-btn__text">Stephen</span>
+          <span class="user-bar-btn__text"></span>
           <svg class="user-bar-btn__arrow-icon" width="23" height="26">
             <use href="./images/icons.svg#user-caret-down"></use>
           </svg>
@@ -86,9 +92,13 @@
     </ul>
 
     <!-- Burger menu btn -->
-    <button class="mobile-menu-btn" type="button">
+    <button class="mobile-menu-btn js-mobile-menu-btn" type="button">
       <svg class="mobile-menu-btn__icon" width="28" height="28">
-        <use href="./images/icons.svg#burger"></use>
+        <use class="js-mobile-menu-open" href="./images/icons.svg#burger"></use>
+        <use
+          class="js-mobile-menu-close"
+          href="./images/icons.svg#close-btn"
+        ></use>
       </svg>
     </button>
   </div>

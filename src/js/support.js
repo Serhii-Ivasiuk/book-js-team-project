@@ -7,16 +7,15 @@ const listMarkup = createCardMarcup(arrayFunds);
 
 refs.fundsContainer.insertAdjacentHTML('beforeend', listMarkup);
 
-refs.sliderBtn.addEventListener('click', hendleListSliderClick);
-
 function createCardMarcup(array) {
   const result = array
-    .map(({ title, url, img }, index) => {
+    .map(({ title, url, img, img_2x, }, index) => {
       return `<li class='support_items swiper-slide'>
-         <p>${index < 11 ? '0' + (index + 1) : index }</p>
+         <p>${index < 11 ? '0' + (index + 1) : index}</p>
          <a class='support_link' href='${url}' target='_blank'>
             <img
               class='gallery__image'
+              srcset='${img}, ${img_2x}'
               src='${img}'
               alt='${title}'
             />
@@ -27,21 +26,22 @@ function createCardMarcup(array) {
   return result;
 }
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
+new Swiper('.support-slider', {
+  modules: [Navigation],
+
   direction: 'vertical',
-  loop: true,
+  rewind: true,
   slidesPerView: 4,
-  slidesOffsetAfter: 100,
-  speed: 200,
+  spaceBetween: 20,
+  grabCursor: true,
+
   breakpoints: {
-    // when window width is >= 768px
-    768: {
+    767.98: {
       slidesPerView: 6,
     },
-  }
-});
+  },
 
-function hendleListSliderClick(){
-  swiper.slideNext();
-}
+  navigation: {
+    nextEl: '.swiper-button-next',
+  },
+});
