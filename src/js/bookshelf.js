@@ -18,6 +18,7 @@ import bookShop2x from '../images/book-modal/book-shop@2x.png';
 const bookshelfContainer = document.querySelector('.bookcase');
 let localBooks = [];
 let curBookId = '';
+localStorage.setItem('books-id', JSON.stringify(localBooks));
 updateLocalBooks();
 
 bookshelfContainer.addEventListener('click', onClickBook);
@@ -34,6 +35,7 @@ async function onClickBook(e) {
 
   const bookData = await getBookDetail(bookId);
   const markup = createMarkupCard(bookData);
+
   let isBookInLocal = localBooks.includes(curBookId);
 
   refs.popupCardContainer.innerHTML = markup;
