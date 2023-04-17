@@ -39,11 +39,8 @@ function activePage() {
   if (window.location.pathname === '/') {
     refs.mainPageEl.forEach(el => el.classList.add('is-active-now'));
     refs.listPageEl.forEach(el => el.classList.remove('is-active-now'));
-  } else if (window.location.pathname === '/shopping-list.html') {
-    refs.listPageEl.forEach(el => el.classList.add('is-active-now'));
-    refs.mainPageEl.forEach(el => el.classList.remove('is-active-now'));
   } else {
     refs.mainPageEl.forEach(el => el.classList.remove('is-active-now'));
-    refs.listPageEl.forEach(el => el.classList.remove('is-active-now'));
+    refs.listPageEl.forEach(el => el.classList.add('is-active-now'));
   }
 }
