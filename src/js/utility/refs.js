@@ -62,6 +62,7 @@ const refs = {
 
   //------------SHOPPING LIST--------------//
   shoppingList: document.querySelector('.shoplist__list'),
+  shoppingListItem: document.querySelector  ('.js-shoplist__item'),
   deleteBookBtn: document.querySelector('.js-delete-book'),
 
   //------------- SPINNER ------------- //

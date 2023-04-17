@@ -159,13 +159,11 @@ function bookToLocal() {
     const index = localBooks.indexOf(curBookId);
     if (index !== -1) {
       localBooks.splice(index, 1);
-      console.log(localBooks);
       refs.addToLocalBtn.innerHTML = 'add to shopping list';
       updateLocal();
     }
   } else {
     localBooks.push(curBookId);
-    console.log(localBooks);
     refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
     updateLocal();
   }
@@ -173,7 +171,7 @@ function bookToLocal() {
 
 function updateLocalBooks() {
   const localBooksId = localStorage.getItem('books-id');
-  // localBooks = JSON.parse(localBooksId);
+  localBooks = JSON.parse(localBooksId);
 }
 
 function updateLocal() {

@@ -8,6 +8,8 @@ import apple from '../images/book-modal/apple@1x.png';
 import apple2x from '../images/book-modal/apple@2x.png';
 import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
+import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
+import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
 import icons from '../images/icons.svg';
 import { ref } from 'firebase/storage';
 
@@ -19,11 +21,13 @@ function checkLocalBooks() {
   let booksFromLocal = localStorage.getItem('books-id');
   let localBooks = JSON.parse(booksFromLocal);
 
-  if (localBooks) {
+  if (localBooks.length > 0) {
     localBooks.forEach(book => {
       booksId.push(book);
     });
     renderBooks();
+  } else {
+    noBooksMarkup();
   }
 }
 
@@ -72,7 +76,7 @@ function bookCardMarkup({
       bookShopLink = link.url;
     }
   });
-  return refs.shoppingList.insertAdjacentHTML(
+  refs.shoppingList.insertAdjacentHTML(
     'beforeend',
     `<li class="shoplist__item">
   <div class="book__container" data-id=${_id}>
@@ -126,9 +130,9 @@ function bookCardMarkup({
       </a>
     </div>
     <p class="book-overview">${description}</p>
-    <button class="trash-btn js-delete-book" type="button">
+    <button class="trash-btn" type="button">
     <svg class="trash-btn__icon" width="28" height="28">
-      <use href="${icons}#delete-book"></use>
+      <use class="js-delete-book" href="${icons}#delete-book"></use>
     </svg>
   </button>
   </div>
@@ -136,17 +140,41 @@ function bookCardMarkup({
   );
 }
 
+function noBooksMarkup() {
+  refs.shoppingList.insertAdjacentHTML(
+    'beforeend',
+    `<div class="shoplist__list-background">
+          <p class="shoplist__list-background-text">
+            This page is empty, add some books and proceed to order.
+          </p>
+          <picture>
+            <source
+              srcset="${shoppingList}, ${shoppingList2x}"
+            />
+            <img class="shoplist__list-background-img"
+              src="${shoppingList}"
+              alt="Add some books"
+            />
+          </picture>
+        </div>`
+  );
+}
+
 refs.shoppingList.addEventListener('click', e => {
-  const curBookId = e.target.closest('.book__container').dataset.id;
-  let isBookInLocal = booksId.includes(curBookId);
-  if (isBookInLocal) {
-    const index = booksId.indexOf(curBookId);
-    if (index !== -1) {
-      booksId.splice(index, 1);
-      updateLocal();
-      refs.shoppingList.innerHTML = '';
-      renderBooks();
+  if (e.target.classList.contains('js-delete-book')) {
+    const curBookId = e.target.closest('.book__container').dataset.id;
+    let isBookInLocal = booksId.includes(curBookId);
+    if (isBookInLocal) {
+      const index = booksId.indexOf(curBookId);
+      if (index !== -1) {
+        booksId.splice(index, 1);
+        updateLocal();
+        e.target.closest('.shoplist__item').remove();
+      }
     }
+  }
+  if (booksId.length < 1) {
+    noBooksMarkup();
   }
 });
 
