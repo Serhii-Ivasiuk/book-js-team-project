@@ -4,16 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book | Shopping list</title>
+    <title>Book | Shopping list page</title>
+    <!-- favicon -->
+    <include src="./partials/favicon.html"></include>
     <!-- custom styles -->
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <!-- partials -->
-    <include src="./partials/header.html"></include>
+    <!-- header -->
+    <header class="header">
+      <include src="./partials/header.html"></include>
+    </header>
+    <!-- main -->
+    <main>
+      <!-- page content -->
+      <include src="./partials/shoppinglist-main.html"></include>
+    </main>
+    <!-- mobile menu -->
     <include src="./partials/mobile-menu.html"></include>
-    <include src="./partials/shoppinglist-main.html"></include>
+    <!-- modal authorization -->
     <include src="./partials/authorization-modal.html"></include>
+    <!-- additions -->
     <include src="./partials/to-top.html"></include>
     <!-- scrypts  -->
     <script type="module" src="./js/scripts-for-shoppin-list.js"></script>
