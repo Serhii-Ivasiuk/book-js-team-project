@@ -18,8 +18,10 @@ import bookShop2x from '../images/book-modal/book-shop@2x.png';
 const bookshelfContainer = document.querySelector('.bookcase');
 let localBooks = [];
 let curBookId = '';
-localStorage.setItem('books-id', JSON.stringify(localBooks));
-updateLocalBooks();
+
+localStorage.getItem('books-id') === null
+  ? localStorage.setItem('books-id', JSON.stringify([]))
+  : updateLocalBooks();
 
 bookshelfContainer.addEventListener('click', onClickBook);
 
@@ -29,6 +31,8 @@ async function onClickBook(e) {
   if (!e.target.closest('.book-card__link')) {
     return;
   }
+
+  console.log(document.querySelector('.book-card__container').childNodes);
 
   const bookId = e.target.closest('.book-card__link').dataset.id;
   curBookId = bookId;

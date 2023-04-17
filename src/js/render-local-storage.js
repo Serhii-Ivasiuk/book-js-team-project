@@ -15,7 +15,7 @@ import { ref } from 'firebase/storage';
 
 let booksId = [];
 
-checkLocalBooks();
+localStorage.getItem('books-id') === null ? noBooksMarkup() : checkLocalBooks();
 
 function checkLocalBooks() {
   let booksFromLocal = localStorage.getItem('books-id');
