@@ -4,6 +4,10 @@ const refs = {
   //-------   HTML   ---------- //
   html: document.querySelector('html'),
 
+  //-------   CATEGORIES   ---------- //
+  categoriesList: document.querySelector('.categories__list'),
+  sectionCategory: document.querySelector('.bookcase'),
+
   //-------   MOBILE-MENU   ---------- //
   signUpMobileBtn: document.querySelector('.js-signup-mobile-btn'),
   userMobileContainer: document.querySelector('.js-user-container'),
@@ -24,6 +28,8 @@ const refs = {
   signUpLink: document.querySelector('[data-action="sign-up"]'),
   signInLink: document.querySelector('[data-action="sign-in"]'),
   autorizationBackdrop: document.querySelector('.authorization__bacdrop'),
+  signInForm: document.querySelector('#sign-in'),
+  signUpForm: document.querySelector('#sign-up'),
 
   //------------ HEADER -------------//
   navigationEl: document.querySelector('.navigation'),
