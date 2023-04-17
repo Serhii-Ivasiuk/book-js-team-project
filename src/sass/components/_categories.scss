@@ -90,20 +90,45 @@
 
 // sticky elements
 
- @media screen and (min-width: 1440px){
-  .sticky-elements{
-    position: sticky;
-      top: 20px;
-      overflow-y: scroll;
-        height: 100vh;
-  }
-  .categories-wrap{
-    margin-bottom: 86px;   
-    height: unset;           
-  }
-    .sticky-elements::-webkit-scrollbar{
-      width: 0;
-      background-color:transparent;
+.sticky-elements{
+
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 100%;
+   
+    row-gap: 40px;
+    
+  
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      
+      row-gap: 100px;
+      column-gap: 32px;
+      padding-bottom: 100px;
     }
- }
+  
+    @include desktop {
+  
+        position: sticky;
+          top: 20px;
+          overflow-y: scroll;
+          height: 100vh;
+
+    }
+}
+
+.categories-wrap {
+@include desktop{
+  height: unset;
+}
+  }
+
+  .sticky-elements::-webkit-scrollbar {
+    @include desktop{
+    width: 0;
+      background-color: transparent;
+    }
+
+  }
+
 
