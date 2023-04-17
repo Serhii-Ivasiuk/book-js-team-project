@@ -28,6 +28,8 @@ const refs = {
   signUpLink: document.querySelector('[data-action="sign-up"]'),
   signInLink: document.querySelector('[data-action="sign-in"]'),
   autorizationBackdrop: document.querySelector('.authorization__bacdrop'),
+  signInForm: document.querySelector('#sign-in'),
+  signUpForm: document.querySelector('#sign-up'),
 
   //------------ HEADER -------------//
   navigationEl: document.querySelector('.navigation'),

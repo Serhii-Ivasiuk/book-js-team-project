@@ -34,6 +34,8 @@ function onEscapeKeydown(e) {
   }
 }
 
+refs.signUpLink.disabled = true;
+
 refs.signInLink.addEventListener('click', e => {
   e.preventDefault();
   refs.signUpLink.classList.remove('active-link');
@@ -41,6 +43,12 @@ refs.signInLink.addEventListener('click', e => {
   refs.signInLink.classList.remove('desactive-link');
   refs.signInLink.classList.add('active-link');
   refs.autorizationBtnEl.textContent = 'Sign in';
+
+  refs.signInForm.classList.remove('display-form');
+  refs.signUpForm.classList.add('display-form');
+
+  refs.signUpLink.disabled = false;
+  refs.signInLink.disabled = true;
 });
 
 refs.signUpLink.addEventListener('click', e => {
@@ -50,4 +58,10 @@ refs.signUpLink.addEventListener('click', e => {
   refs.signInLink.classList.add('desactive-link');
   refs.signInLink.classList.remove('active-link');
   refs.autorizationBtnEl.textContent = 'Sign Up';
+
+  refs.signInForm.classList.add('display-form');
+  refs.signUpForm.classList.remove('display-form');
+
+  refs.signUpLink.disabled = true;
+  refs.signInLink.disabled = false;
 });
