@@ -14,7 +14,7 @@ import './dark-light-theme';
 
 import './main-page-all-catigories';
 import './see-more';
-import '../js_support/support';
+import './support';
 import './firebase/firebase-user.js';
 import './user-bar-dropdown';
 import './authorization-modal';
