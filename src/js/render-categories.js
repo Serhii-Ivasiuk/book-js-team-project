@@ -9,13 +9,13 @@ getCategoryList()
       .map(category => {
         return `
         <li class = 'categories__item'>
-          <a href='#' data-category-name='${category}' class='categories__name'>${category}</a>
+          <button type="button" data-category-name='${category}' class='categories__name'>${category}</button>
         </li>`;
       })
       .join('');
     refs.categoriesList.innerHTML = `
        <li class='categories__item categories__item--fixed'>
-          <a href='#' class='categories__name categories__active' data-category-name='All categories'>All categories</a>
+          <button type="button" class='categories__name categories__active' data-category-name='All categories'>All categories</button>
        </li>`;
     refs.categoriesList.insertAdjacentHTML('beforeend', categoryListItems);
   })
