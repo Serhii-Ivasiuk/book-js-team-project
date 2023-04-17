@@ -1,10 +1,6 @@
 import { arrayFunds } from './array_funds';
 import { refs } from '../js/utility/refs';
-
-// import Swiper JS
-
 import Swiper, { Navigation } from 'swiper';
-// import Swiper from 'swiper';
 
 const listMarkup = createCardMarcup(arrayFunds);
 
