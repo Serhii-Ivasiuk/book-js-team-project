@@ -25,11 +25,15 @@
   gap: 12px;
   margin-bottom: 40px;
 
-  font-size: 28px;
+  font-size: 23px;
   font-weight: 700;
   line-height: calc(32 / 28);
   letter-spacing: -0.04em;
   color: #fff;
+
+  @media screen and(min-width: 360px){
+    font-size: 28px;
+  }
 }
 
 .support_list {
@@ -76,7 +80,13 @@
 
   border-radius: 50%;
   background-color: $primary-white;
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.2, 1.2, 1.2);
+  };
 }
+
 
 .swiper {
   margin-bottom: 16px;
