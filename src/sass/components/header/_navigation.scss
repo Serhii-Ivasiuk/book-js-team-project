@@ -21,6 +21,7 @@
   line-height: calc(18 / 14);
   font-weight: 500;
   text-transform: uppercase;
+  color: var(--primary-text-color);
 }
 
 .navigation__link--with-icon {
@@ -28,9 +29,3 @@
   padding-bottom: 7px;
 }
 
-.navigation__link--active {
-  font-weight: 700;
-
-  border-radius: 36px;
-  background-color: $action-color;
-}

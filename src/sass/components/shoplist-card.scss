@@ -4,7 +4,7 @@
   padding: 18px;
 
   position: relative;
-  background: #ffffff;
+  background-color: var(--header-bg-color);
   border: 2px solid #4f2ee866;
   border-radius: 16px;
 
@@ -90,7 +90,7 @@
   margin-bottom: 4px;
   padding-right: 25px;
 
-  color: $primary-black;
+  color: var(--primary-text-color);
 
   font-size: 16px;
   font-weight: 700;
@@ -151,7 +151,7 @@
   height: 100%;
   padding-top: 20px;
 
-  color: $primary-black;
+  color: var(--primary-text-color);
 
   font-size: 14px;
   line-height: 1.3;
