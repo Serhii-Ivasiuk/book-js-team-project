@@ -64,6 +64,16 @@ const refs = {
   popupCloseBtn: document.querySelector('.pop-up__button__close'),
   popupBackdrop: document.querySelector('.pop-up__backdrop'),
   popupCardContainer: document.querySelector('.book-card__container'),
+  popupDesc: document.querySelector('.pop-up__description'),
+
+  //------------LOCAL STORAGE--------------//
+  addToLocalBtn: document.querySelector('.js-add-to-local'),
+
+  //------------SHOPPING LIST--------------//
+  shoppingList: document.querySelector('.shoplist__list'),
+  shoppingListItem: document.querySelector('.js-shoplist__item'),
+  deleteBookBtn: document.querySelector('.js-delete-book'),
+  pagination: document.querySelector('.pagination.shopping-list'),
 
   //------------- SPINNER ------------- //
   spinner: document.querySelector('#loader-wrapper'),

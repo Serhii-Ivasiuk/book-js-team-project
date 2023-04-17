@@ -40,8 +40,8 @@
   @include transition(color, text-shadow);
 
   &:hover {
-    color: $accent-color;
-    text-shadow: $accent-color 0 0 1px;
+    color: var(--categories-links-active-color);
+    text-shadow: var(--categories-links-active-color) 0 0 1px;
   }
 
   @media screen and (min-width: 768px) {
@@ -66,4 +66,24 @@
 
 .categories__item--fixed > .categories__name {
   padding-top: 0;
+}
+
+// custom scrollbar categories
+
+.categories::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.categories::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-bg-color);
+
+  border-radius: 4px;
+}
+
+.categories::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-hower-bg-color);
 }
