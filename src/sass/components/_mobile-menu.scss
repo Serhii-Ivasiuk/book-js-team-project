@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: space-between;
   min-width: 184px;
-  margin-top: 104px;
+  margin-top: 20px;
   padding: 13px 14px;
 
   background-color: $accent-color;
@@ -98,7 +98,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.display-none {
+  display: none;
+}
 .mobile__home,
 .mobile__shoplist {
   display: inline-flex;
@@ -152,4 +154,7 @@
     @include transition(color);
     @include transition(background-color);
   }
+}
+.mobile__logout.display-none {
+  display: none;
 }

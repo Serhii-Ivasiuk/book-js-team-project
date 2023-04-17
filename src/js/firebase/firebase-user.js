@@ -79,12 +79,13 @@ function createUser(auth, userEmail, userPassword, userName) {
       refs.autorizationBackdrop.style.display = 'none';
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
     })
+    // display-none
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
         Notiflix.Notify.failure(
@@ -98,12 +99,13 @@ function createUser(auth, userEmail, userPassword, userName) {
 function signInUserAccount(auth, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(user => {
+      form;
       refs.autorizationBackdrop.style.display = 'none';
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
     })
@@ -133,9 +135,9 @@ function checkUserAuth() {
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
     }
   });
@@ -149,9 +151,9 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.add('visually-hidden'),
-        refs.mibileNav.classList.add('visually-hidden'),
-        refs.mobileLogOutBtn.classList.add('visually-hidden'),
+      refs.userMobileContainer.classList.add('display-none'),
+        refs.mibileNav.classList.add('display-none'),
+        refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
     })
     .catch(error => {
