@@ -68,8 +68,8 @@
 
   transform: translate(-50%, -50%);
 
-  background-color: $body-color-light;
-  border: 2px solid $primary-black;
+  background-color: var(--body-bg-color);
+  border: 2px solid var(--autorization-modal-border-color);
   border-radius: 18px;
 }
 
@@ -84,7 +84,9 @@
     height: 28px;
   }
 
-  stroke: $primary-black;
+  @include transition(stroke);
+
+  stroke: var(--autorization-modal-border-color);
 }
 
 .authorization__button__close {
@@ -108,10 +110,11 @@
   background-color: transparent;
   border: 0;
 
+  @include transition(stroke);
+
   & > .authorization__icon__close:hover,
   & > .authorization__icon__close:focus {
     stroke: $accent-color;
-    transition: stroke 300ms;
   }
 }
 
@@ -166,7 +169,9 @@
 
   width: 100%;
 
-  border: 2px solid $primary-black;
+  color: var(--primary-text-color);
+  background-color: inherit;
+  border: 2px solid var(--autorization-modal-border-color);
   border-radius: 40px;
   display: block;
 
@@ -199,7 +204,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: $primary-black;
+  color: var(--autorization-modal-border-color);
 
   cursor: pointer;
 
@@ -255,7 +260,7 @@
 }
 
 .authorization__icon {
-  stroke: $primary-black;
+  stroke: var(--autorization-modal-border-color);
 
   position: absolute;
 
@@ -288,8 +293,10 @@
 
   padding: 10px 100px;
 
-  background: $primary-black;
+  color: var(--autorization-form-btn-text-color);
+  background: var(--autorization-modal-border-color);
   border-radius: 40px;
+  border: none;
 
   margin-bottom: 6px;
 
@@ -320,12 +327,12 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #f3f3f3;
+  @include transition(color, background-color);
 
   &:hover,
   &:focus {
-    transition: background-color 300ms;
     background-color: $accent-color;
+    color: $primary-white;
   }
 }
 
@@ -354,11 +361,11 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  @include transition(color);
 
   &:hover,
   &:focus {
     color: $accent-color;
-    transition: color 300ms;
   }
 }
 
@@ -369,7 +376,7 @@
 }
 
 .desactive-link {
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--autorization-links-color);
 }
 
 .authorization__link:nth-child(1) {
