@@ -7,7 +7,7 @@ export function notFound() {
   imagePage404.classList.add('not-found');
   const containerWarning = document.createElement('div');
   containerWarning.classList.add('warning-message');
-  const textWarningNotFound = `<p>This page is empty, add some books and proceed to order.</p>`;
+  const textWarningNotFound = `<p> There are no data to display, please select another category.</p>`;
   containerWarning.innerHTML =  textWarningNotFound;
   containerWarning.appendChild(imagePage404);
   return containerWarning;

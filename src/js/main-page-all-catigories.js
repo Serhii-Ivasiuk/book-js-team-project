@@ -13,10 +13,8 @@ export function renderAllCategories() {
 
   getTopBooks().then( ( allCategories ) => {
     if(!Boolean(allCategories.length)) {
-      mainTitleAllCategories = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
-          There are no data to display, please select another category
-        </h1>`;
-      refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
+
+      refs.mainSectionCategories.innerHTML = '';
       return refs.mainSectionCategories.appendChild(notFound());
     }
 

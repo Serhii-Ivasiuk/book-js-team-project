@@ -55,10 +55,7 @@ export function onCategoryItemClick(e) {
   getBooksByCategory(categoryName)
     .then(data => {
       if (!Boolean(data.length)) {
-        mainTitle = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
-            There are no data to display, please select another category
-          </h1>`;
-        refs.mainSectionCategories.innerHTML = mainTitle;
+        refs.mainSectionCategories.innerHTML = '';
         return refs.mainSectionCategories.appendChild(notFound());
       }
 
