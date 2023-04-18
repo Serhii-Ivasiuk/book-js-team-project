@@ -85,6 +85,8 @@
     height: 28px;
   }
 
+  @include transition(stroke);
+
   stroke: var(--autorization-modal-border-color);
 }
 
@@ -109,10 +111,11 @@
   background-color: transparent;
   border: 0;
 
+  @include transition(stroke);
+
   & > .authorization__icon__close:hover,
   & > .authorization__icon__close:focus {
     stroke: $accent-color;
-    transition: stroke 300ms;
   }
 }
 
@@ -325,10 +328,12 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
+  @include transition(color, background-color);
+
   &:hover,
   &:focus {
-    transition: background-color 300ms;
     background-color: $accent-color;
+    color: $primary-white;
   }
 }
 
@@ -357,11 +362,11 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  @include transition(color);
 
   &:hover,
   &:focus {
     color: $accent-color;
-    transition: color 300ms;
   }
 }
 

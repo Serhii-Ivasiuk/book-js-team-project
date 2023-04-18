@@ -199,4 +199,10 @@
     top: 24px;
     right: 24px;
   }
+
+  @include transition(transform);
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 }
