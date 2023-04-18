@@ -66,10 +66,8 @@ export function renderAllCategories() {
     })
     .catch(error => {
       console.log(error.message);
-    });
-  setTimeout(() => {
-    hideSpinner();
-  }, 2000);
+    })
+    .finally(hideSpinner);
 }
 
 renderAllCategories();
