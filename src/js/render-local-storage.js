@@ -190,6 +190,7 @@ const options = {
   totalItems: booksId.length,
   itemsPerPage: 3,
   visiblePages: 3,
+  page: currentPage,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -212,7 +213,8 @@ const options = {
   },
 };
 
-export const instance = new Pagination(refs.pagination, options);
+let instance = new Pagination(refs.pagination, options);
+console.log(instance);
 
 function renderCurrentPage(booksForRender) {
   booksForRender.forEach(book => {
