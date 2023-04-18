@@ -1,6 +1,4 @@
 import { refs } from './utility/refs';
-import { getBookDetail } from './api-service';
-import axios from 'axios';
 
 import amazon from '../images/book-modal/amazon@1x.png';
 import amazon2x from '../images/book-modal/amazon@2x.png';
@@ -11,11 +9,13 @@ import bookShop2x from '../images/book-modal/book-shop@2x.png';
 import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
 import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
 import icons from '../images/icons.svg';
-import { ref } from 'firebase/storage';
-// import { instance } from './pagination';
-// import getBooksPerPage from './pagination';
 
 let booksId = [];
+
+let booksPerPage = [];
+let currentPage = 1;
+let firstCardIndex = (currentPage - 1) * 3;
+let lastCardIndex = (currentPage - 1) * 3 + 3;
 
 localStorage.getItem('books-id') === null ? noBooksMarkup() : checkLocalBooks();
 
@@ -28,7 +28,8 @@ function checkLocalBooks() {
       booksId.push(book);
     });
 
-    // renderBooks();
+    booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
+    renderCurrentPage(booksPerPage);
   } else {
     noBooksMarkup();
   }
@@ -36,12 +37,6 @@ function checkLocalBooks() {
     refs.pagination.style.display = 'none';
   }
 }
-
-// function renderBooks() {
-//   booksId.forEach(book => {
-//     bookCardMarkup(book.bookData);
-//   });
-// }
 
 export function bookCardMarkup({
   _id,
@@ -170,8 +165,8 @@ refs.shoppingList.addEventListener('click', e => {
     booksId.forEach((book, index) => {
       if (book.bookId === curBookId) {
         booksId.splice(index, 1);
-        e.target.closest('.shoplist__item').remove();
         updateLocal();
+        updatePage();
       }
     });
 
@@ -184,4 +179,56 @@ refs.shoppingList.addEventListener('click', e => {
 
 function updateLocal() {
   localStorage.setItem('books-id', JSON.stringify(booksId));
+}
+
+// ================= PAGINATION =================
+
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
+const options = {
+  totalItems: booksId.length,
+  itemsPerPage: 3,
+  visiblePages: 3,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+export const instance = new Pagination(refs.pagination, options);
+
+function renderCurrentPage(booksForRender) {
+  booksForRender.forEach(book => {
+    bookCardMarkup(book.bookData);
+  });
+}
+
+instance.on('afterMove', () => {
+  currentPage = instance.getCurrentPage();
+  firstCardIndex = (currentPage - 1) * 3;
+  lastCardIndex = (currentPage - 1) * 3 + 3;
+  updatePage();
+});
+
+function updatePage() {
+  refs.shoppingList.innerHTML = '';
+  booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
+  renderCurrentPage(booksPerPage);
 }
