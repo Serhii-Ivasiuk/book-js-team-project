@@ -80,13 +80,13 @@ function createMarkupCard({
   buy_links,
 }) {
   if (!description) {
-    description = 'N/A';
+    description = 'This book has no description.';
   }
   if (!author) {
-    author = 'N/A';
+    author = 'The author of this book is unknown.';
   }
   if (!title) {
-    title = 'N/A';
+    title = 'the title of this book is unknown.';
   }
 
   let amazonLink = '';
