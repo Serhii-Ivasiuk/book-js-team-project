@@ -78,4 +78,8 @@ const refs = {
 
   //------------- SPINNER ------------- //
   spinner: document.querySelector('#loader-wrapper'),
+
+  //------------- SIDEBAR ------------- //
+  sidebar: document.querySelector('.sticky-elements'),
+  content: document.querySelector('.bookcase'),
 };

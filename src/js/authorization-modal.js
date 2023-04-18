@@ -12,6 +12,7 @@ function onBackdropClick(e) {
 
 function openModal() {
   refs.modal.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 
   // add listeners to closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.addEventListener('click', closeModel);
@@ -21,6 +22,7 @@ function openModal() {
 
 function closeModel() {
   refs.modal.classList.add('is-hidden');
+  document.body.style.overflow = 'initial';
 
   // remove listiners from closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.removeEventListener('click', closeModel);

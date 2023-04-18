@@ -2,7 +2,6 @@ import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
 import { notFound } from './utility/404';
 export function renderAllCategories() {
-
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
           Best Sellers <span class='bookcase__filter'>Books</span>
         </h1>`;
@@ -10,55 +9,71 @@ export function renderAllCategories() {
   const containerBookshelfList = document.createElement('ul');
   containerBookshelfList.classList.add('bookshelf__list');
 
-
-  getTopBooks().then( ( allCategories ) => {
-    if(!Boolean(allCategories.length)) {
-      mainTitleAllCategories = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
+  getTopBooks()
+    .then(allCategories => {
+      if (!Boolean(allCategories.length)) {
+        mainTitleAllCategories = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
           There are no data to display, please select another category
         </h1>`;
-      refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
-      return refs.mainSectionCategories.insertAdjacentHTML('beforeend',  notFound());
-    }
+        refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
+        return refs.mainSectionCategories.insertAdjacentHTML(
+          'beforeend',
+          notFound()
+        );
+      }
 
-    const result = allCategories.map( ( { list_name, books } ) => {
-      return `
+      const result = allCategories
+        .map(({ list_name, books }) => {
+          return `
           <li class='bookshelf__item'>
-            <h2 class='bookshelf__title'>${ list_name }</h2>
+            <h2 class='bookshelf__title'>${list_name}</h2>
             <ul class='bookshelf__content book-card__list'>
-              ${ books.map( ( { _id, book_image_height, book_image_width, author, book_image, title } ) => {
-                  return `<li class='book-card__item'>
-                  <a class='book-card__link' href='#' data-id='${ _id }'>
+              ${books
+                .map(
+                  ({
+                    _id,
+                    book_image_height,
+                    book_image_width,
+                    author,
+                    book_image,
+                    title,
+                  }) => {
+                    return `<li class='book-card__item'>
+                  <a class='book-card__link' href='#' data-id='${_id}'>
                     <div class='book-card__wrapper'>
-                      <img class='book-card__image' src='${ book_image }' alt="Here must be book's name"
-                      width='${ book_image_width }'
-                      height='${ book_image_height }'>
+                      <img class='book-card__image' src='${book_image}' alt="Here must be book's name"
+                      width='${book_image_width}'
+                      height='${book_image_height}'>
                       <div class='book-card__overlay'>
                         <p class='book-card__quick-view-text'>quick view</p>
                       </div>
                     </div>
                   </a>
                   <div class='book-card__wrap'>
-                    <h3 class='book-card__name'>${ title ? title : 'N/A' }</h3>
-                    <p class='book-card__author'>${ author ? author : 'N/A' }</p>
+                    <h3 class='book-card__name'>${title ? title : 'N/A'}</h3>
+                    <p class='book-card__author'>${author ? author : 'N/A'}</p>
                   </div>
                 </li>`;
-              } ).join( '' ) }
+                  }
+                )
+                .join('')}
         </ul>
-            <button class='bookshelf__btn' type='button' data-see-more data-category-name='${ list_name }'>see more</button>
+            <button class='bookshelf__btn' type='button' data-see-more data-category-name='${list_name}'>see more</button>
          </li>
       `;
-    } ).join('');
-    containerBookshelfList.innerHTML = result;
-    refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
-    refs.mainSectionCategories.appendChild(containerBookshelfList);
-  } ).catch( ( error ) => {
-    console.log( error.message );
-  } );
-
+        })
+        .join('');
+      containerBookshelfList.innerHTML = result;
+      refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
+      refs.mainSectionCategories.appendChild(containerBookshelfList);
+    })
+    .catch(error => {
+      console.log(error.message);
+    });
 }
 
 renderAllCategories();
 
-refs.logo.addEventListener('click', ()=> {
+refs.logo.addEventListener('click', () => {
   renderAllCategories();
-})
+});

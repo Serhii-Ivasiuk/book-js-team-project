@@ -106,9 +106,9 @@ export function onCategoryItemClick(e) {
     .catch(error => console.log(error.message));
 }
 
-function handleScrollToElement(element) {
+function handleScrollToElement(element, position = 'start') {
   element.scrollIntoView({
     behavior: 'smooth',
-    block: 'start',
+    position,
   });
 }
