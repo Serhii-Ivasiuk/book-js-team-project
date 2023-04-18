@@ -3,6 +3,7 @@
 .shoplist__list {
   display: grid;
   grid-gap: 20px;
+  justify-items: center;
 
   margin-bottom: 40px;
 
@@ -19,6 +20,10 @@
   grid-template-rows: none;
 
   outline: 1px solid blue;
+
+  @include less-then-desktop {
+    display: flex;
+  }
 
   @include tablet {
     padding: 40px 32px;
@@ -58,6 +63,10 @@
   }
 }
 
+.shoplist__list-section {
+  width: 100%;
+}
+
 .shoplist__list.shopping-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -66,5 +75,32 @@
 
   @include less-then-tablet {
     margin-bottom: 20px;
+  }
+}
+
+.shoplist__list-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include desktop {
+    margin-top: 100px;
+  }
+}
+
+.shoplist__list-background-text {
+  width: 244px;
+  color: var(--shopping-list-text-color);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: center;
+
+  @include tablet {
+    width: 349px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
   }
 }

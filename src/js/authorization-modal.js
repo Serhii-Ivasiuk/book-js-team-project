@@ -12,6 +12,7 @@ function onBackdropClick(e) {
 
 function openModal() {
   refs.modal.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 
   // add listeners to closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.addEventListener('click', closeModel);
@@ -21,6 +22,7 @@ function openModal() {
 
 function closeModel() {
   refs.modal.classList.add('is-hidden');
+  document.body.style.overflow = 'initial';
 
   // remove listiners from closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.removeEventListener('click', closeModel);
@@ -34,6 +36,8 @@ function onEscapeKeydown(e) {
   }
 }
 
+refs.signUpLink.disabled = true;
+
 refs.signInLink.addEventListener('click', e => {
   e.preventDefault();
   refs.signUpLink.classList.remove('active-link');
@@ -41,6 +45,12 @@ refs.signInLink.addEventListener('click', e => {
   refs.signInLink.classList.remove('desactive-link');
   refs.signInLink.classList.add('active-link');
   refs.autorizationBtnEl.textContent = 'Sign in';
+
+  refs.signInForm.classList.remove('display-form');
+  refs.signUpForm.classList.add('display-form');
+
+  refs.signUpLink.disabled = false;
+  refs.signInLink.disabled = true;
 });
 
 refs.signUpLink.addEventListener('click', e => {
@@ -50,4 +60,10 @@ refs.signUpLink.addEventListener('click', e => {
   refs.signInLink.classList.add('desactive-link');
   refs.signInLink.classList.remove('active-link');
   refs.autorizationBtnEl.textContent = 'Sign Up';
+
+  refs.signInForm.classList.add('display-form');
+  refs.signUpForm.classList.remove('display-form');
+
+  refs.signUpLink.disabled = true;
+  refs.signInLink.disabled = false;
 });

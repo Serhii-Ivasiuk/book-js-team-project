@@ -6,6 +6,9 @@
   --categories-links-color: rgba(17, 17, 17, 0.6);
   --categories-scroll-bar: #e0e0e0;
   --pop-up-bg-color: #ffffff;
+  --scrollbar-bg-color: #e0e0e0;
+  --scrollbar-hower-bg-color: #d2d2d2;
+  --shopping-list-text-color: rgba(0, 0, 0, 0.6);
 }
 
 :root.dark {
@@ -16,4 +19,7 @@
   --categories-links-color: rgba(255, 255, 255, 0.6);
   --categories-scroll-bar: rgba(17, 17, 17, 0.6);
   --pop-up-bg-color: #202024;
+  --scrollbar-bg-color: #11111199;
+  --scrollbar-hower-bg-color: #111111;
+  --shopping-list-text-color: rgba(255, 255, 255, 0.6);
 }

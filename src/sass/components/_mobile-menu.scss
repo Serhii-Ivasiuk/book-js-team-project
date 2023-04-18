@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: space-between;
   min-width: 184px;
-  margin-top: 104px;
+  margin-top: 20px;
   padding: 13px 14px;
 
   background-color: $accent-color;
@@ -98,7 +98,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.display-none {
+  display: none;
+}
 .mobile__home,
 .mobile__shoplist {
   display: inline-flex;
@@ -106,14 +108,16 @@
   margin-left: -16px;
 
   @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
-  &.is-active {
-    margin-left: 0px;
-    background: $action-color;
-    border-radius: 36px;
-    color: $primary-black;
-    .shoplist__icon {
-      fill: $primary-black;
-    }
+}
+
+.is-active-now {
+  font-weight: 700;
+  padding: 8px 16px;
+  background: $action-color;
+  border-radius: 36px;
+  color: $primary-black;
+  .shoplist__icon {
+    fill: $primary-black;
   }
 }
 
@@ -153,6 +157,11 @@
     @include transition(background-color);
   }
 }
+
+.mobile__logout.display-none {
+  display: none;
+}
+
 // Custom scrollbar for mobile menu
 
 .mobile-menu-wrapper {

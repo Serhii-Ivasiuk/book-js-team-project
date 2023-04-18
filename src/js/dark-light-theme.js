@@ -11,16 +11,15 @@ function handelChangeThemeOnDark() {
   refs.html.classList.add('dark');
   refs.logoDarkSvg.classList.remove('visually-hidden');
   refs.logoLightSvg.classList.add('visually-hidden');
-  refs.amazonLink.forEach(el => el.classList.add('amazon-link'));
-  localStorage.setItem(LOCAL_STORAGE_KEY, 'dark');
   refs.darkColorSwitcher.checked = true;
+  localStorage.setItem(LOCAL_STORAGE_KEY, 'dark');
 }
 
 function handelChangeThemeOnLight() {
   refs.html.classList.remove('dark');
   refs.logoDarkSvg.classList.add('visually-hidden');
   refs.logoLightSvg.classList.remove('visually-hidden');
-  refs.amazonLink.forEach(el => el.classList.remove('amazon-link'));
+
   localStorage.removeItem(LOCAL_STORAGE_KEY);
 }
 

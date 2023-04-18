@@ -10,11 +10,16 @@
 
   background-color: $accent-color;
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  transform: translateY(0);
+  @include transition(opacity, transform);
 }
+
 .authorization__bacdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+
+  transform: translateY(-101%);
 }
 
 .elips {
@@ -144,12 +149,18 @@
 
   @media screen and (min-width: 375px) {
     height: 50px;
-    padding: 16px 24px;
-    font-size: 18px;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    padding-right: 45px;
   }
   @media screen and (min-width: 768px) {
     height: 64px;
-    padding: 20px 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 60px;
 
     font-size: 24px;
   }
@@ -324,6 +335,8 @@
 }
 
 .authorization__link {
+  cursor: pointer;
+
   font-weight: 700;
   font-size: 13px;
   @media screen and (min-width: 375px) {
@@ -339,7 +352,9 @@
 
   text-transform: uppercase;
 
-  // color: rgba(17, 17, 17, 0.5);
+  background-color: transparent;
+  border: none;
+  padding: 0;
 
   &:hover,
   &:focus {
@@ -370,8 +385,8 @@
   @media screen and (min-width: 1440px) {
     margin-right: 20px;
   }
-  //   color: $accent-color;
+}
 
-  //   text-decoration-line: underline;
-  //
+.display-form {
+  display: none;
 }
