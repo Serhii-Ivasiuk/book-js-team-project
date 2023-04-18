@@ -1,6 +1,7 @@
 import { refs } from './utility/refs';
 import { doc } from 'firebase/firestore/lite';
 import { getBookDetail } from './api-service';
+import Notiflix from 'notiflix';
 
 import {
   onPopUpBackdropClick,
@@ -28,46 +29,50 @@ localStorage.getItem('books-id') === null
 bookshelfContainer.addEventListener('click', onClickBook);
 
 async function onClickBook(e) {
-  e.preventDefault();
+  try {
+    e.preventDefault();
 
-  if (!e.target.closest('.book-card__link')) {
-    return;
+    if (!e.target.closest('.book-card__link')) {
+      return;
+    }
+
+    updateLocal();
+
+    const bookId = e.target.closest('.book-card__link').dataset.id;
+    curBookId = bookId;
+
+    const bookData = await getBookDetail(bookId);
+    const markup = createMarkupCard(bookData);
+
+    curBookId = {
+      bookId,
+      bookData,
+    };
+
+    refs.popupCardContainer.innerHTML = markup;
+
+    localBooks.forEach(book => {
+      idsForCheck.push(book.bookId);
+    });
+    if (idsForCheck.includes(curBookId.bookId)) {
+      refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
+      refs.popupDesc.style.opacity = '1';
+    } else {
+      refs.addToLocalBtn.innerHTML = 'add to shopping list';
+      refs.popupDesc.style.opacity = '0';
+    }
+
+    const buyLinks = bookData.buy_links;
+
+    document.body.style.overflow = 'hidden';
+    refs.popupBackdrop.classList.remove('is-hidden');
+    refs.popupCloseBtn.addEventListener('click', closePopUp);
+    refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
+    refs.addToLocalBtn.addEventListener('click', bookToLocal);
+    window.addEventListener('keydown', onPopUpEscapeKeydown);
+  } catch (error) {
+    Notiflix.Notify.failure(error.message + ` Please, try again later`);
   }
-
-  updateLocal();
-
-  const bookId = e.target.closest('.book-card__link').dataset.id;
-  curBookId = bookId;
-
-  const bookData = await getBookDetail(bookId);
-  const markup = createMarkupCard(bookData);
-
-  curBookId = {
-    bookId,
-    bookData,
-  };
-
-  refs.popupCardContainer.innerHTML = markup;
-
-  localBooks.forEach(book => {
-    idsForCheck.push(book.bookId);
-  });
-  if (idsForCheck.includes(curBookId.bookId)) {
-    refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
-    refs.popupDesc.style.opacity = '1';
-  } else {
-    refs.addToLocalBtn.innerHTML = 'add to shopping list';
-    refs.popupDesc.style.opacity = '0';
-  }
-
-  const buyLinks = bookData.buy_links;
-
-  document.body.style.overflow = 'hidden';
-  refs.popupBackdrop.classList.remove('is-hidden');
-  refs.popupCloseBtn.addEventListener('click', closePopUp);
-  refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
-  refs.addToLocalBtn.addEventListener('click', bookToLocal);
-  window.addEventListener('keydown', onPopUpEscapeKeydown);
 }
 
 function createMarkupCard({

@@ -2,6 +2,7 @@ import { getBooksByCategory, getCategoryList } from './api-service';
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
 
 getCategoryList()
   .then(categoryList => {
@@ -19,7 +20,9 @@ getCategoryList()
        </li>`;
     refs.categoriesList.insertAdjacentHTML('beforeend', categoryListItems);
   })
-  .catch(error => console.log(error.message));
+  .catch(error =>
+    Notiflix.Notify.failure(error.message + ` Please, try again later`)
+  );
 
 refs.categoriesList.addEventListener('click', onCategoryItemClick);
 
@@ -102,7 +105,9 @@ export function onCategoryItemClick(e) {
       refs.sectionCategory.appendChild(mainTitle);
       refs.sectionCategory.appendChild(conteinerCategoryBooks);
     })
-    .catch(error => console.log(error.message));
+    .catch(error =>
+      Notiflix.Notify.failure(error.message + ` Please, try again later`)
+    );
 }
 
 function handleScrollToElement(element, position = 'start') {

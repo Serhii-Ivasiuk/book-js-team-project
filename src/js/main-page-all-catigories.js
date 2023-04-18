@@ -64,7 +64,7 @@ export function renderAllCategories() {
       refs.mainSectionCategories.appendChild(containerBookshelfList);
     })
     .catch(error => {
-      console.log(error.message);
+      Notiflix.Notify.failure(error.message + ` Please, try again later`);
     });
 }
 
