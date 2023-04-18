@@ -1,7 +1,6 @@
 import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
 import { notFound } from './utility/404';
-
 export function renderAllCategories() {
 
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>

@@ -14,8 +14,8 @@ import './dark-light-theme';
 
 import './main-page-all-catigories';
 import './see-more';
-import '../js_support/support';
-import './firebase/firebase-user.js';
+import './support';
+import './firebase/firebase-user';
 import './user-bar-dropdown';
 import './authorization-modal';
 import './bookshelf';
@@ -31,3 +31,6 @@ import './modal-menu';
 
 // pop up
 import './close-pop-up';
+
+// auto-scroll_sidebar
+import './utility/auto-scroll-sidebar';
