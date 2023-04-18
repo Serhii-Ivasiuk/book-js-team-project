@@ -1,15 +1,15 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { refs } from './utility/refs';
+import { bookCardMarkup } from './render-local-storage';
 
-export const books = JSON.parse(localStorage.getItem('books-id'));
+let currentPage = 1;
+const books = JSON.parse(localStorage.getItem('books-id'));
 
-console.log(books.length);
 const options = {
   totalItems: books.length,
   itemsPerPage: 3,
   visiblePages: 3,
-  page: 1,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -31,17 +31,18 @@ const options = {
       '</a>',
   },
 };
-const instance = new Pagination(refs.pagination, options);
-export function cardsPagination() {
-  instance.on('afterMove', () => {
-    const currentPage = instance.getCurrentPage();
-    console.log(currentPage);
-
-    const firstCardIndex = (currentPage - 1) * 3;
-    const lastCardIndex = (currentPage - 1) * 3 + 3;
-    const booksPerPage = books.slice(firstCardIndex, lastCardIndex);
-
-    return booksPerPage;
+export const instance = new Pagination(refs.pagination, options);
+let booksPerPage = books.slice(0, 3);
+booksPerPage.forEach(book => {
+  bookCardMarkup(book.bookData);
+});
+instance.on('afterMove', () => {
+  refs.shoppingList.innerHTML = '';
+  currentPage = instance.getCurrentPage();
+  let firstCardIndex = (currentPage - 1) * 3;
+  let lastCardIndex = (currentPage - 1) * 3 + 3;
+  let booksPerPage = books.slice(firstCardIndex, lastCardIndex);
+  return booksPerPage.forEach(book => {
+    bookCardMarkup(book.bookData);
   });
-}
-console.log(cardsPagination());
+});

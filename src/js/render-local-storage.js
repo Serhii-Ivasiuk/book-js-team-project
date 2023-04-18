@@ -12,7 +12,8 @@ import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
 import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
 import icons from '../images/icons.svg';
 import { ref } from 'firebase/storage';
-import cards from './pagination';
+// import { instance } from './pagination';
+// import getBooksPerPage from './pagination';
 
 let booksId = [];
 
@@ -26,7 +27,8 @@ function checkLocalBooks() {
     localBooks.forEach(book => {
       booksId.push(book);
     });
-    renderBooks();
+
+    // renderBooks();
   } else {
     noBooksMarkup();
   }
@@ -35,12 +37,11 @@ function checkLocalBooks() {
   }
 }
 
-function renderBooks() {
-  console.log(cards);
-  // cards.forEach(book => {
-  //   bookCardMarkup(book.bookData);
-  // });
-}
+// function renderBooks() {
+//   booksId.forEach(book => {
+//     bookCardMarkup(book.bookData);
+//   });
+// }
 
 export function bookCardMarkup({
   _id,
