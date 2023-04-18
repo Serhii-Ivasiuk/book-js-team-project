@@ -4,12 +4,12 @@
   padding-bottom: 80px;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 228px 352px auto;
+  // grid-template-rows: 228px 352px auto;
   row-gap: 40px;
   outline: 1px solid blue;
 
   @include tablet {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 472px auto;
     row-gap: 100px;
     column-gap: 32px;

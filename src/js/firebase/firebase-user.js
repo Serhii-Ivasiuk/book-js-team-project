@@ -1,5 +1,6 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
+import { toggleMenu } from '../modal-menu';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -42,6 +43,11 @@ function handelRegistrUser(evt) {
 function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
+  // hide mobile menu
+  // refs.mobMenuEl.classList.remove('is-open');
+  // refs.mobMenuBtn.classList.remove('is-open');
+  toggleMenu();
+
   const {
     elements: { email, password },
   } = evt.currentTarget;
@@ -79,9 +85,9 @@ function createUser(auth, userEmail, userPassword, userName) {
       refs.autorizationBackdrop.style.display = 'none';
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
     })
@@ -97,13 +103,13 @@ function createUser(auth, userEmail, userPassword, userName) {
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(user => {
+    .then(() => {
       refs.autorizationBackdrop.style.display = 'none';
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
     })
@@ -133,9 +139,9 @@ function checkUserAuth() {
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.signUpHeaderBtn.classList.add('visually-hidden');
-      refs.userMobileContainer.classList.remove('visually-hidden');
-      refs.mibileNav.classList.remove('visually-hidden');
-      refs.mobileLogOutBtn.classList.remove('visually-hidden');
+      refs.userMobileContainer.classList.remove('display-none');
+      refs.mibileNav.classList.remove('display-none');
+      refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
     }
   });
@@ -149,9 +155,9 @@ function handelLogOutUserAccount() {
       refs.navigationEl.classList.add('visually-hidden'),
         refs.userBar.classList.add('visually-hidden'),
         refs.signUpHeaderBtn.classList.remove('visually-hidden');
-      refs.userMobileContainer.classList.add('visually-hidden'),
-        refs.mibileNav.classList.add('visually-hidden'),
-        refs.mobileLogOutBtn.classList.add('visually-hidden'),
+      refs.userMobileContainer.classList.add('display-none'),
+        refs.mibileNav.classList.add('display-none'),
+        refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
       refs.userBarBtnText.innerHTML = '';
       refs.userMobileBarBtnText.innerHTML = '';

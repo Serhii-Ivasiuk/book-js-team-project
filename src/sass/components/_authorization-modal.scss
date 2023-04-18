@@ -10,7 +10,7 @@
 
   background-color: $accent-color;
 
-  overflow-y: scroll;
+  overflow-y: auto;
   transform: translateY(0);
   @include transition(opacity, transform);
 }
@@ -149,12 +149,18 @@
 
   @media screen and (min-width: 375px) {
     height: 50px;
-    padding: 16px 24px;
-    font-size: 18px;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    padding-right: 45px;
   }
   @media screen and (min-width: 768px) {
     height: 64px;
-    padding: 20px 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 60px;
 
     font-size: 24px;
   }

@@ -15,6 +15,8 @@
   align-items: center;
   justify-content: space-between;
   min-width: 184px;
+  max-width: 260px;
+  height: 45px;
   padding: 4px 12px;
 
   background: $accent-color;
@@ -35,6 +37,11 @@
   line-height: calc(29 / 22);
   letter-spacing: -0.02em;
   color: $primary-white;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 // dropdown

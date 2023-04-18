@@ -5,7 +5,7 @@ import axios from 'axios';
 //import dark/ligth theme
 import './dark-light-theme';
 
-import '../js_support/support';
+import './support';
 import './firebase/firebase-user';
 import './user-bar-dropdown';
 import './authorization-modal';
