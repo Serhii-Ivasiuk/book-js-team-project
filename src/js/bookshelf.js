@@ -14,6 +14,7 @@ import apple from '../images/book-modal/apple@1x.png';
 import apple2x from '../images/book-modal/apple@2x.png';
 import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
+import empty_pic from '../images/empty-pic.jpg';
 
 const bookshelfContainer = document.querySelector('.bookcase');
 let idsForCheck = [];
@@ -80,12 +81,8 @@ function createMarkupCard({
   buy_links,
 }) {
   if (!book_image) {
-    book_image = './images/empty-pic.jpg';
-  }
-  if (!book_image_height) {
+    book_image = empty_pic;
     book_image_height = 500;
-  }
-  if (!book_image_width) {
     book_image_width = 330;
   }
   if (!description) {
