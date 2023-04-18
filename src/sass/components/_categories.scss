@@ -71,7 +71,7 @@
 // sticky elements
 
 .sticky-elements {
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   display: grid;
   grid-template-columns: 100%;
 
@@ -90,6 +90,7 @@
     top: 20px;
     overflow-y: scroll;
     height: 100vh;
+    grid-template-columns: auto;
   }
 }
 

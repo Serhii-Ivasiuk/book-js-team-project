@@ -1,7 +1,7 @@
 import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
 import { showSpinner, hideSpinner } from './spinner';
-
+import { notFound } from './utility/404';
 export function renderAllCategories() {
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
           Best Sellers <span class='bookcase__filter'>Books</span>
@@ -9,14 +9,13 @@ export function renderAllCategories() {
 
   const containerBookshelfList = document.createElement('ul');
   containerBookshelfList.classList.add('bookshelf__list');
+
   showSpinner();
   getTopBooks()
     .then(allCategories => {
       if (!Boolean(allCategories.length)) {
-        mainTitleAllCategories = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
-          There are no data to display, please select another category
-        </h1>`;
-        return (refs.mainSectionCategories.innerHTML = mainTitleAllCategories);
+        refs.mainSectionCategories.innerHTML = '';
+        return refs.mainSectionCategories.appendChild(notFound());
       }
 
       const result = allCategories
@@ -47,8 +46,8 @@ export function renderAllCategories() {
                     </div>
                   </a>
                   <div class='book-card__wrap'>
-                    <h3 class='book-card__name'>${title}</h3>
-                    <p class='book-card__author'>${author}</p>
+                    <h3 class='book-card__name'>${title ? title : 'N/A'}</h3>
+                    <p class='book-card__author'>${author ? author : 'N/A'}</p>
                   </div>
                 </li>`;
                   }
@@ -71,3 +70,7 @@ export function renderAllCategories() {
 }
 
 renderAllCategories();
+
+refs.logo.addEventListener('click', () => {
+  renderAllCategories();
+});
