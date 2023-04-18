@@ -1,0 +1,26 @@
+.warning-message {
+  margin: 120px auto 0;
+  max-width: 265px;
+  @include tablet {
+    max-width: 349px;
+    margin: 140px auto 0;
+  }
+  p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.6);
+    @include tablet {
+      font-size: 18px;
+      line-height: 1.33;
+    }
+  }
+  img {
+    margin: 14px auto 0;
+    @include tablet {
+      margin: 20px auto 0;
+    }
+  }
+}
