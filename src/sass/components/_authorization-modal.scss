@@ -10,7 +10,6 @@
 
   background-color: $accent-color;
 
-  overflow-y: auto;
   transform: translateY(0);
   @include transition(opacity, transform);
 }
