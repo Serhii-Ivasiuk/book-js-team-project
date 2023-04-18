@@ -159,6 +159,8 @@ function handelLogOutUserAccount() {
         refs.mibileNav.classList.add('display-none'),
         refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
+      refs.userBarBtnText.innerHTML = '';
+      refs.userMobileBarBtnText.innerHTML = '';
     })
     .catch(error => {
       const errorCode = error.code;

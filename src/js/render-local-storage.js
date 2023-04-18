@@ -106,7 +106,7 @@ function bookCardMarkup({
       <a href=${appleLink} class="book-links__link" target="_blank">
         <picture>
           <source
-            srcset="${apple},${apple2x}"
+            srcset="${apple}, ${apple2x}"
           />
           <img
             class="img"
