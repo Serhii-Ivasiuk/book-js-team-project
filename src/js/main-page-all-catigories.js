@@ -1,6 +1,7 @@
 import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
 import { notFound } from './utility/404';
+
 export function renderAllCategories() {
 
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
@@ -17,7 +18,7 @@ export function renderAllCategories() {
           There are no data to display, please select another category
         </h1>`;
       refs.mainSectionCategories.innerHTML = mainTitleAllCategories;
-      return refs.mainSectionCategories.insertAdjacentHTML('beforeend',  notFound());
+      return refs.mainSectionCategories.appendChild(notFound());
     }
 
     const result = allCategories.map( ( { list_name, books } ) => {

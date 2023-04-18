@@ -59,7 +59,7 @@ export function onCategoryItemClick(e) {
             There are no data to display, please select another category
           </h1>`;
         refs.mainSectionCategories.innerHTML = mainTitle;
-        return refs.mainSectionCategories.insertAdjacentHTML('beforeend',  notFound());
+        return refs.mainSectionCategories.appendChild(notFound());
       }
 
       const booksList = data
