@@ -90,45 +90,42 @@
 
 // sticky elements
 
-.sticky-elements{
+.sticky-elements {
+  padding-bottom: 80px;
+  display: grid;
+  grid-template-columns: 100%;
 
-    padding-bottom: 80px;
-    display: grid;
-    grid-template-columns: 100%;
-   
-    row-gap: 40px;
-    
-  
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-      
-      row-gap: 100px;
-      column-gap: 32px;
-      padding-bottom: 100px;
-    }
-  
-    @include desktop {
-  
-        position: sticky;
-          top: 20px;
-          overflow-y: scroll;
-          height: 100vh;
+  row-gap: 40px;
 
-    }
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 100px;
+    column-gap: 32px;
+    padding-bottom: 100px;
+  }
+
+  @include desktop {
+    position: sticky;
+    top: 20px;
+    overflow-y: scroll;
+    height: 100vh;
+  }
 }
 
 .categories-wrap {
-@include desktop{
-  height: unset;
+  @include desktop {
+    height: unset;
+  }
 }
-  }
 
-  .sticky-elements::-webkit-scrollbar {
-    @include desktop{
+.sticky-elements::-webkit-scrollbar {
+  @include desktop {
     width: 0;
-      background-color: transparent;
-    }
-
+    background-color: transparent;
   }
+}
 
-
+.sticky-elements {
+  scroll-behavior: smooth;
+}
