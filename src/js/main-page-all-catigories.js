@@ -1,5 +1,6 @@
 import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
+import { showSpinner, hideSpinner } from './spinner';
 
 export function renderAllCategories() {
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
@@ -8,7 +9,7 @@ export function renderAllCategories() {
 
   const containerBookshelfList = document.createElement('ul');
   containerBookshelfList.classList.add('bookshelf__list');
-
+  showSpinner();
   getTopBooks()
     .then(allCategories => {
       if (!Boolean(allCategories.length)) {
@@ -66,6 +67,9 @@ export function renderAllCategories() {
     .catch(error => {
       console.log(error.message);
     });
+  setTimeout(() => {
+    hideSpinner();
+  }, 2000);
 }
 
 renderAllCategories();
