@@ -14,7 +14,7 @@ import apple from '../images/book-modal/apple@1x.png';
 import apple2x from '../images/book-modal/apple@2x.png';
 import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
-import empty_pic from '../images/empty-pic.jpg';
+import empty_pic from '../images/empty_pic.jpg';
 
 const bookshelfContainer = document.querySelector('.bookcase');
 let idsForCheck = [];
