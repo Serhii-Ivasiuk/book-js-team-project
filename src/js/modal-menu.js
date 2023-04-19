@@ -32,8 +32,8 @@ function onWidestScreen() {
 }
 function onTurnScreen(e) {
   if (!e.matches && isMenuOpen) {
-    refs.mobMenuEl.classList.toggle('is-open');
-    refs.mobMenuBtn.classList.toggle('is-open');
+    refs.mobMenuEl.classList.remove('is-open');
+    refs.mobMenuBtn.classList.remove('is-open');
     isMenuOpen = false;
     document.body.style.overflow = '';
   }

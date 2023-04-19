@@ -1,6 +1,7 @@
 import { refs } from './utility/refs';
 import { doc } from 'firebase/firestore/lite';
 import { getBookDetail } from './api-service';
+import Notiflix from 'notiflix';
 
 import {
   onPopUpBackdropClick,
@@ -14,6 +15,7 @@ import apple from '../images/book-modal/apple@1x.png';
 import apple2x from '../images/book-modal/apple@2x.png';
 import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
+import empty_pic from '../images/empty_pic.jpg';
 
 const bookshelfContainer = document.querySelector('.bookcase');
 let idsForCheck = [];
@@ -28,46 +30,50 @@ localStorage.getItem('books-id') === null
 bookshelfContainer.addEventListener('click', onClickBook);
 
 async function onClickBook(e) {
-  e.preventDefault();
+  try {
+    e.preventDefault();
 
-  if (!e.target.closest('.book-card__link')) {
-    return;
+    if (!e.target.closest('.book-card__link')) {
+      return;
+    }
+
+    updateLocal();
+
+    const bookId = e.target.closest('.book-card__link').dataset.id;
+    curBookId = bookId;
+
+    const bookData = await getBookDetail(bookId);
+    const markup = createMarkupCard(bookData);
+
+    curBookId = {
+      bookId,
+      bookData,
+    };
+
+    refs.popupCardContainer.innerHTML = markup;
+
+    localBooks.forEach(book => {
+      idsForCheck.push(book.bookId);
+    });
+    if (idsForCheck.includes(curBookId.bookId)) {
+      refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
+      refs.popupDesc.style.opacity = '1';
+    } else {
+      refs.addToLocalBtn.innerHTML = 'add to shopping list';
+      refs.popupDesc.style.opacity = '0';
+    }
+
+    const buyLinks = bookData.buy_links;
+
+    document.body.style.overflow = 'hidden';
+    refs.popupBackdrop.classList.remove('is-hidden');
+    refs.popupCloseBtn.addEventListener('click', closePopUp);
+    refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
+    refs.addToLocalBtn.addEventListener('click', bookToLocal);
+    window.addEventListener('keydown', onPopUpEscapeKeydown);
+  } catch (error) {
+    Notiflix.Notify.failure(`Network error, please try again later`);
   }
-
-  updateLocal();
-
-  const bookId = e.target.closest('.book-card__link').dataset.id;
-  curBookId = bookId;
-
-  const bookData = await getBookDetail(bookId);
-  const markup = createMarkupCard(bookData);
-
-  curBookId = {
-    bookId,
-    bookData,
-  };
-
-  refs.popupCardContainer.innerHTML = markup;
-
-  localBooks.forEach(book => {
-    idsForCheck.push(book.bookId);
-  });
-  if (idsForCheck.includes(curBookId.bookId)) {
-    refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
-    refs.popupDesc.style.opacity = '1';
-  } else {
-    refs.addToLocalBtn.innerHTML = 'add to shopping list';
-    refs.popupDesc.style.opacity = '0';
-  }
-
-  const buyLinks = bookData.buy_links;
-
-  document.body.style.overflow = 'hidden';
-  refs.popupBackdrop.classList.remove('is-hidden');
-  refs.popupCloseBtn.addEventListener('click', closePopUp);
-  refs.popupBackdrop.addEventListener('click', onPopUpBackdropClick);
-  refs.addToLocalBtn.addEventListener('click', bookToLocal);
-  window.addEventListener('keydown', onPopUpEscapeKeydown);
 }
 
 function createMarkupCard({
@@ -79,14 +85,19 @@ function createMarkupCard({
   description,
   buy_links,
 }) {
+  if (!book_image) {
+    book_image = empty_pic;
+    book_image_height = 500;
+    book_image_width = 330;
+  }
   if (!description) {
-    description = 'N/A';
+    description = 'This book has no description yet. We will add it soon.';
   }
   if (!author) {
-    author = 'N/A';
+    author = 'Unknown author';
   }
   if (!title) {
-    title = 'N/A';
+    title = 'Unknown title';
   }
 
   let amazonLink = '';

@@ -1,6 +1,5 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
-import { toggleMenu } from '../modal-menu';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,12 +9,13 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
+import { doc } from 'firebase/firestore/lite';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
 // Initialize Realtime Database and get a reference to the service
-const db = getDatabase();
+const db = getDatabase(app);
 
 refs.signUpForm.addEventListener('submit', handelRegistrUser);
 refs.signInForm.addEventListener('submit', handelSignInUserAccount);
@@ -44,9 +44,9 @@ function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
   // hide mobile menu
-  // refs.mobMenuEl.classList.remove('is-open');
-  // refs.mobMenuBtn.classList.remove('is-open');
-  toggleMenu();
+  refs.mobMenuEl.classList.remove('is-open');
+  refs.mobMenuBtn.classList.remove('is-open');
+  document.body.style.overflow = '';
 
   const {
     elements: { email, password },
@@ -62,15 +62,6 @@ function handelSignInUserAccount(evt) {
   }
 }
 
-//записуємо у сховище Database облікові дані користувача
-function writeUserData(userId, userName, userEmail) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: userName,
-    email: userEmail,
-  });
-}
-
 // реєструємо нового користвуча
 function createUser(auth, userEmail, userPassword, userName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
@@ -83,6 +74,7 @@ function createUser(auth, userEmail, userPassword, userName) {
         `Hello, ${userName}, your registration was successful`
       );
       refs.autorizationBackdrop.style.display = 'none';
+      refs.autorizationBackdrop.classList.add('is-hidden');
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.userMobileContainer.classList.remove('display-none');
@@ -100,11 +92,30 @@ function createUser(auth, userEmail, userPassword, userName) {
     });
 }
 
+//записуємо у сховище Database облікові дані користувача
+const writeUserData = (userId, userName, userEmail) => {
+  // const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: userName,
+    email: userEmail,
+  })
+    .then(() => {
+      console.log('Data saved successfully!');
+    })
+    .catch(error => {
+      console.log(error.code);
+      console.log(error.message);
+    });
+};
+
+console.dir(writeUserData);
+
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(() => {
       refs.autorizationBackdrop.style.display = 'none';
+      refs.autorizationBackdrop.classList.add('is-hidden');
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.userMobileContainer.classList.remove('display-none');
@@ -132,6 +143,7 @@ function checkUserAuth() {
       const userNameRef = ref(db, 'users/' + user.uid);
       onValue(userNameRef, name => {
         const currentUserName = name.val();
+        console.log(currentUserName);
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
       });
@@ -159,6 +171,8 @@ function handelLogOutUserAccount() {
         refs.mibileNav.classList.add('display-none'),
         refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
+      // refs.userBarBtnText.innerHTML = '';
+      // refs.userMobileBarBtnText.innerHTML = '';
     })
     .catch(error => {
       const errorCode = error.code;

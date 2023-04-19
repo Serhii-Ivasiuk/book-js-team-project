@@ -8,6 +8,7 @@ import bookShop from '../images/book-modal/book-shop@1x.png';
 import bookShop2x from '../images/book-modal/book-shop@2x.png';
 import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
 import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
+import empty_pic from '../images/empty_pic.jpg';
 import icons from '../images/icons.svg';
 
 let booksId = [];
@@ -49,14 +50,19 @@ export function bookCardMarkup({
   description,
   buy_links,
 }) {
+  if (!book_image) {
+    book_image = empty_pic;
+    book_image_height = 500;
+    book_image_width = 330;
+  }
   if (!description) {
-    description = 'N/A';
+    description = 'This book has no description yet. We will add it soon.';
   }
   if (!author) {
-    author = 'N/A';
+    author = 'Unknown author';
   }
   if (!title) {
-    title = 'N/A';
+    title = 'Unknown title';
   }
   let amazonLink = '';
   let appleLink = '';
@@ -104,7 +110,7 @@ export function bookCardMarkup({
       <a href=${appleLink} class="book-links__link" target="_blank">
         <picture>
           <source
-            srcset="${apple},${apple2x}"
+            srcset="${apple}, ${apple2x}"
           />
           <img
             class="img"
