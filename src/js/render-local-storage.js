@@ -191,9 +191,12 @@ function updateLocal() {
 
 // ================= PAGINATION =================
 
-// const pagesToShow = window.matchMedia('(max-width: 768px)').matches ? 2 : 3;
-// console.log(window.matchMedia('(max-width: 768px)'));
-let pagesToShow = 3;
+let pagesToShow = 2;
+
+// window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+//   pagesToShow = !e.matches ? 2 : 3;
+//   console.log(pagesToShow);
+// });
 
 const options = {
   totalItems: booksId.length,
@@ -242,8 +245,3 @@ function updatePage() {
   booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
   renderCurrentPage(booksPerPage);
 }
-
-window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-  pagesToShow = !e.matches ? 2 : 3;
-  console.log(pagesToShow);
-});
