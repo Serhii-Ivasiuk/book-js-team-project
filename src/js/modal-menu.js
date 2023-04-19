@@ -12,7 +12,11 @@ activePage();
 export function toggleMenu() {
   isMenuOpen = !isMenuOpen;
   refs.mobMenuEl.classList.toggle('is-open');
+  const expanded =
+    refs.mobMenuBtn.getAttribute('aria-expended') === 'true' || false;
   refs.mobMenuBtn.classList.toggle('is-open');
+  refs.mobMenuBtn.setAttribute('aria-expended', !expanded);
+
   onWidestScreen();
   // прокрутка сторінки
   if (isMenuOpen) {
