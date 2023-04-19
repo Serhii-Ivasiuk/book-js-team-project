@@ -1,7 +1,6 @@
 // normalize
 @import '~node_modules/modern-normalize/modern-normalize.css';
-// fonts
-@import './common/fonts';
+@import './common/fonts'; // fonts
 // vendors
 @import './vendors/visually-hidden';
 // utils
@@ -31,6 +30,7 @@
 @import './components/authorization-modal.scss';
 // shopping list
 @import './components/shopping-list';
+@import './components/pagination';
 // modal
 @import './components/pop-up';
 // mob menu
@@ -38,4 +38,4 @@
 //spinner
 @import './components/spinner';
 //warning message
-@import "./components/warning-message";
+@import './components/warning-message';
