@@ -3,6 +3,7 @@ import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
 import { notFound } from './utility/404';
+import empty_pic from '../images/empty_pic.jpg';
 getCategoryList()
   .then(categoryList => {
     const categoryListItems = categoryList
@@ -70,15 +71,20 @@ export function onCategoryItemClick(e) {
             buy_links,
             _id,
           }) => {
+            if (!book_image) {
+              book_image = empty_pic;
+              book_image_height = 500;
+              book_image_width = 330;
+            }
             return `<li class='book-card__item'>
-  <a class='book-card__link' href='#' data-id='${ _id }'>
+  <a class='book-card__link' href='#' data-id='${_id}'>
     <div class='book-card__wrapper'>
       <img
         class='book-card__image'
-        src='${ book_image }'
+        src='${book_image}'
         alt="Here must be book's name"
-        width='${ book_image_width }'
-        height = '${ book_image_height }'
+        width='${book_image_width}'
+        height = '${book_image_height}'
       />
       <div class='book-card__overlay'>
         <p class='book-card__quick-view-text'>quick view</p>
@@ -86,8 +92,8 @@ export function onCategoryItemClick(e) {
     </div>
   </a>
   <div class='book-card__wrap'>
-    <h3 class='book-card__name'>${ title ? title : 'N/A' }</h3>
-    <p class='book-card__author'>${ author ? author : 'N/A' }</p>
+    <h3 class='book-card__name'>${title ? title : 'Unknown title'}</h3>
+    <p class='book-card__author'>${author ? author : 'Unknown author'}</p>
   </div>
 </li>`;
           }
