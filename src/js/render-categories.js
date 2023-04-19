@@ -21,7 +21,7 @@ getCategoryList()
     refs.categoriesList.insertAdjacentHTML('beforeend', categoryListItems);
   })
   .catch(error =>
-    Notiflix.Notify.failure(error.message + ` Please, try again later`)
+    Notiflix.Notify.failure('Network error, please try again later')
   );
 
 refs.categoriesList.addEventListener('click', onCategoryItemClick);
@@ -106,7 +106,7 @@ export function onCategoryItemClick(e) {
       refs.sectionCategory.appendChild(conteinerCategoryBooks);
     })
     .catch(error =>
-      Notiflix.Notify.failure(error.message + ` Please, try again later`)
+      Notiflix.Notify.failure('Network error, please try again later')
     );
 }
 

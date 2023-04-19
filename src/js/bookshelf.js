@@ -71,7 +71,7 @@ async function onClickBook(e) {
     refs.addToLocalBtn.addEventListener('click', bookToLocal);
     window.addEventListener('keydown', onPopUpEscapeKeydown);
   } catch (error) {
-    Notiflix.Notify.failure(error.message + ` Please, try again later`);
+    Notiflix.Notify.failure(`Network error, please try again later`);
   }
 }
 
