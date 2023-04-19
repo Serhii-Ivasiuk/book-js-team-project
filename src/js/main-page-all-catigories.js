@@ -47,7 +47,8 @@ export function renderAllCategories() {
                     <div class='book-card__wrapper'>
                       <img class='book-card__image' src='${book_image}' alt="Here must be book's name"
                       width='${book_image_width}'
-                      height='${book_image_height}'>
+                      height='${book_image_height}'
+                      loading='lazy'>
                       <div class='book-card__overlay'>
                         <p class='book-card__quick-view-text'>quick view</p>
                       </div>
@@ -77,7 +78,6 @@ export function renderAllCategories() {
       refs.mainSectionCategories.appendChild(containerBookshelfList);
     })
     .catch(error => {
-
       Notiflix.Notify.failure('Network error, please try again later');
     })
 

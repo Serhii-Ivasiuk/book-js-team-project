@@ -87,7 +87,7 @@ function bookCardMarkup({
     `<li class="shoplist__item">
   <div class="book__container" data-id=${_id}>
     <div class="book__img-container">
-      <img class="book__img" src=${book_image} alt=${title} width=${book_image_width} height=${book_image_height} />
+      <img class="book__img" src=${book_image} alt=${title} width=${book_image_width} height=${book_image_height} loading='lazy'/>
     </div>
     <p class="book__author">${author}</p>
     <div class="book-title">
