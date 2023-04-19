@@ -54,10 +54,16 @@ async function onClickBook(e) {
   localBooks.forEach(book => {
     idsForCheck.push(book.bookId);
   });
+
   if (idsForCheck.includes(curBookId.bookId)) {
     refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
     refs.popupDesc.style.opacity = '1';
   } else {
+    refs.addToLocalBtn.innerHTML = 'add to shopping list';
+    refs.popupDesc.style.opacity = '0';
+  }
+
+  if (localStorage.getItem('user') === null) {
     refs.addToLocalBtn.innerHTML = 'add to shopping list';
     refs.popupDesc.style.opacity = '0';
   }
@@ -179,23 +185,12 @@ function createMarkupCard({
 }
 
 export function bookToLocal() {
-  const user = localStorage.getItem('user');
   const isBookInLocal = localBooks.some(
     book => book.bookId === curBookId.bookId
   );
-  if (!user) {
-    refs.addToLocalBtn.setAttribute('disabled', 'true');
-    refs.addToLocalBtn.style.backgroundColor = '#b4afaf';
-    setTimeout(() => {
-      refs.addToLocalBtn.removeAttribute('disabled');
-      refs.addToLocalBtn.style = 'none';
-    }, 2000);
-    return Notiflix.Notify.failure(
-      'You must be logged in as a user to use this feature.'
-    );
-  }
-
-  if (isBookInLocal) {
+  if (localStorage.getItem('user') === null) {
+    return isUser();
+  } else if (isBookInLocal) {
     localBooks = localBooks.filter(book => book.bookId !== curBookId.bookId);
     refs.addToLocalBtn.innerHTML = 'add to shopping list';
     refs.popupDesc.style.opacity = '0';
@@ -216,4 +211,19 @@ function updateLocalBooks() {
 function updateLocal() {
   localStorage.setItem('books-id', JSON.stringify(localBooks));
   idsForCheck = [];
+}
+
+function isUser() {
+  if (localStorage.getItem('user') === null) {
+    refs.addToLocalBtn.setAttribute('disabled', 'true');
+    refs.addToLocalBtn.style.backgroundColor = '#b4afaf';
+    setTimeout(() => {
+      refs.addToLocalBtn.removeAttribute('disabled');
+      refs.addToLocalBtn.style = 'none';
+    }, 1000);
+    return Notiflix.Notify.failure(
+      'You must be logged in as a user to use this feature.',
+      { timeout: 1000 }
+    );
+  }
 }
