@@ -64,11 +64,18 @@ function handelSignInUserAccount(evt) {
 
 //записуємо у сховище Database облікові дані користувача
 function writeUserData(userId, userName, userEmail) {
-  const db = getDatabase();
+  // const db = getDatabase();
   set(ref(db, 'users/' + userId), {
     username: userName,
     email: userEmail,
-  });
+  })
+    .then(() => {
+      console.log('Data saved successfully!');
+    })
+    .catch(error => {
+      console.log(error.code);
+      console.log(error.message);
+    });
 }
 
 // реєструємо нового користвуча
@@ -133,8 +140,8 @@ function checkUserAuth() {
       onValue(userNameRef, name => {
         const currentUserName = name.val();
         console.log(currentUserName);
-        // refs.userBarBtnText.innerHTML = currentUserName.username;
-        // refs.userMobileBarBtnText.innerHTML = currentUserName.username;
+        refs.userBarBtnText.innerHTML = currentUserName.username;
+        refs.userMobileBarBtnText.innerHTML = currentUserName.username;
       });
 
       refs.navigationEl.classList.remove('visually-hidden');
