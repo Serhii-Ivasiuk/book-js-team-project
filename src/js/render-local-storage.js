@@ -136,7 +136,7 @@ function bookCardMarkup({
       </a>
     </div>
     <p class="book-overview">${description}</p>
-    <button class="trash-btn" type="button">
+    <button class="trash-btn" type="button" aria-label="delete book from list">
     <svg class="trash-btn__icon" width="28" height="28">
       <use class="js-delete-book" href="${icons}#delete-book"></use>
     </svg>
