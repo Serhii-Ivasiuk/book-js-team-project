@@ -22,7 +22,7 @@ function openModal() {
 
 function closeModel() {
   refs.modal.classList.add('is-hidden');
-  document.body.style.overflow = 'initial';
+  document.body.style.overflow = '';
 
   // remove listiners from closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.removeEventListener('click', closeModel);
