@@ -11,6 +11,7 @@ function onBackdropClick(e) {
 }
 
 function openModal() {
+  refs.signUpForm.reset();
   refs.modal.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
 
