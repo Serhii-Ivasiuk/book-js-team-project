@@ -155,6 +155,8 @@ function checkUserAuth() {
       refs.mibileNav.classList.remove('display-none');
       refs.mobileLogOutBtn.classList.remove('display-none');
       refs.signUpMobileBtn.classList.add('visually-hidden');
+
+      localStorage.setItem('user', 'true');
     }
   });
 }
@@ -173,6 +175,8 @@ function handelLogOutUserAccount() {
         refs.signUpMobileBtn.classList.remove('visually-hidden');
       // refs.userBarBtnText.innerHTML = '';
       // refs.userMobileBarBtnText.innerHTML = '';
+
+      localStorage.removeItem('user');
     })
     .catch(error => {
       const errorCode = error.code;
