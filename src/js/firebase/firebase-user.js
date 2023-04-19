@@ -93,21 +93,14 @@ function createUser(auth, userEmail, userPassword, userName) {
 
 //записуємо у сховище Database облікові дані користувача
 const writeUserData = (userId, userName, userEmail) => {
-  // const db = getDatabase();
   set(ref(db, 'users/' + userId), {
     username: userName,
     email: userEmail,
-  })
-    .then(() => {
-      console.log('Data saved successfully!');
-    })
-    .catch(error => {
-      console.log(error.code);
-      console.log(error.message);
-    });
+  }).catch(error => {
+    // console.log(error.code);
+    // console.log(error.message);
+  });
 };
-
-console.dir(writeUserData);
 
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
@@ -142,7 +135,6 @@ function checkUserAuth() {
       const userNameRef = ref(db, 'users/' + user.uid);
       onValue(userNameRef, name => {
         const currentUserName = name.exportVal();
-        console.log(currentUserName);
 
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
