@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
-import { doc } from 'firebase/firestore/lite';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -66,7 +65,7 @@ function handelSignInUserAccount(evt) {
 function createUser(auth, userEmail, userPassword, userName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(cred => {
-      userId = cred.user.uid;
+      let userId = cred.user.uid;
       //зберігаємо його облікові дані у сховище Database
       writeUserData(userId, userName, userEmail);
 
@@ -94,21 +93,14 @@ function createUser(auth, userEmail, userPassword, userName) {
 
 //записуємо у сховище Database облікові дані користувача
 const writeUserData = (userId, userName, userEmail) => {
-  // const db = getDatabase();
   set(ref(db, 'users/' + userId), {
     username: userName,
     email: userEmail,
-  })
-    .then(() => {
-      console.log('Data saved successfully!');
-    })
-    .catch(error => {
-      console.log(error.code);
-      console.log(error.message);
-    });
+  }).catch(error => {
+    // console.log(error.code);
+    // console.log(error.message);
+  });
 };
-
-console.dir(writeUserData);
 
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
@@ -142,8 +134,8 @@ function checkUserAuth() {
       //витягуємо із сховища ID поточного користувача та записуємо його ім'я в userBarBtnText
       const userNameRef = ref(db, 'users/' + user.uid);
       onValue(userNameRef, name => {
-        const currentUserName = name.val();
-        console.log(currentUserName);
+        const currentUserName = name.exportVal();
+
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
       });
