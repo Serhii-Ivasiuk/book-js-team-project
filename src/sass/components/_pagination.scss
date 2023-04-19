@@ -1,11 +1,109 @@
-.tui-page-btn {
-  background-color: rgb(255, 166, 0);
-}
+.shopping-list {
+  .tui-pagination {
+    height: 38px;
 
-.tui-pagination .tui-is-selected {
-  background-color: rgb(52, 114, 88);
-  &:hover,
-  &:focus {
-    background-color: rgb(52, 114, 88);
+    @media screen and (min-width: 768px) {
+      height: 44px;
+    }
+    .tui-page-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      padding: 0;
+      border-width: 1;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.1;
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+    .tui-page-btn,
+    .tui-first,
+    .tui-prev,
+    .tui-next,
+    .tui-last,
+    .tui-prev-is-ellip,
+    .tui-next-is-ellip {
+      width: 38px;
+      height: 38px;
+      border-color: $primary-black;
+      border-radius: 50%;
+
+      @media screen and (min-width: 768px) {
+        width: 44px;
+        height: 44px;
+      }
+    }
+    .tui-next-is-ellip,
+    .tui-first + .tui-prev,
+    .tui-next + .tui-last {
+      border-left: 1px solid $primary-black;
+    }
+
+    .tui-is-selected,
+    .tui-first-child.tui-is-selected {
+      background-color: $primary-black;
+      color: $primary-white;
+      &:hover,
+      &:focus {
+        background-color: $primary-black;
+        color: $primary-white;
+      }
+    }
+
+    .tui-first-child.tui-is-selected {
+      border-left: 1px solid $primary-black;
+    }
+    .tui-page-btn.tui-first,
+    .tui-page-btn.tui-next {
+      margin-right: 5px;
+      @media screen and (min-width: 768px) {
+        margin-right: 8px;
+      }
+    }
+    .tui-page-btn.tui-prev,
+    .tui-page-btn.tui-next-is-ellip {
+      margin-right: 14px;
+      @media screen and (min-width: 768px) {
+        margin-right: 24px;
+      }
+    }
+    .tui-next {
+      margin-left: 0;
+    }
+    .tui-first,
+    .tui-prev,
+    .tui-next,
+    .tui-last {
+      background-color: $action-color;
+    }
+
+    .tui-prev-is-ellip {
+      border-right: 1px solid $primary-black;
+    }
+
+    .tui-is-disabled {
+      background-color: $primary-black;
+    }
+
+    .tui-ico-ellip,
+    .tui-ico-first,
+    .tui-ico-last,
+    .tui-ico-next,
+    .tui-ico-prev {
+      // background: url(../images/icons.svg#sup-arrow) no-repeat;
+    }
   }
 }
