@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
-import { doc } from 'firebase/firestore/lite';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -66,7 +65,7 @@ function handelSignInUserAccount(evt) {
 function createUser(auth, userEmail, userPassword, userName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(cred => {
-      userId = cred.user.uid;
+      let userId = cred.user.uid;
       //зберігаємо його облікові дані у сховище Database
       writeUserData(userId, userName, userEmail);
 
