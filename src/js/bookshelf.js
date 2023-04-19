@@ -225,10 +225,10 @@ function isUser() {
     setTimeout(() => {
       refs.addToLocalBtn.removeAttribute('disabled');
       refs.addToLocalBtn.style = 'none';
-    }, 1000);
+    }, 2000);
     return Notiflix.Notify.failure(
-      'You must be logged in as a user to use this feature.',
-      { timeout: 1000 }
+      'Please register or sign in to your account to use this feature.',
+      { timeout: 2000 }
     );
   }
 }
