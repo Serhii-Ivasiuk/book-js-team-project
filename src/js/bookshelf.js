@@ -93,13 +93,13 @@ function createMarkupCard({
     book_image_width = 330;
   }
   if (!description) {
-    description = 'This book has no description.';
+    description = 'This book has no description yet. We will add it soon.';
   }
   if (!author) {
-    author = 'The author of this book is unknown.';
+    author = 'Unknown author';
   }
   if (!title) {
-    title = 'the title of this book is unknown.';
+    title = 'Unknown title';
   }
 
   let amazonLink = '';

@@ -2,6 +2,7 @@ import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
 import { showSpinner, hideSpinner } from './spinner';
 import { notFound } from './utility/404';
+import empty_pic from '../images/empty_pic.jpg';
 export function renderAllCategories() {
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
           Best Sellers <span class='bookcase__filter'>Books</span>
@@ -34,6 +35,11 @@ export function renderAllCategories() {
                     book_image,
                     title,
                   }) => {
+                    if (!book_image) {
+                      book_image = empty_pic;
+                      book_image_height = 500;
+                      book_image_width = 330;
+                    }
                     return `<li class='book-card__item'>
                   <a class='book-card__link' href='#' data-id='${_id}'>
                     <div class='book-card__wrapper'>
@@ -46,13 +52,18 @@ export function renderAllCategories() {
                     </div>
                   </a>
                   <div class='book-card__wrap'>
-                    <h3 class='book-card__name'>${title ? title : 'N/A'}</h3>
-                    <p class='book-card__author'>${author ? author : 'N/A'}</p>
+                    <h3 class='book-card__name'>${
+                      title ? title : 'Unknown title'
+                    }</h3>
+                    <p class='book-card__author'>${
+                      author ? author : 'Unknown author'
+                    }</p>
                   </div>
                 </li>`;
                   }
                 )
                 .join('')}
+                
         </ul>
             <button class='bookshelf__btn' type='button' data-see-more data-category-name='${list_name}'>see more</button>
          </li>

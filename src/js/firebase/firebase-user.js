@@ -1,6 +1,5 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
-import { toggleMenu } from '../modal-menu';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
+import { doc } from 'firebase/firestore/lite';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -44,9 +44,9 @@ function handelSignInUserAccount(evt) {
   evt.preventDefault();
 
   // hide mobile menu
-  // refs.mobMenuEl.classList.remove('is-open');
-  // refs.mobMenuBtn.classList.remove('is-open');
-  toggleMenu();
+  refs.mobMenuEl.classList.remove('is-open');
+  refs.mobMenuBtn.classList.remove('is-open');
+  document.body.style.overflow = '';
 
   const {
     elements: { email, password },
@@ -74,6 +74,7 @@ function createUser(auth, userEmail, userPassword, userName) {
         `Hello, ${userName}, your registration was successful`
       );
       refs.autorizationBackdrop.style.display = 'none';
+      refs.autorizationBackdrop.classList.add('is-hidden');
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.userMobileContainer.classList.remove('display-none');
@@ -114,6 +115,7 @@ function signInUserAccount(auth, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(() => {
       refs.autorizationBackdrop.style.display = 'none';
+      refs.autorizationBackdrop.classList.add('is-hidden');
       refs.navigationEl.classList.remove('visually-hidden');
       refs.userBar.classList.remove('visually-hidden');
       refs.userMobileContainer.classList.remove('display-none');

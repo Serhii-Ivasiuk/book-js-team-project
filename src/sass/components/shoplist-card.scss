@@ -99,21 +99,33 @@
   text-transform: uppercase;
 
   @media screen and (max-width: 767.98px) {
-    width: 177px;
+    max-width: 177px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
 }
+
 .book-title__category {
+  padding-right: 40px;
+
   color: $category-title-color;
 
   font-size: 12px;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.03em;
+
+  @media screen and (max-width: 767.98px) {
+    max-width: 177px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
 }
+
 .book-links {
   display: flex;
   align-items: center;
