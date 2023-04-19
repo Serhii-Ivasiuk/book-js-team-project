@@ -1,0 +1,49 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  background: var(--header-bg-color);
+
+  border: 1.5px solid var(--primary-text-color);
+  border-radius: 8px 8px 0 0;
+}
+.footer__rights {
+  color: var(--categories-links-color);
+  text-align: center;
+}
+
+.footer__block {
+  margin-bottom: 25px;
+}
+.footer__title {
+  @include tablet {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  text-align: center;
+  margin-bottom: 8px;
+
+  letter-spacing: -0.04em;
+
+  color: var(--primary-text-color);
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.125;
+}
+.footer__company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  mix-blend-mode: luminosity;
+}
+
+.dark .footer__item:first-child {
+  filter: brightness(0) invert(1);
+}

@@ -1,0 +1,131 @@
+// ============== pages ==============
+
+body {
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--scrollbar-bg-color);
+    border: 6px solid var(--body-bg-color);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hower-bg-color);
+  }
+}
+
+// ============== categories ===============
+// ============== modal pop-up => .card__book-text ==============
+
+.categories,
+.card__book-text {
+  overflow-y: auto;
+  padding-right: 2px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-bg-color);
+
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hower-bg-color);
+  }
+}
+
+// ============== shoplist-card => .book-overview ==============
+
+.book-overview {
+  overflow-y: auto;
+  padding-right: 2px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #d2d2d2;
+  }
+}
+
+// ============== modal authorization__bacdrop ==============
+
+.authorization__bacdrop {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--scrollbar-bg-color);
+    border: 6px solid #4f2ee8;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hower-bg-color);
+  }
+}
+
+// ============== modal pop-up ==============
+
+.modal__pop-up {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  // &::-webkit-scrollbar {
+  //   width: 36px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   border-radius: 18px;
+  //   background-color: $scroll-color-light;
+  //   border: 14px solid var(--pop-up-bg-color);
+  // }
+
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background-color: rgba($scroll-color-light, 0.5);
+  // }
+}
+
+// ============== mobile menu ==============
+
+.mobile-menu-wrapper {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  // &::-webkit-scrollbar {
+  //   width: 20px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   border-radius: 12px;
+  //   background-color: $scroll-color-light;
+  //   border: 6px solid var(--body-bg-color);
+  // }
+
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background-color: rgba($scroll-color-light, 0.5);
+  // }
+}

@@ -10,7 +10,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
 
   transform: translateY(-100%);
 
@@ -23,11 +22,6 @@
   @media screen and (min-width: 768px) {
     display: none;
   }
-}
-
-.mobile-menu-wrapper::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }
 
 .mobile__menu {
@@ -108,7 +102,6 @@
   margin-left: -16px;
 
   @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
-
 }
 
 .is-active-now {
@@ -119,8 +112,6 @@
   color: $primary-black;
   .shoplist__icon {
     fill: $primary-black;
-
-
   }
 }
 
@@ -160,6 +151,7 @@
     @include transition(background-color);
   }
 }
+
 .mobile__logout.display-none {
   display: none;
 }

@@ -15,7 +15,7 @@ import Notiflix from 'notiflix';
 const auth = getAuth(app);
 
 // Initialize Realtime Database and get a reference to the service
-const db = getDatabase();
+const db = getDatabase(app);
 
 refs.signUpForm.addEventListener('submit', handelRegistrUser);
 refs.signInForm.addEventListener('submit', handelSignInUserAccount);
@@ -62,15 +62,6 @@ function handelSignInUserAccount(evt) {
   }
 }
 
-//записуємо у сховище Database облікові дані користувача
-function writeUserData(userId, userName, userEmail) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: userName,
-    email: userEmail,
-  });
-}
-
 // реєструємо нового користвуча
 function createUser(auth, userEmail, userPassword, userName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
@@ -99,6 +90,24 @@ function createUser(auth, userEmail, userPassword, userName) {
       }
     });
 }
+
+//записуємо у сховище Database облікові дані користувача
+const writeUserData = (userId, userName, userEmail) => {
+  // const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: userName,
+    email: userEmail,
+  })
+    .then(() => {
+      console.log('Data saved successfully!');
+    })
+    .catch(error => {
+      console.log(error.code);
+      console.log(error.message);
+    });
+};
+
+console.dir(writeUserData);
 
 //створюємо функцію для можливості увійти у свій акаунт зареєстрованому користувачу
 function signInUserAccount(auth, userEmail, userPassword) {
@@ -132,6 +141,7 @@ function checkUserAuth() {
       const userNameRef = ref(db, 'users/' + user.uid);
       onValue(userNameRef, name => {
         const currentUserName = name.val();
+        console.log(currentUserName);
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
       });
@@ -159,6 +169,8 @@ function handelLogOutUserAccount() {
         refs.mibileNav.classList.add('display-none'),
         refs.mobileLogOutBtn.classList.add('display-none'),
         refs.signUpMobileBtn.classList.remove('visually-hidden');
+      // refs.userBarBtnText.innerHTML = '';
+      // refs.userMobileBarBtnText.innerHTML = '';
     })
     .catch(error => {
       const errorCode = error.code;
