@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDfT-rZpY0OALd7KjMrkrFQZlQZKUmMqYA',
-  authDomain: 'book-159d3.firebaseapp.com',
-  databaseURL: 'https://book-159d3-default-rtdb.firebaseio.com',
-  projectId: 'book-159d3',
-  storageBucket: 'book-159d3.appspot.com',
-  messagingSenderId: '35676359423',
-  appId: '1:35676359423:web:0fe005890081fa3d52daca',
+  apiKey: 'AIzaSyAeik9oo_gBn0f-GbQ_xSpS3Q02Q6DDNBE',
+  authDomain: 'able-keep-215213.firebaseapp.com',
+  databaseURL: 'https://able-keep-215213-default-rtdb.firebaseio.com',
+  projectId: 'able-keep-215213',
+  storageBucket: 'able-keep-215213.appspot.com',
+  messagingSenderId: '159339554115',
+  appId: '1:159339554115:web:acb4081534c803abb77bf6',
 };
 
 // Initialize Firebase
