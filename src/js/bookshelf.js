@@ -1,4 +1,5 @@
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
 import { doc } from 'firebase/firestore/lite';
 import { getBookDetail } from './api-service';
 import Notiflix from 'notiflix';
@@ -55,10 +56,16 @@ async function onClickBook(e) {
     localBooks.forEach(book => {
       idsForCheck.push(book.bookId);
     });
+
     if (idsForCheck.includes(curBookId.bookId)) {
       refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
       refs.popupDesc.style.opacity = '1';
     } else {
+      refs.addToLocalBtn.innerHTML = 'add to shopping list';
+      refs.popupDesc.style.opacity = '0';
+    }
+
+    if (localStorage.getItem('user') === null) {
       refs.addToLocalBtn.innerHTML = 'add to shopping list';
       refs.popupDesc.style.opacity = '0';
     }
@@ -186,7 +193,9 @@ export function bookToLocal() {
   const isBookInLocal = localBooks.some(
     book => book.bookId === curBookId.bookId
   );
-  if (isBookInLocal) {
+  if (localStorage.getItem('user') === null) {
+    return isUser();
+  } else if (isBookInLocal) {
     localBooks = localBooks.filter(book => book.bookId !== curBookId.bookId);
     refs.addToLocalBtn.innerHTML = 'add to shopping list';
     refs.popupDesc.style.opacity = '0';
@@ -207,4 +216,20 @@ function updateLocalBooks() {
 function updateLocal() {
   localStorage.setItem('books-id', JSON.stringify(localBooks));
   idsForCheck = [];
+}
+
+function isUser() {
+  if (localStorage.getItem('user') === null) {
+    refs.addToLocalBtn.setAttribute('disabled', 'true');
+    refs.addToLocalBtn.style.backgroundColor = '#b4afaf';
+    refs.addToLocalBtn.style.color = '#ffffff';
+    setTimeout(() => {
+      refs.addToLocalBtn.removeAttribute('disabled');
+      refs.addToLocalBtn.style = 'none';
+    }, 2000);
+    return Notiflix.Notify.failure(
+      'Please register or sign in to your account to use this feature.',
+      { timeout: 2000 }
+    );
+  }
 }

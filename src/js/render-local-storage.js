@@ -1,6 +1,5 @@
 import { refs } from './utility/refs';
 import { getBookDetail } from './api-service';
-import axios from 'axios';
 
 import amazon from '../images/book-modal/amazon@1x.png';
 import amazon2x from '../images/book-modal/amazon@2x.png';
@@ -137,7 +136,7 @@ function bookCardMarkup({
       </a>
     </div>
     <p class="book-overview">${description}</p>
-    <button class="trash-btn" type="button">
+    <button class="trash-btn" type="button" aria-label="delete book from list">
     <svg class="trash-btn__icon" width="28" height="28">
       <use class="js-delete-book" href="${icons}#delete-book"></use>
     </svg>
