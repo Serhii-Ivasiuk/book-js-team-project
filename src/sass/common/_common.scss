@@ -4,3 +4,8 @@ body {
   font-family: $font-main;
   background-color: var(--body-bg-color);
 }
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
