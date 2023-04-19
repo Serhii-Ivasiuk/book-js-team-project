@@ -34,6 +34,11 @@ export function renderAllCategories() {
                     book_image,
                     title,
                   }) => {
+                    if (!book_image) {
+                      book_image = empty_pic;
+                      book_image_height = 500;
+                      book_image_width = 330;
+                    }
                     return `<li class='book-card__item'>
                   <a class='book-card__link' href='#' data-id='${_id}'>
                     <div class='book-card__wrapper'>
@@ -46,13 +51,18 @@ export function renderAllCategories() {
                     </div>
                   </a>
                   <div class='book-card__wrap'>
-                    <h3 class='book-card__name'>${title ? title : 'N/A'}</h3>
-                    <p class='book-card__author'>${author ? author : 'N/A'}</p>
+                    <h3 class='book-card__name'>${
+                      title ? title : 'the title of this book is unknown.'
+                    }</h3>
+                    <p class='book-card__author'>${
+                      author ? author : 'The author of this book is unknown.'
+                    }</p>
                   </div>
                 </li>`;
                   }
                 )
                 .join('')}
+                
         </ul>
             <button class='bookshelf__btn' type='button' data-see-more data-category-name='${list_name}'>see more</button>
          </li>
