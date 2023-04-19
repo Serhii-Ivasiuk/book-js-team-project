@@ -66,7 +66,7 @@ export function renderAllCategories() {
                   }
                 )
                 .join('')}
-                
+
         </ul>
             <button class='bookshelf__btn' type='button' data-see-more data-category-name='${list_name}'>see more</button>
          </li>
