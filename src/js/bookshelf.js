@@ -56,10 +56,16 @@ async function onClickBook(e) {
     localBooks.forEach(book => {
       idsForCheck.push(book.bookId);
     });
+
     if (idsForCheck.includes(curBookId.bookId)) {
       refs.addToLocalBtn.innerHTML = 'remove from the shopping list';
       refs.popupDesc.style.opacity = '1';
     } else {
+      refs.addToLocalBtn.innerHTML = 'add to shopping list';
+      refs.popupDesc.style.opacity = '0';
+    }
+
+    if (localStorage.getItem('user') === null) {
       refs.addToLocalBtn.innerHTML = 'add to shopping list';
       refs.popupDesc.style.opacity = '0';
     }
