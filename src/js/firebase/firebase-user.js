@@ -142,8 +142,9 @@ function checkUserAuth() {
       //витягуємо із сховища ID поточного користувача та записуємо його ім'я в userBarBtnText
       const userNameRef = ref(db, 'users/' + user.uid);
       onValue(userNameRef, name => {
-        const currentUserName = name.val();
+        const currentUserName = name.exportVal();
         console.log(currentUserName);
+
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
       });
