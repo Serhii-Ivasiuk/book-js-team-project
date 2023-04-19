@@ -12,11 +12,13 @@
 @import './common/reset';
 @import './common/common';
 @import './common/container';
+@import './common/scrollbar';
 // components
 @import './components/main-grid';
 @import './components/bookshop';
 @import './components/book-card';
 @import './components/shoplist-card';
+@import './components/footer';
 // import Swiper styles
 @import 'swiper/swiper.scss';
 @import './components/support.scss';
@@ -35,3 +37,5 @@
 @import './components/mobile-menu';
 //spinner
 @import './components/spinner';
+//warning message
+@import "./components/warning-message";

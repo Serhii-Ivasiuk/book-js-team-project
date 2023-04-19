@@ -3,6 +3,7 @@ export { refs };
 const refs = {
   //-------   HTML   ---------- //
   html: document.querySelector('html'),
+  logo: document.querySelector('.logo'),
 
   //-------   CATEGORIES   ---------- //
   categoriesList: document.querySelector('.categories__list'),
@@ -38,8 +39,8 @@ const refs = {
   signUpHeaderBtn: document.querySelector('.sign-up-btn'),
   logOutBtn: document.querySelector('.js-log-out-btn'),
   userBarBtnText: document.querySelector('.user-bar-btn__text'),
-  darkColorSwitcher: document.querySelector('[data=dark-color]'),
-  lightColorSwitcher: document.querySelector('[data=light-color]'),
+  darkColorSwitcher: document.querySelector('.switcher__radio--dark'),
+  lightColorSwitcher: document.querySelector('.switcher__radio--light'),
   logoLightSvg: document.querySelector('.js-logo-light-svg'),
   logoDarkSvg: document.querySelector('.js-logo-dark-svg'),
   mobMenuBtn: document.querySelector('.js-mobile-menu-btn'),

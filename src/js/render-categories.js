@@ -2,6 +2,9 @@ import { getBooksByCategory, getCategoryList } from './api-service';
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
+import { notFound } from './utility/404';
+import empty_pic from '../images/empty_pic.jpg';
 
 getCategoryList()
   .then(categoryList => {
@@ -19,7 +22,9 @@ getCategoryList()
        </li>`;
     refs.categoriesList.insertAdjacentHTML('beforeend', categoryListItems);
   })
-  .catch(error => console.log(error.message));
+  .catch(error =>
+    Notiflix.Notify.failure('Network error, please try again later')
+  );
 
 refs.categoriesList.addEventListener('click', onCategoryItemClick);
 
@@ -55,10 +60,8 @@ export function onCategoryItemClick(e) {
   getBooksByCategory(categoryName)
     .then(data => {
       if (!Boolean(data.length)) {
-        mainTitle = `<h1 class='bookcase__cda' style='text-align: center; margin-top: 50px'>
-            There are no data to display, please select another category
-          </h1>`;
-        return (refs.mainSectionCategories.innerHTML = mainTitle);
+        refs.mainSectionCategories.innerHTML = '';
+        return refs.mainSectionCategories.appendChild(notFound());
       }
 
       const booksList = data
@@ -72,6 +75,11 @@ export function onCategoryItemClick(e) {
             buy_links,
             _id,
           }) => {
+            if (!book_image) {
+              book_image = empty_pic;
+              book_image_height = 500;
+              book_image_width = 330;
+            }
             return `<li class='book-card__item'>
   <a class='book-card__link' href='#' data-id='${_id}'>
     <div class='book-card__wrapper'>
@@ -88,8 +96,8 @@ export function onCategoryItemClick(e) {
     </div>
   </a>
   <div class='book-card__wrap'>
-    <h3 class='book-card__name'>${title}</h3>
-    <p class='book-card__author'>${author}</p>
+    <h3 class='book-card__name'>${title ? title : 'Unknown title'}</h3>
+    <p class='book-card__author'>${author ? author : 'Unknown author'}</p>
   </div>
 </li>`;
           }
@@ -102,7 +110,9 @@ export function onCategoryItemClick(e) {
       refs.sectionCategory.appendChild(mainTitle);
       refs.sectionCategory.appendChild(conteinerCategoryBooks);
     })
-    .catch(error => console.log(error.message));
+    .catch(error =>
+      Notiflix.Notify.failure('Network error, please try again later')
+    );
 }
 
 function handleScrollToElement(element, position = 'start') {
