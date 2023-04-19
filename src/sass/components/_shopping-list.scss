@@ -19,8 +19,6 @@
 
   grid-template-rows: none;
 
-  outline: 1px solid blue;
-
   @include less-then-desktop {
     display: flex;
   }
@@ -35,9 +33,6 @@
     row-gap: 100px;
     column-gap: 40px;
     padding: 40px 24px;
-  }
-  & > section {
-    outline: 1px solid green;
   }
 }
 
