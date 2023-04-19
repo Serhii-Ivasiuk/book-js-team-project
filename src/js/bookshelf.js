@@ -1,4 +1,5 @@
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
 import { doc } from 'firebase/firestore/lite';
 import { getBookDetail } from './api-service';
 
@@ -178,9 +179,22 @@ function createMarkupCard({
 }
 
 export function bookToLocal() {
+  const user = localStorage.getItem('user');
   const isBookInLocal = localBooks.some(
     book => book.bookId === curBookId.bookId
   );
+  if (!user) {
+    refs.addToLocalBtn.setAttribute('disabled', 'true');
+    refs.addToLocalBtn.style.backgroundColor = '#b4afaf';
+    setTimeout(() => {
+      refs.addToLocalBtn.removeAttribute('disabled');
+      refs.addToLocalBtn.style = 'none';
+    }, 2000);
+    return Notiflix.Notify.failure(
+      'You must be logged in as a user to use this feature.'
+    );
+  }
+
   if (isBookInLocal) {
     localBooks = localBooks.filter(book => book.bookId !== curBookId.bookId);
     refs.addToLocalBtn.innerHTML = 'add to shopping list';

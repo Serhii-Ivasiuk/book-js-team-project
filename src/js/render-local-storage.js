@@ -1,6 +1,5 @@
 import { refs } from './utility/refs';
 import { getBookDetail } from './api-service';
-import axios from 'axios';
 
 import amazon from '../images/book-modal/amazon@1x.png';
 import amazon2x from '../images/book-modal/amazon@2x.png';
