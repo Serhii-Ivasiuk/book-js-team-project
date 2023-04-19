@@ -3,6 +3,7 @@ import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
 import { notFound } from './utility/404';
+import empty_pic from '../images/empty_pic.jpg';
 getCategoryList()
   .then(categoryList => {
     const categoryListItems = categoryList
