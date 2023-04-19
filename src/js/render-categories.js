@@ -2,8 +2,10 @@ import { getBooksByCategory, getCategoryList } from './api-service';
 import { normalizeMainTitle } from './utility/normilize-main-title';
 import { renderAllCategories } from './main-page-all-catigories';
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
 import { notFound } from './utility/404';
 import empty_pic from '../images/empty_pic.jpg';
+
 getCategoryList()
   .then(categoryList => {
     const categoryListItems = categoryList
@@ -20,7 +22,9 @@ getCategoryList()
        </li>`;
     refs.categoriesList.insertAdjacentHTML('beforeend', categoryListItems);
   })
-  .catch(error => console.log(error.message));
+  .catch(error =>
+    Notiflix.Notify.failure('Network error, please try again later')
+  );
 
 refs.categoriesList.addEventListener('click', onCategoryItemClick);
 
@@ -106,7 +110,9 @@ export function onCategoryItemClick(e) {
       refs.sectionCategory.appendChild(mainTitle);
       refs.sectionCategory.appendChild(conteinerCategoryBooks);
     })
-    .catch(error => console.log(error.message));
+    .catch(error =>
+      Notiflix.Notify.failure('Network error, please try again later')
+    );
 }
 
 function handleScrollToElement(element, position = 'start') {
