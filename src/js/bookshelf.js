@@ -222,6 +222,7 @@ function isUser() {
   if (localStorage.getItem('user') === null) {
     refs.addToLocalBtn.setAttribute('disabled', 'true');
     refs.addToLocalBtn.style.backgroundColor = '#b4afaf';
+    refs.addToLocalBtn.style.color = '#ffffff';
     setTimeout(() => {
       refs.addToLocalBtn.removeAttribute('disabled');
       refs.addToLocalBtn.style = 'none';
