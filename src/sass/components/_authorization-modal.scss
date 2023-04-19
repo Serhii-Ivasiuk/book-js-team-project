@@ -228,7 +228,6 @@
 
 .authorization__input:focus {
   outline: 2px solid $accent-color;
-  // transition: outline 300ms;
 }
 
 .authorization__input:focus ~ .authorization__icon {
@@ -238,8 +237,6 @@
 
 .authorization__input:valid {
   outline: 2px solid #70b509;
-
-  transition: outline 300ms;
 }
 
 .authorization__input:valid ~ .authorization__icon {
@@ -250,7 +247,6 @@
 
 .authorization__input:not(:placeholder-shown):not(:valid) {
   outline: 2px solid #db5353;
-  transition: outline 300ms;
 }
 
 .authorization__input:not(:placeholder-shown):not(:valid)
