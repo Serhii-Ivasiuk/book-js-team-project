@@ -1,8 +1,10 @@
 import { getTopBooks } from './api-service';
 import { refs } from './utility/refs';
+import Notiflix from 'notiflix';
 import { showSpinner, hideSpinner } from './spinner';
 import { notFound } from './utility/404';
 import empty_pic from '../images/empty_pic.jpg';
+
 export function renderAllCategories() {
   let mainTitleAllCategories = `<h1 class='bookcase__cda'>
           Best Sellers <span class='bookcase__filter'>Books</span>
@@ -75,8 +77,10 @@ export function renderAllCategories() {
       refs.mainSectionCategories.appendChild(containerBookshelfList);
     })
     .catch(error => {
-      console.log(error.message);
+
+      Notiflix.Notify.failure('Network error, please try again later');
     })
+
     .finally(hideSpinner);
 }
 
