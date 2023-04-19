@@ -21,7 +21,8 @@
 // import Swiper styles
 @import 'swiper/swiper.scss';
 @import './components/support.scss';
-// header
+// import Tui-pagination styles
+@import '~node_modules/tui-pagination/dist/tui-pagination.min.css'; // header
 @import './components/header/header';
 // main
 @import './components/categories';

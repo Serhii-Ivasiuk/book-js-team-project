@@ -1,3 +1,11 @@
 .tui-page-btn {
-  border-color: black;
+  background-color: rgb(255, 166, 0);
+}
+
+.tui-pagination .tui-is-selected {
+  background-color: rgb(52, 114, 88);
+  &:hover,
+  &:focus {
+    background-color: rgb(52, 114, 88);
+  }
 }

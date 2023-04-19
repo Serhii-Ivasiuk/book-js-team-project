@@ -9,8 +9,6 @@ import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
 import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
 import empty_pic from '../images/empty_pic.jpg';
 import icons from '../images/icons.svg';
-
-// pagination
 import Pagination from 'tui-pagination';
 
 let booksId = [];
@@ -176,6 +174,7 @@ refs.shoppingList.addEventListener('click', e => {
         updateLocal();
         updatePage();
         instance.reset(booksId.length);
+        instance.movePageTo(currentPage);
       }
     });
 
@@ -192,10 +191,14 @@ function updateLocal() {
 
 // ================= PAGINATION =================
 
+// const pagesToShow = window.matchMedia('(max-width: 768px)').matches ? 2 : 3;
+// console.log(window.matchMedia('(max-width: 768px)'));
+let pagesToShow = 3;
+
 const options = {
   totalItems: booksId.length,
   itemsPerPage: 3,
-  visiblePages: 3,
+  visiblePages: pagesToShow,
   page: currentPage,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
@@ -239,3 +242,8 @@ function updatePage() {
   booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
   renderCurrentPage(booksPerPage);
 }
+
+window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+  pagesToShow = !e.matches ? 2 : 3;
+  console.log(pagesToShow);
+});
