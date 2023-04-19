@@ -91,12 +91,8 @@ export function onCategoryItemClick(e) {
     </div>
   </a>
   <div class='book-card__wrap'>
-    <h3 class='book-card__name'>${
-      title ? title : 'the title of this book is unknown.'
-    }</h3>
-    <p class='book-card__author'>${
-      author ? author : 'The author of this book is unknown.'
-    }</p>
+    <h3 class='book-card__name'>${title ? title : 'Unknown title'}</h3>
+    <p class='book-card__author'>${author ? author : 'Unknown author'}</p>
   </div>
 </li>`;
           }
