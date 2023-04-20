@@ -2,7 +2,7 @@ import { refs } from './utility/refs';
 
 const PAGE_PATHNAME = 'shopping-list.html';
 
-let isMenuOpen = false;
+export let isMenuOpen = false;
 let currentPagePathname = window.location.pathname.split('/').pop();
 
 refs.mobMenuBtn.addEventListener('click', toggleMenu);

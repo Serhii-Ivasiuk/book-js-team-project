@@ -1,4 +1,6 @@
 import { refs } from './utility/refs';
+import { isMenuOpen } from './modal-menu';
+
 const ESC_KEY_CODE = 'Escape';
 
 refs.openModalBtn.addEventListener('click', openModal);
