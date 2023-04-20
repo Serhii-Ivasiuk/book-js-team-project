@@ -9,7 +9,8 @@
   stroke: currentColor;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $accent-color;
   }
 

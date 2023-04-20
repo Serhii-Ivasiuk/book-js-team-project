@@ -62,7 +62,8 @@
   @include transition(transform);
 }
 
-.book-card__link:hover .book-card__overlay {
+.book-card__link:hover .book-card__overlay,
+.book-card__link:focus .book-card__overlay {
   transform: translateY(0);
 }
 
@@ -90,21 +91,3 @@
   @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
   font-style: italic;
 }
-
-//  ПЕРЕНЕСЕНО В bookshop.scss
-// .book-card__btn {
-//   display: block;
-//   margin-left: auto;
-//   padding: 14px 28px;
-
-//   @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
-
-//   border: 2px solid $accent-color;
-//   border-radius: 40px;
-// }
-
-// .book-card__btn:hover,
-// .book-card__btn:focus {
-//   color: $header-color-light;
-//   background-color: $accent-color;
-// }
