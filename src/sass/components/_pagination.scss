@@ -90,6 +90,9 @@
   .tui-prev-is-ellip,
   .tui-next-is-ellip {
     position: relative;
+
+    @include transition(color, background-color);
+
     &:hover,
     &:focus {
       color: var(--header-bg-color);
