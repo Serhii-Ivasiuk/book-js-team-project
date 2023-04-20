@@ -124,6 +124,8 @@ function signInUserAccount(auth, userEmail, userPassword) {
     .catch(error => {
       if (error.code === 'auth/wrong-password') {
         Notiflix.Notify.failure('Your password is wrong, please try again');
+      } else if (error.code === 'auth/user-not-found') {
+        Notiflix.Notify.failure('Your email is wrong, please try again');
       }
       // const errorCode = error.code;
       // console.log(errorCode);
