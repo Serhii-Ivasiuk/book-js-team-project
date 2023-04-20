@@ -176,8 +176,8 @@
       color: var(--header-bg-color);
     }
 
-    // .tui-is-disabled {
-    //   background-color: $primary-black;
-    // }
+    .tui-page-btn.tui-is-disabled {
+      background-color: $primary-black;
+    }
   }
 }
