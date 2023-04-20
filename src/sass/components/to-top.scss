@@ -18,7 +18,8 @@
 
   @include transition(opacity);
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
   }
 }
