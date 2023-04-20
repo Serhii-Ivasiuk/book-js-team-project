@@ -7,7 +7,7 @@ import axios from 'axios';
 import './dark-light-theme';
 
 import './support';
-import './firebase/firebase-user';
+import './firebase-user';
 import './user-bar-dropdown';
 import './authorization-modal';
 import './modal-menu';
