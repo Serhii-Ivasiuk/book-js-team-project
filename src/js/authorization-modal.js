@@ -1,6 +1,4 @@
 import { refs } from './utility/refs';
-import { isMenuOpen } from './modal-menu';
-
 const ESC_KEY_CODE = 'Escape';
 
 refs.openModalBtn.addEventListener('click', openModal);
@@ -30,7 +28,6 @@ function closeModel() {
   refs.mobMenuEl.classList.remove('is-open');
   refs.mobMenuBtn.classList.remove('is-open');
   document.body.style.overflow = '';
-  isMenuOpen = false;
 
   // remove listiners from closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.removeEventListener('click', closeModel);

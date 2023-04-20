@@ -1,9 +1,5 @@
-import { refs } from './utility/refs';
+import { refs } from '../utility/refs';
 import { app } from './firebace-config';
-import { isMenuOpen } from './modal-menu';
-
-console.log(isMenuOpen);
-
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -32,7 +28,6 @@ function handelRegistrUser(evt) {
   refs.mobMenuEl.classList.remove('is-open');
   refs.mobMenuBtn.classList.remove('is-open');
   document.body.style.overflow = '';
-  isMenuOpen = false;
 
   const {
     elements: { name, email, password },
@@ -56,7 +51,6 @@ function handelSignInUserAccount(evt) {
   refs.mobMenuEl.classList.remove('is-open');
   refs.mobMenuBtn.classList.remove('is-open');
   document.body.style.overflow = '';
-  isMenuOpen = false;
 
   const {
     elements: { email, password },
