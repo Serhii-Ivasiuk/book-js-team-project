@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
+import { toggleMenu } from '../modal-menu';
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -23,6 +24,12 @@ refs.mobileLogOutBtn.addEventListener('click', handelLogOutUserAccount);
 
 function handelRegistrUser(evt) {
   evt.preventDefault();
+
+  // hide mobile menu
+  refs.mobMenuEl.classList.remove('is-open');
+  refs.mobMenuBtn.classList.remove('is-open');
+  document.body.style.overflow = '';
+  isMenuOpen = false;
 
   const {
     elements: { name, email, password },
@@ -46,6 +53,7 @@ function handelSignInUserAccount(evt) {
   refs.mobMenuEl.classList.remove('is-open');
   refs.mobMenuBtn.classList.remove('is-open');
   document.body.style.overflow = '';
+  isMenuOpen = false;
 
   const {
     elements: { email, password },

@@ -23,7 +23,12 @@ function openModal() {
 
 function closeModel() {
   refs.modal.classList.add('is-hidden');
+
+  // hide mobile menu
+  refs.mobMenuEl.classList.remove('is-open');
+  refs.mobMenuBtn.classList.remove('is-open');
   document.body.style.overflow = '';
+  isMenuOpen = false;
 
   // remove listiners from closeModalBtn, backdrop, keydown(escape)
   refs.closeModalBtn.removeEventListener('click', closeModel);
