@@ -1,5 +1,6 @@
 import { getBookDetail } from './api-service';
 import { renderBooksCards } from './render-local-storage';
+// import { pagination } from './pagination';
 import axios from 'axios';
 
 //import dark/ligth theme

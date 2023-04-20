@@ -55,7 +55,8 @@
   width: 100%;
   height: 100%;
 
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 .book__author {
   grid-row: 3/4;

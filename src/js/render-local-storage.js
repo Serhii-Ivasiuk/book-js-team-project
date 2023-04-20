@@ -1,6 +1,4 @@
 import { refs } from './utility/refs';
-import { getBookDetail } from './api-service';
-
 import amazon from '../images/book-modal/amazon@1x.png';
 import amazon2x from '../images/book-modal/amazon@2x.png';
 import apple from '../images/book-modal/apple@1x.png';
@@ -11,9 +9,14 @@ import shoppingList from '../images/shoping-list/shoping-list-bg@1x.png';
 import shoppingList2x from '../images/shoping-list/shoping-list-bg@2x.png';
 import empty_pic from '../images/empty_pic.jpg';
 import icons from '../images/icons.svg';
-import { ref } from 'firebase/storage';
+import Pagination from 'tui-pagination';
 
 let booksId = [];
+
+let booksPerPage = [];
+let currentPage = 1;
+let firstCardIndex = (currentPage - 1) * 3;
+let lastCardIndex = (currentPage - 1) * 3 + 3;
 
 localStorage.getItem('books-id') === null ? noBooksMarkup() : checkLocalBooks();
 
@@ -25,7 +28,9 @@ function checkLocalBooks() {
     localBooks.forEach(book => {
       booksId.push(book);
     });
-    renderBooks();
+
+    booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
+    renderCurrentPage(booksPerPage);
   } else {
     noBooksMarkup();
   }
@@ -34,13 +39,7 @@ function checkLocalBooks() {
   }
 }
 
-function renderBooks() {
-  booksId.forEach(book => {
-    bookCardMarkup(book.bookData);
-  });
-}
-
-function bookCardMarkup({
+export function bookCardMarkup({
   _id,
   title,
   list_name,
@@ -172,8 +171,10 @@ refs.shoppingList.addEventListener('click', e => {
     booksId.forEach((book, index) => {
       if (book.bookId === curBookId) {
         booksId.splice(index, 1);
-        e.target.closest('.shoplist__item').remove();
         updateLocal();
+        updatePage();
+        instance.reset(booksId.length);
+        instance.movePageTo(currentPage);
       }
     });
 
@@ -186,4 +187,61 @@ refs.shoppingList.addEventListener('click', e => {
 
 function updateLocal() {
   localStorage.setItem('books-id', JSON.stringify(booksId));
+}
+
+// ================= PAGINATION =================
+
+let pagesToShow = 2;
+
+// window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+//   pagesToShow = !e.matches ? 2 : 3;
+//   console.log(pagesToShow);
+// });
+
+const options = {
+  totalItems: booksId.length,
+  itemsPerPage: 3,
+  visiblePages: pagesToShow,
+  page: currentPage,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+let instance = new Pagination(refs.pagination, options);
+
+function renderCurrentPage(booksForRender) {
+  booksForRender.forEach(book => {
+    bookCardMarkup(book.bookData);
+  });
+}
+
+instance.on('afterMove', () => {
+  currentPage = instance.getCurrentPage();
+  firstCardIndex = (currentPage - 1) * 3;
+  lastCardIndex = (currentPage - 1) * 3 + 3;
+  updatePage();
+});
+
+function updatePage() {
+  refs.shoppingList.innerHTML = '';
+  booksPerPage = booksId.slice(firstCardIndex, lastCardIndex);
+  renderCurrentPage(booksPerPage);
 }
