@@ -1,5 +1,7 @@
 import { refs } from '../utility/refs';
 import { app } from './firebace-config';
+import { isMenuOpen } from './modal-menu';
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
