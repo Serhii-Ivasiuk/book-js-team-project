@@ -36,7 +36,7 @@
   border: 0;
   background-color: transparent;
   color: var(--categories-links-color);
-
+  cursor: pointer;
   @include transition(color, text-shadow);
 
   &:hover {

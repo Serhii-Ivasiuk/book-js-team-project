@@ -86,6 +86,9 @@
   &:focus {
     transform: scale(1.2);
   }
+  &__icon {
+    cursor: pointer;
+  }
 }
 
 .swiper {
