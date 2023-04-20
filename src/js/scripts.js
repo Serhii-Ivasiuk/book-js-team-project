@@ -15,7 +15,6 @@ import './dark-light-theme';
 import './main-page-all-catigories';
 import './see-more';
 import './support';
-import './firebase/firebase-user';
 import './user-bar-dropdown';
 import './bookshelf';
 
@@ -28,5 +27,6 @@ import './render-categories';
 // mobile-menu
 import './modal-menu';
 import './authorization-modal';
+import './firebase-user';
 // pop up
 import './close-pop-up';

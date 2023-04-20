@@ -1,6 +1,8 @@
-import { refs } from '../utility/refs';
+import { refs } from './utility/refs';
 import { app } from './firebace-config';
-import { isMenuOpen } from '../modal-menu';
+import { isMenuOpen } from './modal-menu';
+
+console.log(isMenuOpen);
 
 import {
   getAuth,
