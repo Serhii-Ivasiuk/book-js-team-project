@@ -14,7 +14,7 @@ getCategoryList()
         <li class = 'categories__item'>
           <button type="button" data-category-name='${category}' class='categories__name'>${category}</button>
         </li>`;
-      })
+      }).sort((a, b) => a.localeCompare(b))
       .join('');
     refs.categoriesList.innerHTML = `
        <li class='categories__item categories__item--fixed'>
