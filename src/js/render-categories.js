@@ -116,6 +116,7 @@ export function onCategoryItemClick(e) {
 }
 
 function handleScrollToElement(element, position = 'start') {
+  //noinspection JSCheckFunctionSignatures
   element.scrollIntoView({
     behavior: 'smooth',
     position,

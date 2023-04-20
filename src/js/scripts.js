@@ -32,5 +32,3 @@ import './modal-menu';
 // pop up
 import './close-pop-up';
 
-// auto-scroll_sidebar
-import './utility/auto-scroll-sidebar';

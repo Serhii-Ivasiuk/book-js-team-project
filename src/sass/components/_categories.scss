@@ -38,10 +38,15 @@
   color: var(--categories-links-color);
   cursor: pointer;
   @include transition(color, text-shadow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--categories-links-active-color);
     text-shadow: var(--categories-links-active-color) 0 0 1px;
+    text-transform: uppercase;
   }
 
   @media screen and (min-width: 768px) {
