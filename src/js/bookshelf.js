@@ -130,6 +130,7 @@ function createMarkupCard({
       alt='${title}'
       width=${book_image_width}
       heigth=${book_image_height}
+      loading='lazy'
     />
     </div>
     <div class="pop-up__book-info">

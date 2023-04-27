@@ -89,6 +89,7 @@ export function onCategoryItemClick(e) {
         alt="Here must be book's name"
         width='${book_image_width}'
         height = '${book_image_height}'
+        loading='lazy'
       />
       <div class='book-card__overlay'>
         <p class='book-card__quick-view-text'>quick view</p>
